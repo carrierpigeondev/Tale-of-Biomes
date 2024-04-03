@@ -1,5 +1,6 @@
 package net.nwtg.taleofbiomes.procedures;
 
+import net.nwtg.taleofbiomes.network.TaleOfBiomesModVariables;
 import net.nwtg.taleofbiomes.init.TaleOfBiomesModBlocks;
 
 import net.minecraft.world.level.block.state.properties.Property;
@@ -18,7 +19,8 @@ public class RiceCropUpdateTickProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, BlockState blockstate) {
 		double time = 0;
 		time = 24000;
-		if (!world.isClientSide() && world.dayTime() % time == 1 && world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("tale_of_biomes:plains")))
+		if (!world.isClientSide() && world.dayTime() % time == 1
+				&& world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation(((TaleOfBiomesModVariables.MapVariables.get(world).modNamespace + ":" + "plains")).toLowerCase(java.util.Locale.ENGLISH))))
 				&& CropsLightLevelConditionProcedure.execute(world, x, y, z)) {
 			if (blockstate.getBlock() == TaleOfBiomesModBlocks.RICE_CROP_0.get()) {
 				{

@@ -28,6 +28,7 @@ import net.nwtg.taleofbiomes.item.PhosphoritePickaxeItem;
 import net.nwtg.taleofbiomes.item.PhosphoriteHoeItem;
 import net.nwtg.taleofbiomes.item.PhosphoriteGemstoneItem;
 import net.nwtg.taleofbiomes.item.PhosphoriteAxeItem;
+import net.nwtg.taleofbiomes.item.GhostBerriesItem;
 import net.nwtg.taleofbiomes.item.ClayItem;
 import net.nwtg.taleofbiomes.TaleOfBiomesMod;
 
@@ -73,10 +74,11 @@ public class TaleOfBiomesModItems {
 	public static final RegistryObject<Item> CLAY = REGISTRY.register("clay", () -> new ClayItem());
 	public static final RegistryObject<Item> QUICKLIME = REGISTRY.register("quicklime", () -> new QuicklimeItem());
 	public static final RegistryObject<Item> PHOSPHORITE_GEMSTONE = REGISTRY.register("phosphorite_gemstone", () -> new PhosphoriteGemstoneItem());
-	public static final RegistryObject<Item> WALL_BLUEPRINT = block(TaleOfBiomesModBlocks.WALL_BLUEPRINT);
-	public static final RegistryObject<Item> PLOT_BLUEPRINT = block(TaleOfBiomesModBlocks.PLOT_BLUEPRINT);
-	public static final RegistryObject<Item> WINDOW_BLUEPRINT = block(TaleOfBiomesModBlocks.WINDOW_BLUEPRINT);
-	public static final RegistryObject<Item> DOOR_BLUEPRINT = block(TaleOfBiomesModBlocks.DOOR_BLUEPRINT);
+	public static final RegistryObject<Item> GHOST_BERRIES = REGISTRY.register("ghost_berries", () -> new GhostBerriesItem());
+	public static final RegistryObject<Item> LOW_CAPACITY_CABLE_N = block(TaleOfBiomesModBlocks.LOW_CAPACITY_CABLE_N);
+	public static final RegistryObject<Item> SOLAR_PANNEL = block(TaleOfBiomesModBlocks.SOLAR_PANNEL);
+	public static final RegistryObject<Item> COPPER_BATTERY_0 = block(TaleOfBiomesModBlocks.COPPER_BATTERY_0);
+	public static final RegistryObject<Item> DRILL = block(TaleOfBiomesModBlocks.DRILL);
 	public static final RegistryObject<Item> BASIC_TOOL_TABLE = block(TaleOfBiomesModBlocks.BASIC_TOOL_TABLE);
 	public static final RegistryObject<Item> KILN_FURNACE = block(TaleOfBiomesModBlocks.KILN_FURNACE);
 	public static final RegistryObject<Item> BLUE_ASTER = block(TaleOfBiomesModBlocks.BLUE_ASTER);
@@ -84,6 +86,7 @@ public class TaleOfBiomesModItems {
 	public static final RegistryObject<Item> MAGENTA_ASTER = block(TaleOfBiomesModBlocks.MAGENTA_ASTER);
 	public static final RegistryObject<Item> GOLDENROD = block(TaleOfBiomesModBlocks.GOLDENROD);
 	public static final RegistryObject<Item> WILD_INDIGO = block(TaleOfBiomesModBlocks.WILD_INDIGO);
+	public static final RegistryObject<Item> PIRUFF_SAPLING = block(TaleOfBiomesModBlocks.PIRUFF_SAPLING);
 	public static final RegistryObject<Item> TALL_GRASS_0 = block(TaleOfBiomesModBlocks.TALL_GRASS_0);
 	public static final RegistryObject<Item> TALL_GRASS_1 = block(TaleOfBiomesModBlocks.TALL_GRASS_1);
 	public static final RegistryObject<Item> TALL_GRASS_2 = block(TaleOfBiomesModBlocks.TALL_GRASS_2);
@@ -127,6 +130,10 @@ public class TaleOfBiomesModItems {
 	public static final RegistryObject<Item> PHOSPHORITE_CRYSTAL_BOTTOM = block(TaleOfBiomesModBlocks.PHOSPHORITE_CRYSTAL_BOTTOM);
 	public static final RegistryObject<Item> PHOSPHORITE_CRYSTAL_TOP = block(TaleOfBiomesModBlocks.PHOSPHORITE_CRYSTAL_TOP);
 	public static final RegistryObject<Item> STONE = block(TaleOfBiomesModBlocks.STONE);
+	public static final RegistryObject<Item> MARBLE = block(TaleOfBiomesModBlocks.MARBLE);
+	public static final RegistryObject<Item> COBBLED_MARBLE = block(TaleOfBiomesModBlocks.COBBLED_MARBLE);
+	public static final RegistryObject<Item> MOSSY_COBBLED_MARBLE = block(TaleOfBiomesModBlocks.MOSSY_COBBLED_MARBLE);
+	public static final RegistryObject<Item> POLISHED_MARBLE = block(TaleOfBiomesModBlocks.POLISHED_MARBLE);
 	public static final RegistryObject<Item> PURE_COAL_ORE = block(TaleOfBiomesModBlocks.PURE_COAL_ORE);
 	public static final RegistryObject<Item> BRICKS = block(TaleOfBiomesModBlocks.BRICKS);
 	public static final RegistryObject<Item> BRICK_STAIRS = block(TaleOfBiomesModBlocks.BRICK_STAIRS);
@@ -140,7 +147,10 @@ public class TaleOfBiomesModItems {
 	public static final RegistryObject<Item> LARGE_BRICK_WALL = block(TaleOfBiomesModBlocks.LARGE_BRICK_WALL);
 	public static final RegistryObject<Item> LARGE_BRICK_PRESSURE_PLATE = block(TaleOfBiomesModBlocks.LARGE_BRICK_PRESSURE_PLATE);
 	public static final RegistryObject<Item> LARGE_BRICK_BUTTON = block(TaleOfBiomesModBlocks.LARGE_BRICK_BUTTON);
-	public static final RegistryObject<Item> LOW_CAPACITY_CABLE_N = block(TaleOfBiomesModBlocks.LOW_CAPACITY_CABLE_N);
+	public static final RegistryObject<Item> WALL_BLUEPRINT = block(TaleOfBiomesModBlocks.WALL_BLUEPRINT);
+	public static final RegistryObject<Item> PLOT_BLUEPRINT = block(TaleOfBiomesModBlocks.PLOT_BLUEPRINT);
+	public static final RegistryObject<Item> DOOR_BLUEPRINT = block(TaleOfBiomesModBlocks.DOOR_BLUEPRINT);
+	public static final RegistryObject<Item> WINDOW_BLUEPRINT = block(TaleOfBiomesModBlocks.WINDOW_BLUEPRINT);
 	public static final RegistryObject<Item> GROUND_LANTERN = block(TaleOfBiomesModBlocks.GROUND_LANTERN);
 	public static final RegistryObject<Item> TOOL_HANDLE_BLOCK = block(TaleOfBiomesModBlocks.TOOL_HANDLE_BLOCK);
 	public static final RegistryObject<Item> PHOSPHORITE_HOE_BLOCK = block(TaleOfBiomesModBlocks.PHOSPHORITE_HOE_BLOCK);
@@ -221,13 +231,14 @@ public class TaleOfBiomesModItems {
 	public static final RegistryObject<Item> LOW_CAPACITY_CABLE_XC = block(TaleOfBiomesModBlocks.LOW_CAPACITY_CABLE_XC);
 	public static final RegistryObject<Item> LOW_CAPACITY_CABLE_F = block(TaleOfBiomesModBlocks.LOW_CAPACITY_CABLE_F);
 	public static final RegistryObject<Item> LOW_CAPACITY_CABLE_S = block(TaleOfBiomesModBlocks.LOW_CAPACITY_CABLE_S);
-	public static final RegistryObject<Item> SOLAR_PANNEL = block(TaleOfBiomesModBlocks.SOLAR_PANNEL);
-	public static final RegistryObject<Item> PIRUFF_SAPLING = block(TaleOfBiomesModBlocks.PIRUFF_SAPLING);
-	public static final RegistryObject<Item> COPPER_BATTERY_0 = block(TaleOfBiomesModBlocks.COPPER_BATTERY_0);
 	public static final RegistryObject<Item> COPPER_BATTERY_1 = block(TaleOfBiomesModBlocks.COPPER_BATTERY_1);
 	public static final RegistryObject<Item> COPPER_BATTERY_2 = block(TaleOfBiomesModBlocks.COPPER_BATTERY_2);
 	public static final RegistryObject<Item> COPPER_BATTERY_3 = block(TaleOfBiomesModBlocks.COPPER_BATTERY_3);
 	public static final RegistryObject<Item> COPPER_BATTERY_4 = block(TaleOfBiomesModBlocks.COPPER_BATTERY_4);
+	public static final RegistryObject<Item> GHOST_BUSH_0 = block(TaleOfBiomesModBlocks.GHOST_BUSH_0);
+	public static final RegistryObject<Item> GHOST_BUSH_1 = block(TaleOfBiomesModBlocks.GHOST_BUSH_1);
+	public static final RegistryObject<Item> GHOST_BUSH_2 = block(TaleOfBiomesModBlocks.GHOST_BUSH_2);
+	public static final RegistryObject<Item> GHOST_BUSH_3 = block(TaleOfBiomesModBlocks.GHOST_BUSH_3);
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));

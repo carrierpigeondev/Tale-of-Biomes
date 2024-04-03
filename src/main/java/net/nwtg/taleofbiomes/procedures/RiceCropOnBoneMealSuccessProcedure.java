@@ -1,5 +1,6 @@
 package net.nwtg.taleofbiomes.procedures;
 
+import net.nwtg.taleofbiomes.network.TaleOfBiomesModVariables;
 import net.nwtg.taleofbiomes.init.TaleOfBiomesModBlocks;
 
 import net.minecraft.world.level.block.state.properties.Property;
@@ -18,7 +19,8 @@ import java.util.Map;
 
 public class RiceCropOnBoneMealSuccessProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, BlockState blockstate) {
-		if (!world.isClientSide() && world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("tale_of_biomes:plains")))) {
+		if (!world.isClientSide()
+				&& world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation(((TaleOfBiomesModVariables.MapVariables.get(world).modNamespace + ":" + "plains")).toLowerCase(java.util.Locale.ENGLISH))))) {
 			if (blockstate.getBlock() == TaleOfBiomesModBlocks.RICE_CROP_0.get()) {
 				{
 					BlockPos _bp = BlockPos.containing(x, y, z);

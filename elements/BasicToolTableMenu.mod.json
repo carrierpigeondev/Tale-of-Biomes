@@ -216,8 +216,24 @@
           "x": 133,
           "y": 110
         }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_kiln_light_off",
+          "image": "kiln_light_off.png",
+          "hoveredImage": "kiln_light_on.png",
+          "onClick": {
+            "name": "BasicToolTableMenuRecipeHelperButtonOpen"
+          },
+          "x": 137,
+          "y": 76
+        }
       }
     ],
+    "onOpen": {
+      "name": "BasicToolTableMenuThisGUIIsOpened"
+    },
     "onTick": {
       "name": "BasicToolTableMenuWhileThisGUIIsOpenTick"
     },

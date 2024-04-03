@@ -1,6 +1,8 @@
 package net.nwtg.taleofbiomes.client.gui;
 
 import net.nwtg.taleofbiomes.world.inventory.BasicToolTableMenuMenu;
+import net.nwtg.taleofbiomes.network.BasicToolTableMenuButtonMessage;
+import net.nwtg.taleofbiomes.TaleOfBiomesMod;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
@@ -8,6 +10,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.GuiGraphics;
 
 import java.util.HashMap;
@@ -19,6 +22,7 @@ public class BasicToolTableMenuScreen extends AbstractContainerScreen<BasicToolT
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
+	ImageButton imagebutton_kiln_light_off;
 
 	public BasicToolTableMenuScreen(BasicToolTableMenuMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -77,5 +81,13 @@ public class BasicToolTableMenuScreen extends AbstractContainerScreen<BasicToolT
 	@Override
 	public void init() {
 		super.init();
+		imagebutton_kiln_light_off = new ImageButton(this.leftPos + 11, this.topPos + 39, 8, 8, 0, 0, 8, new ResourceLocation("tale_of_biomes:textures/screens/atlas/imagebutton_kiln_light_off.png"), 8, 16, e -> {
+			if (true) {
+				TaleOfBiomesMod.PACKET_HANDLER.sendToServer(new BasicToolTableMenuButtonMessage(0, x, y, z));
+				BasicToolTableMenuButtonMessage.handleButtonAction(entity, 0, x, y, z);
+			}
+		});
+		guistate.put("button:imagebutton_kiln_light_off", imagebutton_kiln_light_off);
+		this.addRenderableWidget(imagebutton_kiln_light_off);
 	}
 }

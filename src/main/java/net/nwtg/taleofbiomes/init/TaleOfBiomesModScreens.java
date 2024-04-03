@@ -6,6 +6,7 @@ package net.nwtg.taleofbiomes.init;
 
 import net.nwtg.taleofbiomes.client.gui.KilnScreenScreen;
 import net.nwtg.taleofbiomes.client.gui.BasicToolTableMenuScreen;
+import net.nwtg.taleofbiomes.client.gui.BasicToolTableMenuRecipeBookScreen;
 
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -21,6 +22,7 @@ public class TaleOfBiomesModScreens {
 		event.enqueueWork(() -> {
 			MenuScreens.register(TaleOfBiomesModMenus.KILN_SCREEN.get(), KilnScreenScreen::new);
 			MenuScreens.register(TaleOfBiomesModMenus.BASIC_TOOL_TABLE_MENU.get(), BasicToolTableMenuScreen::new);
+			MenuScreens.register(TaleOfBiomesModMenus.BASIC_TOOL_TABLE_MENU_RECIPE_BOOK.get(), BasicToolTableMenuRecipeBookScreen::new);
 		});
 	}
 }

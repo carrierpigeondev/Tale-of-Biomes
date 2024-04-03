@@ -178,7 +178,7 @@ public class YellowPiruffBedTopBlock extends Block implements SimpleWaterloggedB
 		double hitY = hit.getLocation().y;
 		double hitZ = hit.getLocation().z;
 		Direction direction = hit.getDirection();
-		BedOnBlockRightClickedProcedure.execute(world, entity);
+		BedOnBlockRightClickedProcedure.execute(world, x, y, z, entity);
 		return InteractionResult.SUCCESS;
 	}
 }

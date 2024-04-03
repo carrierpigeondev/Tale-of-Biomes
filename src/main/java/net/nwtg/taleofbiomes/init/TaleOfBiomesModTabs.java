@@ -18,10 +18,10 @@ public class TaleOfBiomesModTabs {
 	public static final DeferredRegister<CreativeModeTab> REGISTRY = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, TaleOfBiomesMod.MODID);
 	public static final RegistryObject<CreativeModeTab> TOB_BLOCKS_TAB = REGISTRY.register("tob_blocks_tab",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.tale_of_biomes.tob_blocks_tab")).icon(() -> new ItemStack(TaleOfBiomesModBlocks.PIRUFF_LOG.get())).displayItems((parameters, tabData) -> {
-				tabData.accept(TaleOfBiomesModBlocks.WALL_BLUEPRINT.get().asItem());
-				tabData.accept(TaleOfBiomesModBlocks.PLOT_BLUEPRINT.get().asItem());
-				tabData.accept(TaleOfBiomesModBlocks.WINDOW_BLUEPRINT.get().asItem());
-				tabData.accept(TaleOfBiomesModBlocks.DOOR_BLUEPRINT.get().asItem());
+				tabData.accept(TaleOfBiomesModBlocks.LOW_CAPACITY_CABLE_N.get().asItem());
+				tabData.accept(TaleOfBiomesModBlocks.SOLAR_PANNEL.get().asItem());
+				tabData.accept(TaleOfBiomesModBlocks.COPPER_BATTERY_0.get().asItem());
+				tabData.accept(TaleOfBiomesModBlocks.DRILL.get().asItem());
 				tabData.accept(TaleOfBiomesModBlocks.BASIC_TOOL_TABLE.get().asItem());
 				tabData.accept(TaleOfBiomesModBlocks.KILN_FURNACE.get().asItem());
 				tabData.accept(TaleOfBiomesModBlocks.BLUE_ASTER.get().asItem());
@@ -29,6 +29,7 @@ public class TaleOfBiomesModTabs {
 				tabData.accept(TaleOfBiomesModBlocks.MAGENTA_ASTER.get().asItem());
 				tabData.accept(TaleOfBiomesModBlocks.GOLDENROD.get().asItem());
 				tabData.accept(TaleOfBiomesModBlocks.WILD_INDIGO.get().asItem());
+				tabData.accept(TaleOfBiomesModBlocks.PIRUFF_SAPLING.get().asItem());
 				tabData.accept(TaleOfBiomesModBlocks.TALL_GRASS_0.get().asItem());
 				tabData.accept(TaleOfBiomesModBlocks.TALL_GRASS_1.get().asItem());
 				tabData.accept(TaleOfBiomesModBlocks.TALL_GRASS_2.get().asItem());
@@ -72,6 +73,10 @@ public class TaleOfBiomesModTabs {
 				tabData.accept(TaleOfBiomesModBlocks.PHOSPHORITE_CRYSTAL_BOTTOM.get().asItem());
 				tabData.accept(TaleOfBiomesModBlocks.PHOSPHORITE_CRYSTAL_TOP.get().asItem());
 				tabData.accept(TaleOfBiomesModBlocks.STONE.get().asItem());
+				tabData.accept(TaleOfBiomesModBlocks.MARBLE.get().asItem());
+				tabData.accept(TaleOfBiomesModBlocks.COBBLED_MARBLE.get().asItem());
+				tabData.accept(TaleOfBiomesModBlocks.MOSSY_COBBLED_MARBLE.get().asItem());
+				tabData.accept(TaleOfBiomesModBlocks.POLISHED_MARBLE.get().asItem());
 				tabData.accept(TaleOfBiomesModBlocks.PURE_COAL_ORE.get().asItem());
 				tabData.accept(TaleOfBiomesModBlocks.BRICKS.get().asItem());
 				tabData.accept(TaleOfBiomesModBlocks.BRICK_STAIRS.get().asItem());
@@ -85,10 +90,10 @@ public class TaleOfBiomesModTabs {
 				tabData.accept(TaleOfBiomesModBlocks.LARGE_BRICK_WALL.get().asItem());
 				tabData.accept(TaleOfBiomesModBlocks.LARGE_BRICK_PRESSURE_PLATE.get().asItem());
 				tabData.accept(TaleOfBiomesModBlocks.LARGE_BRICK_BUTTON.get().asItem());
-				tabData.accept(TaleOfBiomesModBlocks.LOW_CAPACITY_CABLE_N.get().asItem());
-				tabData.accept(TaleOfBiomesModBlocks.SOLAR_PANNEL.get().asItem());
-				tabData.accept(TaleOfBiomesModBlocks.PIRUFF_SAPLING.get().asItem());
-				tabData.accept(TaleOfBiomesModBlocks.COPPER_BATTERY_0.get().asItem());
+				tabData.accept(TaleOfBiomesModBlocks.WALL_BLUEPRINT.get().asItem());
+				tabData.accept(TaleOfBiomesModBlocks.PLOT_BLUEPRINT.get().asItem());
+				tabData.accept(TaleOfBiomesModBlocks.DOOR_BLUEPRINT.get().asItem());
+				tabData.accept(TaleOfBiomesModBlocks.WINDOW_BLUEPRINT.get().asItem());
 			})
 
 					.build());
@@ -138,6 +143,7 @@ public class TaleOfBiomesModTabs {
 				tabData.accept(TaleOfBiomesModItems.CLAY.get());
 				tabData.accept(TaleOfBiomesModItems.QUICKLIME.get());
 				tabData.accept(TaleOfBiomesModItems.PHOSPHORITE_GEMSTONE.get());
+				tabData.accept(TaleOfBiomesModItems.GHOST_BERRIES.get());
 			})
 
 					.build());

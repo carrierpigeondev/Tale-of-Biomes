@@ -1,5 +1,6 @@
 package net.nwtg.taleofbiomes.procedures;
 
+import net.nwtg.taleofbiomes.network.TaleOfBiomesModVariables;
 import net.nwtg.taleofbiomes.init.TaleOfBiomesModItems;
 
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -21,7 +22,8 @@ public class RiceCrop6BlockDestroyedProcedure {
 		double weedLevel = 0;
 		double fertilityScore = 0;
 		double phScore = 0;
-		if (!world.isClientSide() && (world.getBlockState(BlockPos.containing(x, y - 1, z))).is(BlockTags.create(new ResourceLocation("tale_of_biomes:tilled_soil")))) {
+		if (!world.isClientSide()
+				&& (world.getBlockState(BlockPos.containing(x, y - 1, z))).is(BlockTags.create(new ResourceLocation(((TaleOfBiomesModVariables.MapVariables.get(world).modNamespace + ":" + "tilled_soil")).toLowerCase(java.util.Locale.ENGLISH))))) {
 			score = new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);

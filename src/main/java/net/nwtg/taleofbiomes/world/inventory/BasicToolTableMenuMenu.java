@@ -2,6 +2,7 @@
 package net.nwtg.taleofbiomes.world.inventory;
 
 import net.nwtg.taleofbiomes.procedures.BasicToolTableMenuWhileThisGUIIsOpenTickProcedure;
+import net.nwtg.taleofbiomes.procedures.BasicToolTableMenuThisGUIIsOpenedProcedure;
 import net.nwtg.taleofbiomes.network.BasicToolTableMenuSlotMessage;
 import net.nwtg.taleofbiomes.init.TaleOfBiomesModMenus;
 import net.nwtg.taleofbiomes.TaleOfBiomesMod;
@@ -130,6 +131,7 @@ public class BasicToolTableMenuMenu extends AbstractContainerMenu implements Sup
 				this.addSlot(new Slot(inv, sj + (si + 1) * 9, 0 + 8 + sj * 18, 0 + 84 + si * 18));
 		for (int si = 0; si < 9; ++si)
 			this.addSlot(new Slot(inv, si, 0 + 8 + si * 18, 0 + 142));
+		BasicToolTableMenuThisGUIIsOpenedProcedure.execute(entity);
 	}
 
 	@Override

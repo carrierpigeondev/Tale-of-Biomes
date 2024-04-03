@@ -1,10 +1,7 @@
 {
   "replace": false,
   "values": [
-    "tale_of_biomes:wall_blueprint",
-    "tale_of_biomes:plot_blueprint",
-    "tale_of_biomes:window_blueprint",
-    "tale_of_biomes:door_blueprint",
+    "tale_of_biomes:low_capacity_cable_n",
     "tale_of_biomes:basic_tool_table",
     "tale_of_biomes:hay_grass",
     "tale_of_biomes:hay_straw",
@@ -27,7 +24,10 @@
     "tale_of_biomes:piruff_trapdoor",
     "tale_of_biomes:piruff_pressure_plate",
     "tale_of_biomes:piruff_button",
-    "tale_of_biomes:low_capacity_cable_n",
+    "tale_of_biomes:wall_blueprint",
+    "tale_of_biomes:plot_blueprint",
+    "tale_of_biomes:door_blueprint",
+    "tale_of_biomes:window_blueprint",
     "tale_of_biomes:tool_handle_block",
     "tale_of_biomes:phosphorite_hoe_block",
     "tale_of_biomes:phosphorite_shovel_block",
@@ -57,6 +57,10 @@
     "tale_of_biomes:low_capacity_cable_x",
     "tale_of_biomes:low_capacity_cable_xc",
     "tale_of_biomes:low_capacity_cable_f",
-    "tale_of_biomes:low_capacity_cable_s"
+    "tale_of_biomes:low_capacity_cable_s",
+    "tale_of_biomes:ghost_bush_0",
+    "tale_of_biomes:ghost_bush_1",
+    "tale_of_biomes:ghost_bush_2",
+    "tale_of_biomes:ghost_bush_3"
   ]
 }

@@ -180,7 +180,7 @@ public class MagentaPiruffBedBlock extends Block implements SimpleWaterloggedBlo
 		double hitY = hit.getLocation().y;
 		double hitZ = hit.getLocation().z;
 		Direction direction = hit.getDirection();
-		BedOnBlockRightClickedProcedure.execute(world, entity);
+		BedOnBlockRightClickedProcedure.execute(world, x, y, z, entity);
 		return InteractionResult.SUCCESS;
 	}
 }

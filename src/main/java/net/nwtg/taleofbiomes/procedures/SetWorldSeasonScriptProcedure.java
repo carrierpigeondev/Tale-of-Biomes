@@ -43,22 +43,22 @@ public class SetWorldSeasonScriptProcedure {
 					if ((TaleOfBiomesModVariables.WorldVariables.get(world).worldSeasonName).equals("Spring")) {
 						TaleOfBiomesModVariables.WorldVariables.get(world).worldSeasonName = "Summer";
 						TaleOfBiomesModVariables.WorldVariables.get(world).syncData(world);
-						TaleOfBiomesModVariables.WorldVariables.get(world).worldMinSeasonTemperature = Mth.nextInt(RandomSource.create(), 0, 5);
+						TaleOfBiomesModVariables.WorldVariables.get(world).worldMinSeasonTemperature = Mth.nextInt(RandomSource.create(), 20, 35);
 						TaleOfBiomesModVariables.WorldVariables.get(world).syncData(world);
 					} else if ((TaleOfBiomesModVariables.WorldVariables.get(world).worldSeasonName).equals("Summer")) {
 						TaleOfBiomesModVariables.WorldVariables.get(world).worldSeasonName = "Autumn";
 						TaleOfBiomesModVariables.WorldVariables.get(world).syncData(world);
-						TaleOfBiomesModVariables.WorldVariables.get(world).worldMinSeasonTemperature = Mth.nextInt(RandomSource.create(), -5, 0);
+						TaleOfBiomesModVariables.WorldVariables.get(world).worldMinSeasonTemperature = Mth.nextInt(RandomSource.create(), 10, 20);
 						TaleOfBiomesModVariables.WorldVariables.get(world).syncData(world);
 					} else if ((TaleOfBiomesModVariables.WorldVariables.get(world).worldSeasonName).equals("Autumn")) {
 						TaleOfBiomesModVariables.WorldVariables.get(world).worldSeasonName = "Winter";
 						TaleOfBiomesModVariables.WorldVariables.get(world).syncData(world);
-						TaleOfBiomesModVariables.WorldVariables.get(world).worldMinSeasonTemperature = Mth.nextInt(RandomSource.create(), -10, -5);
+						TaleOfBiomesModVariables.WorldVariables.get(world).worldMinSeasonTemperature = Mth.nextInt(RandomSource.create(), -15, 10);
 						TaleOfBiomesModVariables.WorldVariables.get(world).syncData(world);
 					} else {
 						TaleOfBiomesModVariables.WorldVariables.get(world).worldSeasonName = "Spring";
 						TaleOfBiomesModVariables.WorldVariables.get(world).syncData(world);
-						TaleOfBiomesModVariables.WorldVariables.get(world).worldMinSeasonTemperature = Mth.nextInt(RandomSource.create(), -5, 0);
+						TaleOfBiomesModVariables.WorldVariables.get(world).worldMinSeasonTemperature = Mth.nextInt(RandomSource.create(), 10, 20);
 						TaleOfBiomesModVariables.WorldVariables.get(world).syncData(world);
 					}
 					TaleOfBiomesModVariables.WorldVariables.get(world).worldMaxSeasonTemperature = Mth.nextInt(RandomSource.create(), (int) (TaleOfBiomesModVariables.WorldVariables.get(world).worldMinSeasonTemperature + 1),

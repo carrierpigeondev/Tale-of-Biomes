@@ -80,6 +80,7 @@ import net.nwtg.taleofbiomes.block.entity.HangingLanternBlockEntity;
 import net.nwtg.taleofbiomes.block.entity.GroundLanternOnBlockEntity;
 import net.nwtg.taleofbiomes.block.entity.GroundLanternBlockEntity;
 import net.nwtg.taleofbiomes.block.entity.GrassBlockBlockEntity;
+import net.nwtg.taleofbiomes.block.entity.DrillBlockEntity;
 import net.nwtg.taleofbiomes.block.entity.DoorBlueprintBlockEntity;
 import net.nwtg.taleofbiomes.block.entity.CopperBattery4BlockEntity;
 import net.nwtg.taleofbiomes.block.entity.CopperBattery3BlockEntity;
@@ -98,12 +99,13 @@ import net.minecraft.world.level.block.Block;
 
 public class TaleOfBiomesModBlockEntities {
 	public static final DeferredRegister<BlockEntityType<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, TaleOfBiomesMod.MODID);
-	public static final RegistryObject<BlockEntityType<?>> WALL_BLUEPRINT = register("wall_blueprint", TaleOfBiomesModBlocks.WALL_BLUEPRINT, WallBlueprintBlockEntity::new);
-	public static final RegistryObject<BlockEntityType<?>> PLOT_BLUEPRINT = register("plot_blueprint", TaleOfBiomesModBlocks.PLOT_BLUEPRINT, PlotBlueprintBlockEntity::new);
-	public static final RegistryObject<BlockEntityType<?>> WINDOW_BLUEPRINT = register("window_blueprint", TaleOfBiomesModBlocks.WINDOW_BLUEPRINT, WindowBlueprintBlockEntity::new);
-	public static final RegistryObject<BlockEntityType<?>> DOOR_BLUEPRINT = register("door_blueprint", TaleOfBiomesModBlocks.DOOR_BLUEPRINT, DoorBlueprintBlockEntity::new);
+	public static final RegistryObject<BlockEntityType<?>> LOW_CAPACITY_CABLE_N = register("low_capacity_cable_n", TaleOfBiomesModBlocks.LOW_CAPACITY_CABLE_N, LowCapacityCableNBlockEntity::new);
+	public static final RegistryObject<BlockEntityType<?>> SOLAR_PANNEL = register("solar_pannel", TaleOfBiomesModBlocks.SOLAR_PANNEL, SolarPannelBlockEntity::new);
+	public static final RegistryObject<BlockEntityType<?>> COPPER_BATTERY_0 = register("copper_battery_0", TaleOfBiomesModBlocks.COPPER_BATTERY_0, CopperBattery0BlockEntity::new);
+	public static final RegistryObject<BlockEntityType<?>> DRILL = register("drill", TaleOfBiomesModBlocks.DRILL, DrillBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> BASIC_TOOL_TABLE = register("basic_tool_table", TaleOfBiomesModBlocks.BASIC_TOOL_TABLE, BasicToolTableBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> KILN_FURNACE = register("kiln_furnace", TaleOfBiomesModBlocks.KILN_FURNACE, KilnFurnaceBlockEntity::new);
+	public static final RegistryObject<BlockEntityType<?>> PIRUFF_SAPLING = register("piruff_sapling", TaleOfBiomesModBlocks.PIRUFF_SAPLING, PiruffSaplingBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> HAY_GRASS = register("hay_grass", TaleOfBiomesModBlocks.HAY_GRASS, HayGrassBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> HAY_STRAW = register("hay_straw", TaleOfBiomesModBlocks.HAY_STRAW, HayStrawBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> IVY_SHRUB = register("ivy_shrub", TaleOfBiomesModBlocks.IVY_SHRUB, IvyShrubBlockEntity::new);
@@ -112,7 +114,10 @@ public class TaleOfBiomesModBlockEntities {
 	public static final RegistryObject<BlockEntityType<?>> TILLED_SOIL = register("tilled_soil", TaleOfBiomesModBlocks.TILLED_SOIL, TilledSoilBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> PHOSPHORITE_STONE = register("phosphorite_stone", TaleOfBiomesModBlocks.PHOSPHORITE_STONE, PhosphoriteStoneBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> PHOSPHORITE_CRYSTAL = register("phosphorite_crystal", TaleOfBiomesModBlocks.PHOSPHORITE_CRYSTAL, PhosphoriteCrystalBlockEntity::new);
-	public static final RegistryObject<BlockEntityType<?>> LOW_CAPACITY_CABLE_N = register("low_capacity_cable_n", TaleOfBiomesModBlocks.LOW_CAPACITY_CABLE_N, LowCapacityCableNBlockEntity::new);
+	public static final RegistryObject<BlockEntityType<?>> WALL_BLUEPRINT = register("wall_blueprint", TaleOfBiomesModBlocks.WALL_BLUEPRINT, WallBlueprintBlockEntity::new);
+	public static final RegistryObject<BlockEntityType<?>> PLOT_BLUEPRINT = register("plot_blueprint", TaleOfBiomesModBlocks.PLOT_BLUEPRINT, PlotBlueprintBlockEntity::new);
+	public static final RegistryObject<BlockEntityType<?>> DOOR_BLUEPRINT = register("door_blueprint", TaleOfBiomesModBlocks.DOOR_BLUEPRINT, DoorBlueprintBlockEntity::new);
+	public static final RegistryObject<BlockEntityType<?>> WINDOW_BLUEPRINT = register("window_blueprint", TaleOfBiomesModBlocks.WINDOW_BLUEPRINT, WindowBlueprintBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> GROUND_LANTERN = register("ground_lantern", TaleOfBiomesModBlocks.GROUND_LANTERN, GroundLanternBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> TILLED_SOIL_W_1_S_0 = register("tilled_soil_w_1_s_0", TaleOfBiomesModBlocks.TILLED_SOIL_W_1_S_0, TilledSoilW1S0BlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> TILLED_SOIL_W_1_S_1 = register("tilled_soil_w_1_s_1", TaleOfBiomesModBlocks.TILLED_SOIL_W_1_S_1, TilledSoilW1S1BlockEntity::new);
@@ -174,9 +179,6 @@ public class TaleOfBiomesModBlockEntities {
 	public static final RegistryObject<BlockEntityType<?>> LOW_CAPACITY_CABLE_XC = register("low_capacity_cable_xc", TaleOfBiomesModBlocks.LOW_CAPACITY_CABLE_XC, LowCapacityCableXCBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> LOW_CAPACITY_CABLE_F = register("low_capacity_cable_f", TaleOfBiomesModBlocks.LOW_CAPACITY_CABLE_F, LowCapacityCableFBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> LOW_CAPACITY_CABLE_S = register("low_capacity_cable_s", TaleOfBiomesModBlocks.LOW_CAPACITY_CABLE_S, LowCapacityCableSBlockEntity::new);
-	public static final RegistryObject<BlockEntityType<?>> SOLAR_PANNEL = register("solar_pannel", TaleOfBiomesModBlocks.SOLAR_PANNEL, SolarPannelBlockEntity::new);
-	public static final RegistryObject<BlockEntityType<?>> PIRUFF_SAPLING = register("piruff_sapling", TaleOfBiomesModBlocks.PIRUFF_SAPLING, PiruffSaplingBlockEntity::new);
-	public static final RegistryObject<BlockEntityType<?>> COPPER_BATTERY_0 = register("copper_battery_0", TaleOfBiomesModBlocks.COPPER_BATTERY_0, CopperBattery0BlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> COPPER_BATTERY_1 = register("copper_battery_1", TaleOfBiomesModBlocks.COPPER_BATTERY_1, CopperBattery1BlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> COPPER_BATTERY_2 = register("copper_battery_2", TaleOfBiomesModBlocks.COPPER_BATTERY_2, CopperBattery2BlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> COPPER_BATTERY_3 = register("copper_battery_3", TaleOfBiomesModBlocks.COPPER_BATTERY_3, CopperBattery3BlockEntity::new);

@@ -155,12 +155,16 @@ public class TaleOfBiomesModVariables {
 			clone.eldenmoorSlot38 = original.eldenmoorSlot38;
 			clone.eldenmoorSlot39 = original.eldenmoorSlot39;
 			clone.eldenmoorSlot40 = original.eldenmoorSlot40;
+			clone.isBasicToolTableRecipeBookOpen = original.isBasicToolTableRecipeBookOpen;
 			if (!event.isWasDeath()) {
 				clone.CanTravelToEldenmoor = original.CanTravelToEldenmoor;
 				clone.blockPosX = original.blockPosX;
 				clone.blockPosY = original.blockPosY;
 				clone.blockPosZ = original.blockPosZ;
 				clone.playerSeasonName = original.playerSeasonName;
+				clone.clientTemperatureC = original.clientTemperatureC;
+				clone.clientTemperatureF = original.clientTemperatureF;
+				clone.recipePage = original.recipePage;
 			}
 		}
 
@@ -191,14 +195,16 @@ public class TaleOfBiomesModVariables {
 		public String worldSeasonName = "Spring";
 		public double worldSeasonDay = 12.0;
 		public double worldMaxSeasonDay = 12.0;
-		public double worldSeasonTemperature = 0.0;
-		public double worldMinSeasonTemperature = -5.0;
-		public double worldMaxSeasonTemperature = 5.0;
-		public double worldWindSpeed = 1.0;
-		public double worldWindTemperature = 1.0;
+		public double worldSeasonTemperature = 10.0;
+		public double worldMinSeasonTemperature = 5.0;
+		public double worldMaxSeasonTemperature = 15.0;
+		public double worldWindSpeed = 0.0;
+		public double worldWindTemperature = 0.0;
 		public double worldMinWindTemperature = -10.0;
 		public double worldMaxWindTemperature = 0.0;
 		public String worldWindDirection = "East";
+		public double worldTemperatureC = 19.0;
+		public double worldTemperatureF = 0.0;
 
 		public static WorldVariables load(CompoundTag tag) {
 			WorldVariables data = new WorldVariables();
@@ -218,6 +224,8 @@ public class TaleOfBiomesModVariables {
 			worldMinWindTemperature = nbt.getDouble("worldMinWindTemperature");
 			worldMaxWindTemperature = nbt.getDouble("worldMaxWindTemperature");
 			worldWindDirection = nbt.getString("worldWindDirection");
+			worldTemperatureC = nbt.getDouble("worldTemperatureC");
+			worldTemperatureF = nbt.getDouble("worldTemperatureF");
 		}
 
 		@Override
@@ -233,6 +241,8 @@ public class TaleOfBiomesModVariables {
 			nbt.putDouble("worldMinWindTemperature", worldMinWindTemperature);
 			nbt.putDouble("worldMaxWindTemperature", worldMaxWindTemperature);
 			nbt.putString("worldWindDirection", worldWindDirection);
+			nbt.putDouble("worldTemperatureC", worldTemperatureC);
+			nbt.putDouble("worldTemperatureF", worldTemperatureF);
 			return nbt;
 		}
 
@@ -452,6 +462,10 @@ public class TaleOfBiomesModVariables {
 		public ItemStack eldenmoorSlot39 = ItemStack.EMPTY;
 		public ItemStack eldenmoorSlot40 = ItemStack.EMPTY;
 		public String playerSeasonName = "Spring";
+		public double clientTemperatureC = 0;
+		public double clientTemperatureF = 0;
+		public double recipePage = 0;
+		public boolean isBasicToolTableRecipeBookOpen = false;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayer serverPlayer)
@@ -547,6 +561,10 @@ public class TaleOfBiomesModVariables {
 			nbt.put("eldenmoorSlot39", eldenmoorSlot39.save(new CompoundTag()));
 			nbt.put("eldenmoorSlot40", eldenmoorSlot40.save(new CompoundTag()));
 			nbt.putString("playerSeasonName", playerSeasonName);
+			nbt.putDouble("clientTemperatureC", clientTemperatureC);
+			nbt.putDouble("clientTemperatureF", clientTemperatureF);
+			nbt.putDouble("recipePage", recipePage);
+			nbt.putBoolean("isBasicToolTableRecipeBookOpen", isBasicToolTableRecipeBookOpen);
 			return nbt;
 		}
 
@@ -639,6 +657,10 @@ public class TaleOfBiomesModVariables {
 			eldenmoorSlot39 = ItemStack.of(nbt.getCompound("eldenmoorSlot39"));
 			eldenmoorSlot40 = ItemStack.of(nbt.getCompound("eldenmoorSlot40"));
 			playerSeasonName = nbt.getString("playerSeasonName");
+			clientTemperatureC = nbt.getDouble("clientTemperatureC");
+			clientTemperatureF = nbt.getDouble("clientTemperatureF");
+			recipePage = nbt.getDouble("recipePage");
+			isBasicToolTableRecipeBookOpen = nbt.getBoolean("isBasicToolTableRecipeBookOpen");
 		}
 	}
 
@@ -750,6 +772,10 @@ public class TaleOfBiomesModVariables {
 					variables.eldenmoorSlot39 = message.data.eldenmoorSlot39;
 					variables.eldenmoorSlot40 = message.data.eldenmoorSlot40;
 					variables.playerSeasonName = message.data.playerSeasonName;
+					variables.clientTemperatureC = message.data.clientTemperatureC;
+					variables.clientTemperatureF = message.data.clientTemperatureF;
+					variables.recipePage = message.data.recipePage;
+					variables.isBasicToolTableRecipeBookOpen = message.data.isBasicToolTableRecipeBookOpen;
 				}
 			});
 			context.setPacketHandled(true);
