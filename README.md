@@ -5,9 +5,9 @@ Tale of Biomes is a Minecraft mod that I am working on as part of the MCreator L
 NorthWestTrees uses a couple of programs for planning the modification [Leonardo](https://www.getleonardo.com/) and [LibreOffice](https://www.libreoffice.org/) as well as GitHub for feature requests, wiki, and bug tracking. All textures and assets are made by NorthWestTrees and produced using [Blockbench](https://www.blockbench.net/) and [PaintDotNet](https://getpaint.net/). And of course, this would not be possible without [MCreator](https://mcreator.net/) the software used to make the Minecraft mod.
 
 > [!WARNING]
-> This Minecraft modification is not been officially released yet and is still considered to be in development.  
-> Even though it's mostly stable using the mod in your worlds may result in items being lost or issues with generation.  
-> Please keep this in mind when using the mod for your worlds as I am not liable any issues that in result of use before release.
+> This Minecraft modification is not been officially released yet and is still considered to be in development. 
+> Even though it's mostly stable using the mod in your worlds may result in items being lost or issues with generation. 
+> Please keep this in mind when using the mod for your worlds as I am not liable any issues that in result of use before release. 
 
 # 📆 Planned 2024 Snapshot Releases
 > [!NOTE]
