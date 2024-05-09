@@ -88,6 +88,7 @@ import net.nwtg.taleofbiomes.block.entity.CopperBattery2BlockEntity;
 import net.nwtg.taleofbiomes.block.entity.CopperBattery1BlockEntity;
 import net.nwtg.taleofbiomes.block.entity.CopperBattery0BlockEntity;
 import net.nwtg.taleofbiomes.block.entity.BasicToolTableBlockEntity;
+import net.nwtg.taleofbiomes.block.entity.BasicStoneTableBlockEntity;
 import net.nwtg.taleofbiomes.TaleOfBiomesMod;
 
 import net.minecraftforge.registries.RegistryObject;
@@ -104,6 +105,7 @@ public class TaleOfBiomesModBlockEntities {
 	public static final RegistryObject<BlockEntityType<?>> COPPER_BATTERY_0 = register("copper_battery_0", TaleOfBiomesModBlocks.COPPER_BATTERY_0, CopperBattery0BlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> DRILL = register("drill", TaleOfBiomesModBlocks.DRILL, DrillBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> BASIC_TOOL_TABLE = register("basic_tool_table", TaleOfBiomesModBlocks.BASIC_TOOL_TABLE, BasicToolTableBlockEntity::new);
+	public static final RegistryObject<BlockEntityType<?>> BASIC_STONE_TABLE = register("basic_stone_table", TaleOfBiomesModBlocks.BASIC_STONE_TABLE, BasicStoneTableBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> KILN_FURNACE = register("kiln_furnace", TaleOfBiomesModBlocks.KILN_FURNACE, KilnFurnaceBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> PIRUFF_SAPLING = register("piruff_sapling", TaleOfBiomesModBlocks.PIRUFF_SAPLING, PiruffSaplingBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> HAY_GRASS = register("hay_grass", TaleOfBiomesModBlocks.HAY_GRASS, HayGrassBlockEntity::new);

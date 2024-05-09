@@ -17,7 +17,7 @@ public class SeasonDeviceRightclickedProcedure {
 		if (itemstack.getItem() == (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem()) {
 			if (entity instanceof LivingEntity _entity)
 				_entity.swing(InteractionHand.MAIN_HAND, true);
-			if (itemstack.getOrCreateTag().getDouble("loreDisplay") < 6) {
+			if (itemstack.getOrCreateTag().getDouble("loreDisplay") < 5) {
 				itemstack.getOrCreateTag().putDouble("loreDisplay", (itemstack.getOrCreateTag().getDouble("loreDisplay") + 1));
 			} else {
 				itemstack.getOrCreateTag().putDouble("loreDisplay", 1);
@@ -33,13 +33,11 @@ public class SeasonDeviceRightclickedProcedure {
 					_player.displayClientMessage(Component.literal(("\u00A79" + "Last season day: " + "\u00A7f" + TaleOfBiomesModVariables.WorldVariables.get(world).worldMaxSeasonDay)), true);
 			} else if (itemstack.getOrCreateTag().getDouble("loreDisplay") == 4) {
 				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal(("\u00A79" + "Season temperatre: " + "\u00A7f" + TaleOfBiomesModVariables.WorldVariables.get(world).worldSeasonTemperature)), true);
+					_player.displayClientMessage(Component.literal(("\u00A79" + "Temperatre: " + "\u00A7f" + new java.text.DecimalFormat("##.#").format(TaleOfBiomesModVariables.WorldVariables.get(world).worldTemperatureC) + "C | "
+							+ new java.text.DecimalFormat("##.#").format(TaleOfBiomesModVariables.WorldVariables.get(world).worldTemperatureF) + "F")), true);
 			} else if (itemstack.getOrCreateTag().getDouble("loreDisplay") == 5) {
 				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal(("\u00A79" + "Minimum season temperatre: " + "\u00A7f" + TaleOfBiomesModVariables.WorldVariables.get(world).worldMinSeasonTemperature)), true);
-			} else if (itemstack.getOrCreateTag().getDouble("loreDisplay") == 6) {
-				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal(("\u00A79" + "Maximum season temperatre: " + "\u00A7f" + TaleOfBiomesModVariables.WorldVariables.get(world).worldMaxSeasonTemperature)), true);
+					_player.displayClientMessage(Component.literal(("\u00A79" + "Wind speed: " + "\u00A7f" + TaleOfBiomesModVariables.WorldVariables.get(world).worldWindSpeed)), true);
 			}
 		}
 	}

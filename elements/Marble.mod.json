@@ -119,16 +119,20 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
-    "generateFeature": false,
-    "restrictionBiomes": [],
+    "generateFeature": true,
+    "restrictionBiomes": [
+      {
+        "value": "#tale_of_biomes:eldenmoor"
+      }
+    ],
     "blocksToReplace": [
       {
-        "value": "TAG:stone_ore_replaceables"
+        "value": "CUSTOM:Stone"
       }
     ],
     "generationShape": "UNIFORM",
-    "frequencyPerChunks": 10,
-    "frequencyOnChunk": 16,
+    "frequencyPerChunks": 15,
+    "frequencyOnChunk": 32,
     "minGenerateHeight": 0,
     "maxGenerateHeight": 64
   }

@@ -156,6 +156,8 @@ public class TaleOfBiomesModVariables {
 			clone.eldenmoorSlot39 = original.eldenmoorSlot39;
 			clone.eldenmoorSlot40 = original.eldenmoorSlot40;
 			clone.isBasicToolTableRecipeBookOpen = original.isBasicToolTableRecipeBookOpen;
+			clone.isRecipeHelperOpen = original.isRecipeHelperOpen;
+			clone.recipeHelperUpdateTimer = original.recipeHelperUpdateTimer;
 			if (!event.isWasDeath()) {
 				clone.CanTravelToEldenmoor = original.CanTravelToEldenmoor;
 				clone.blockPosX = original.blockPosX;
@@ -193,18 +195,16 @@ public class TaleOfBiomesModVariables {
 	public static class WorldVariables extends SavedData {
 		public static final String DATA_NAME = "tale_of_biomes_worldvars";
 		public String worldSeasonName = "Spring";
-		public double worldSeasonDay = 12.0;
-		public double worldMaxSeasonDay = 12.0;
-		public double worldSeasonTemperature = 10.0;
-		public double worldMinSeasonTemperature = 5.0;
-		public double worldMaxSeasonTemperature = 15.0;
+		public double worldSeasonDay = 1.0;
+		public double worldMaxSeasonDay = 1.0;
+		public double worldSeasonTemperature = 0.0;
 		public double worldWindSpeed = 0.0;
 		public double worldWindTemperature = 0.0;
-		public double worldMinWindTemperature = -10.0;
-		public double worldMaxWindTemperature = 0.0;
 		public String worldWindDirection = "East";
-		public double worldTemperatureC = 19.0;
-		public double worldTemperatureF = 0.0;
+		public double worldTemperatureC = 4.0;
+		public double worldTemperatureF = 39.2;
+		public double worldWeatherTemperature = 4.0;
+		public double worldTimeTemperature = 0.0;
 
 		public static WorldVariables load(CompoundTag tag) {
 			WorldVariables data = new WorldVariables();
@@ -217,15 +217,13 @@ public class TaleOfBiomesModVariables {
 			worldSeasonDay = nbt.getDouble("worldSeasonDay");
 			worldMaxSeasonDay = nbt.getDouble("worldMaxSeasonDay");
 			worldSeasonTemperature = nbt.getDouble("worldSeasonTemperature");
-			worldMinSeasonTemperature = nbt.getDouble("worldMinSeasonTemperature");
-			worldMaxSeasonTemperature = nbt.getDouble("worldMaxSeasonTemperature");
 			worldWindSpeed = nbt.getDouble("worldWindSpeed");
 			worldWindTemperature = nbt.getDouble("worldWindTemperature");
-			worldMinWindTemperature = nbt.getDouble("worldMinWindTemperature");
-			worldMaxWindTemperature = nbt.getDouble("worldMaxWindTemperature");
 			worldWindDirection = nbt.getString("worldWindDirection");
 			worldTemperatureC = nbt.getDouble("worldTemperatureC");
 			worldTemperatureF = nbt.getDouble("worldTemperatureF");
+			worldWeatherTemperature = nbt.getDouble("worldWeatherTemperature");
+			worldTimeTemperature = nbt.getDouble("worldTimeTemperature");
 		}
 
 		@Override
@@ -234,15 +232,13 @@ public class TaleOfBiomesModVariables {
 			nbt.putDouble("worldSeasonDay", worldSeasonDay);
 			nbt.putDouble("worldMaxSeasonDay", worldMaxSeasonDay);
 			nbt.putDouble("worldSeasonTemperature", worldSeasonTemperature);
-			nbt.putDouble("worldMinSeasonTemperature", worldMinSeasonTemperature);
-			nbt.putDouble("worldMaxSeasonTemperature", worldMaxSeasonTemperature);
 			nbt.putDouble("worldWindSpeed", worldWindSpeed);
 			nbt.putDouble("worldWindTemperature", worldWindTemperature);
-			nbt.putDouble("worldMinWindTemperature", worldMinWindTemperature);
-			nbt.putDouble("worldMaxWindTemperature", worldMaxWindTemperature);
 			nbt.putString("worldWindDirection", worldWindDirection);
 			nbt.putDouble("worldTemperatureC", worldTemperatureC);
 			nbt.putDouble("worldTemperatureF", worldTemperatureF);
+			nbt.putDouble("worldWeatherTemperature", worldWeatherTemperature);
+			nbt.putDouble("worldTimeTemperature", worldTimeTemperature);
 			return nbt;
 		}
 
@@ -462,10 +458,12 @@ public class TaleOfBiomesModVariables {
 		public ItemStack eldenmoorSlot39 = ItemStack.EMPTY;
 		public ItemStack eldenmoorSlot40 = ItemStack.EMPTY;
 		public String playerSeasonName = "Spring";
-		public double clientTemperatureC = 0;
-		public double clientTemperatureF = 0;
+		public double clientTemperatureC = 4.0;
+		public double clientTemperatureF = 39.2;
 		public double recipePage = 0;
 		public boolean isBasicToolTableRecipeBookOpen = false;
+		public boolean isRecipeHelperOpen = false;
+		public double recipeHelperUpdateTimer = 0;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayer serverPlayer)
@@ -565,6 +563,8 @@ public class TaleOfBiomesModVariables {
 			nbt.putDouble("clientTemperatureF", clientTemperatureF);
 			nbt.putDouble("recipePage", recipePage);
 			nbt.putBoolean("isBasicToolTableRecipeBookOpen", isBasicToolTableRecipeBookOpen);
+			nbt.putBoolean("isRecipeHelperOpen", isRecipeHelperOpen);
+			nbt.putDouble("recipeHelperUpdateTimer", recipeHelperUpdateTimer);
 			return nbt;
 		}
 
@@ -661,6 +661,8 @@ public class TaleOfBiomesModVariables {
 			clientTemperatureF = nbt.getDouble("clientTemperatureF");
 			recipePage = nbt.getDouble("recipePage");
 			isBasicToolTableRecipeBookOpen = nbt.getBoolean("isBasicToolTableRecipeBookOpen");
+			isRecipeHelperOpen = nbt.getBoolean("isRecipeHelperOpen");
+			recipeHelperUpdateTimer = nbt.getDouble("recipeHelperUpdateTimer");
 		}
 	}
 
@@ -776,6 +778,8 @@ public class TaleOfBiomesModVariables {
 					variables.clientTemperatureF = message.data.clientTemperatureF;
 					variables.recipePage = message.data.recipePage;
 					variables.isBasicToolTableRecipeBookOpen = message.data.isBasicToolTableRecipeBookOpen;
+					variables.isRecipeHelperOpen = message.data.isRecipeHelperOpen;
+					variables.recipeHelperUpdateTimer = message.data.recipeHelperUpdateTimer;
 				}
 			});
 			context.setPacketHandled(true);

@@ -7,6 +7,8 @@ package net.nwtg.taleofbiomes.init;
 import net.nwtg.taleofbiomes.world.inventory.KilnScreenMenu;
 import net.nwtg.taleofbiomes.world.inventory.BasicToolTableMenuRecipeBookMenu;
 import net.nwtg.taleofbiomes.world.inventory.BasicToolTableMenuMenu;
+import net.nwtg.taleofbiomes.world.inventory.BasicStoneTableMenuRecipeBookMenu;
+import net.nwtg.taleofbiomes.world.inventory.BasicStoneTableMenuMenu;
 import net.nwtg.taleofbiomes.TaleOfBiomesMod;
 
 import net.minecraftforge.registries.RegistryObject;
@@ -21,4 +23,6 @@ public class TaleOfBiomesModMenus {
 	public static final RegistryObject<MenuType<KilnScreenMenu>> KILN_SCREEN = REGISTRY.register("kiln_screen", () -> IForgeMenuType.create(KilnScreenMenu::new));
 	public static final RegistryObject<MenuType<BasicToolTableMenuMenu>> BASIC_TOOL_TABLE_MENU = REGISTRY.register("basic_tool_table_menu", () -> IForgeMenuType.create(BasicToolTableMenuMenu::new));
 	public static final RegistryObject<MenuType<BasicToolTableMenuRecipeBookMenu>> BASIC_TOOL_TABLE_MENU_RECIPE_BOOK = REGISTRY.register("basic_tool_table_menu_recipe_book", () -> IForgeMenuType.create(BasicToolTableMenuRecipeBookMenu::new));
+	public static final RegistryObject<MenuType<BasicStoneTableMenuMenu>> BASIC_STONE_TABLE_MENU = REGISTRY.register("basic_stone_table_menu", () -> IForgeMenuType.create(BasicStoneTableMenuMenu::new));
+	public static final RegistryObject<MenuType<BasicStoneTableMenuRecipeBookMenu>> BASIC_STONE_TABLE_MENU_RECIPE_BOOK = REGISTRY.register("basic_stone_table_menu_recipe_book", () -> IForgeMenuType.create(BasicStoneTableMenuRecipeBookMenu::new));
 }
