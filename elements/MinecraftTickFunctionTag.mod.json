@@ -1,0 +1,17 @@
+{
+  "_fv": 57,
+  "_type": "tag",
+  "definition": {
+    "type": "Functions",
+    "items": [],
+    "blocks": [],
+    "functions": [
+      "TemperatureFunction"
+    ],
+    "entities": [],
+    "biomes": [],
+    "damageTypes": [],
+    "name": "tick",
+    "namespace": "minecraft"
+  }
+}

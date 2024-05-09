@@ -14,11 +14,10 @@ public class SeasonDeviceSpecialInformationProcedure {
 		} else if (itemstack.getOrCreateTag().getDouble("loreDisplay") == 3) {
 			return "\u00A79" + "Last season day: " + "\u00A7f" + TaleOfBiomesModVariables.WorldVariables.get(world).worldMaxSeasonDay;
 		} else if (itemstack.getOrCreateTag().getDouble("loreDisplay") == 4) {
-			return "\u00A79" + "Season temperatre: " + "\u00A7f" + TaleOfBiomesModVariables.WorldVariables.get(world).worldSeasonTemperature;
+			return "\u00A79" + "Temperature: " + "\u00A7f" + new java.text.DecimalFormat("##.#").format(TaleOfBiomesModVariables.WorldVariables.get(world).worldTemperatureC) + "C | "
+					+ new java.text.DecimalFormat("##.#").format(TaleOfBiomesModVariables.WorldVariables.get(world).worldTemperatureF) + "F";
 		} else if (itemstack.getOrCreateTag().getDouble("loreDisplay") == 5) {
-			return "\u00A79" + "Minimum season temperatre: " + "\u00A7f" + TaleOfBiomesModVariables.WorldVariables.get(world).worldMinSeasonTemperature;
-		} else if (itemstack.getOrCreateTag().getDouble("loreDisplay") == 6) {
-			return "\u00A79" + "Maximum season temperatre: " + "\u00A7f" + TaleOfBiomesModVariables.WorldVariables.get(world).worldMaxSeasonTemperature;
+			return "\u00A79" + "Wind speed: " + "\u00A7f" + TaleOfBiomesModVariables.WorldVariables.get(world).worldWindSpeed;
 		}
 		return "\u00A7a" + "Right-click item when in main-hand!";
 	}
