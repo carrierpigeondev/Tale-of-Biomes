@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: "Development and Planning"
+    url: https://github.com/MCreator-Examples/Tale-of-Biomes/discussions/categories/development
+    about: Development planning is now here!
+  - name: "Feature Request"
+    url: https://github.com/MCreator-Examples/Tale-of-Biomes/discussions/categories/feature-requests
+    about: Share your ideas and request features for the mod on the discussions tab.
+  - name: "ToB Wiki"
+    url: https://github.com/MCreator-Examples/Tale-of-Biomes/wiki
+    about: Information about the modification can be found here.
