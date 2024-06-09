@@ -10,7 +10,10 @@ import net.nwtg.taleofbiomes.block.WindowBlueprintBlock;
 import net.nwtg.taleofbiomes.block.WildIndigoFlowerPotBlock;
 import net.nwtg.taleofbiomes.block.WildIndigoBlock;
 import net.nwtg.taleofbiomes.block.WallBlueprintBlock;
+<<<<<<< HEAD
 import net.nwtg.taleofbiomes.block.UnpureCopperDustBlockBlock;
+=======
+>>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
 import net.nwtg.taleofbiomes.block.ToolHandleBlockBlock;
 import net.nwtg.taleofbiomes.block.TilledSoilW4S4Block;
 import net.nwtg.taleofbiomes.block.TilledSoilW4S3Block;
@@ -69,7 +72,10 @@ import net.nwtg.taleofbiomes.block.PurplePiruffBedTopBlock;
 import net.nwtg.taleofbiomes.block.PurplePiruffBedBlock;
 import net.nwtg.taleofbiomes.block.PurpleAsterFlowerPotBlock;
 import net.nwtg.taleofbiomes.block.PurpleAsterBlock;
+<<<<<<< HEAD
 import net.nwtg.taleofbiomes.block.PureCopperDustBlockBlock;
+=======
+>>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
 import net.nwtg.taleofbiomes.block.PureCoalOreBlock;
 import net.nwtg.taleofbiomes.block.PolishedShaleWallBlock;
 import net.nwtg.taleofbiomes.block.PolishedShaleStairsBlock;
@@ -120,7 +126,10 @@ import net.nwtg.taleofbiomes.block.MossyCobbledBasaltSlabBlock;
 import net.nwtg.taleofbiomes.block.MossyCobbledBasaltBlock;
 import net.nwtg.taleofbiomes.block.MossCarpetBlock;
 import net.nwtg.taleofbiomes.block.MossBlockBlock;
+<<<<<<< HEAD
 import net.nwtg.taleofbiomes.block.MixedCopperDustBlockBlock;
+=======
+>>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
 import net.nwtg.taleofbiomes.block.MarbleWallBlock;
 import net.nwtg.taleofbiomes.block.MarbleStairsBlock;
 import net.nwtg.taleofbiomes.block.MarbleSlabBlock;
@@ -453,9 +462,12 @@ public class TaleOfBiomesModBlocks {
 	public static final DeferredHolder<Block, Block> MOSSY_COBBLED_SHALE_SLAB = REGISTRY.register("mossy_cobbled_shale_slab", () -> new MossyCobbledShaleSlabBlock());
 	public static final DeferredHolder<Block, Block> MOSSY_COBBLED_SHALE_WALL = REGISTRY.register("mossy_cobbled_shale_wall", () -> new MossyCobbledShaleWallBlock());
 	public static final DeferredHolder<Block, Block> BASIC_STONE_TABLE = REGISTRY.register("basic_stone_table", () -> new BasicStoneTableBlock());
+<<<<<<< HEAD
 	public static final DeferredHolder<Block, Block> PURE_COPPER_DUST_BLOCK = REGISTRY.register("pure_copper_dust_block", () -> new PureCopperDustBlockBlock());
 	public static final DeferredHolder<Block, Block> MIXED_COPPER_DUST_BLOCK = REGISTRY.register("mixed_copper_dust_block", () -> new MixedCopperDustBlockBlock());
 	public static final DeferredHolder<Block, Block> UNPURE_COPPER_DUST_BLOCK = REGISTRY.register("unpure_copper_dust_block", () -> new UnpureCopperDustBlockBlock());
+=======
+>>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
 
 	// Start of user code block custom blocks
 	// End of user code block custom blocks

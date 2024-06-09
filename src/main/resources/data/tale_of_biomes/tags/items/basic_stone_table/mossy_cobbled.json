@@ -1,8 +1,12 @@
 {
   "replace": false,
   "values": [
+<<<<<<< HEAD
     "#tale_of_biomes:basic_stone_table/cobbled_marble",
     "#tale_of_biomes:basic_stone_table/cobbled_basalt",
     "#tale_of_biomes:basic_stone_table/cobbled_shale"
+=======
+    "#tale_of_biomes:basic_stone_table/cobbled_marble"
+>>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
   ]
 }

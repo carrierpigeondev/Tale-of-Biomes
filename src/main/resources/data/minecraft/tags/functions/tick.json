@@ -1,7 +1,11 @@
 {
   "replace": false,
   "values": [
+<<<<<<< HEAD
     "tale_of_biomes:temperature_function",
     "tale_of_biomes:unlock_crafting_recipes"
+=======
+    "tale_of_biomes:temperature_function"
+>>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
   ]
 }

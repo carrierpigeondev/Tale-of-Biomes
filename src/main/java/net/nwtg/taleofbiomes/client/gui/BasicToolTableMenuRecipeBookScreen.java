@@ -76,7 +76,11 @@ public class BasicToolTableMenuRecipeBookScreen extends AbstractContainerScreen<
 		guiGraphics.drawString(this.font, Component.translatable("gui.tale_of_biomes.basic_tool_table_menu_recipe_book.label_inventory"), 7, 73, -12566464, false);
 		guiGraphics.drawString(this.font,
 
+<<<<<<< HEAD
 				BasicToolTableRecipeHelperRecipeNameScriptProcedure.execute(entity), -102, 6, -12566464, false);
+=======
+				BasicToolTableRecipeHelperRecipeNameScriptProcedure.execute(world, entity), -102, 6, -12566464, false);
+>>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
 	}
 
 	@Override
