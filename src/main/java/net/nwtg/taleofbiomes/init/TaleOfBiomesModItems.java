@@ -5,6 +5,10 @@
 package net.nwtg.taleofbiomes.init;
 
 import net.nwtg.taleofbiomes.procedures.SeasonDevicePropertyValueProviderProcedure;
+<<<<<<< HEAD
+import net.nwtg.taleofbiomes.item.UnpureCopperDustItem;
+=======
+>>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
 import net.nwtg.taleofbiomes.item.StrawItem;
 import net.nwtg.taleofbiomes.item.StoneSwordHeadItem;
 import net.nwtg.taleofbiomes.item.StoneSickleHeadItem;
@@ -15,19 +19,43 @@ import net.nwtg.taleofbiomes.item.StoneAxeHeadItem;
 import net.nwtg.taleofbiomes.item.SeasonDeviceItem;
 import net.nwtg.taleofbiomes.item.RiceSeedsItem;
 import net.nwtg.taleofbiomes.item.QuicklimeItem;
+<<<<<<< HEAD
+import net.nwtg.taleofbiomes.item.PureCopperDustItem;
+import net.nwtg.taleofbiomes.item.PiruffSwordItem;
+import net.nwtg.taleofbiomes.item.PiruffSwordHeadItem;
+=======
+>>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
 import net.nwtg.taleofbiomes.item.PiruffStoneSwordItem;
 import net.nwtg.taleofbiomes.item.PiruffStoneSickleItem;
 import net.nwtg.taleofbiomes.item.PiruffStoneShovelItem;
 import net.nwtg.taleofbiomes.item.PiruffStonePickaxeItem;
 import net.nwtg.taleofbiomes.item.PiruffStoneHoeItem;
 import net.nwtg.taleofbiomes.item.PiruffStoneAxeItem;
+<<<<<<< HEAD
+import net.nwtg.taleofbiomes.item.PiruffSickleItem;
+import net.nwtg.taleofbiomes.item.PiruffSickleHeadItem;
+import net.nwtg.taleofbiomes.item.PiruffShovelItem;
+import net.nwtg.taleofbiomes.item.PiruffShovelHeadItem;
+import net.nwtg.taleofbiomes.item.PiruffPickaxeItem;
+import net.nwtg.taleofbiomes.item.PiruffPickaxeHeadItem;
+import net.nwtg.taleofbiomes.item.PiruffHoeItem;
+import net.nwtg.taleofbiomes.item.PiruffHoeHeadItem;
 import net.nwtg.taleofbiomes.item.PiruffGripItem;
+import net.nwtg.taleofbiomes.item.PiruffAxeItem;
+import net.nwtg.taleofbiomes.item.PiruffAxeHeadItem;
+=======
+import net.nwtg.taleofbiomes.item.PiruffGripItem;
+>>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
 import net.nwtg.taleofbiomes.item.PhosphoriteSwordItem;
 import net.nwtg.taleofbiomes.item.PhosphoriteShovelItem;
 import net.nwtg.taleofbiomes.item.PhosphoritePickaxeItem;
 import net.nwtg.taleofbiomes.item.PhosphoriteHoeItem;
 import net.nwtg.taleofbiomes.item.PhosphoriteGemstoneItem;
 import net.nwtg.taleofbiomes.item.PhosphoriteAxeItem;
+<<<<<<< HEAD
+import net.nwtg.taleofbiomes.item.MixedCopperDustItem;
+=======
+>>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
 import net.nwtg.taleofbiomes.item.GhostBerriesItem;
 import net.nwtg.taleofbiomes.item.ClayItem;
 import net.nwtg.taleofbiomes.TaleOfBiomesMod;
@@ -292,6 +320,27 @@ public class TaleOfBiomesModItems {
 	public static final DeferredHolder<Item, Item> MOSSY_COBBLED_SHALE_SLAB = block(TaleOfBiomesModBlocks.MOSSY_COBBLED_SHALE_SLAB);
 	public static final DeferredHolder<Item, Item> MOSSY_COBBLED_SHALE_WALL = block(TaleOfBiomesModBlocks.MOSSY_COBBLED_SHALE_WALL);
 	public static final DeferredHolder<Item, Item> BASIC_STONE_TABLE = block(TaleOfBiomesModBlocks.BASIC_STONE_TABLE);
+<<<<<<< HEAD
+	public static final DeferredHolder<Item, Item> PIRUFF_AXE_HEAD = REGISTRY.register("piruff_axe_head", () -> new PiruffAxeHeadItem());
+	public static final DeferredHolder<Item, Item> PIRUFF_PICKAXE_HEAD = REGISTRY.register("piruff_pickaxe_head", () -> new PiruffPickaxeHeadItem());
+	public static final DeferredHolder<Item, Item> PIRUFF_SHOVEL_HEAD = REGISTRY.register("piruff_shovel_head", () -> new PiruffShovelHeadItem());
+	public static final DeferredHolder<Item, Item> PIRUFF_HOE_HEAD = REGISTRY.register("piruff_hoe_head", () -> new PiruffHoeHeadItem());
+	public static final DeferredHolder<Item, Item> PIRUFF_SWORD_HEAD = REGISTRY.register("piruff_sword_head", () -> new PiruffSwordHeadItem());
+	public static final DeferredHolder<Item, Item> PIRUFF_SICKLE_HEAD = REGISTRY.register("piruff_sickle_head", () -> new PiruffSickleHeadItem());
+	public static final DeferredHolder<Item, Item> PIRUFF_AXE = REGISTRY.register("piruff_axe", () -> new PiruffAxeItem());
+	public static final DeferredHolder<Item, Item> PIRUFF_HOE = REGISTRY.register("piruff_hoe", () -> new PiruffHoeItem());
+	public static final DeferredHolder<Item, Item> PIRUFF_PICKAXE = REGISTRY.register("piruff_pickaxe", () -> new PiruffPickaxeItem());
+	public static final DeferredHolder<Item, Item> PIRUFF_SHOVEL = REGISTRY.register("piruff_shovel", () -> new PiruffShovelItem());
+	public static final DeferredHolder<Item, Item> PIRUFF_SICKLE = REGISTRY.register("piruff_sickle", () -> new PiruffSickleItem());
+	public static final DeferredHolder<Item, Item> PIRUFF_SWORD = REGISTRY.register("piruff_sword", () -> new PiruffSwordItem());
+	public static final DeferredHolder<Item, Item> PURE_COPPER_DUST = REGISTRY.register("pure_copper_dust", () -> new PureCopperDustItem());
+	public static final DeferredHolder<Item, Item> MIXED_COPPER_DUST = REGISTRY.register("mixed_copper_dust", () -> new MixedCopperDustItem());
+	public static final DeferredHolder<Item, Item> UNPURE_COPPER_DUST = REGISTRY.register("unpure_copper_dust", () -> new UnpureCopperDustItem());
+	public static final DeferredHolder<Item, Item> PURE_COPPER_DUST_BLOCK = block(TaleOfBiomesModBlocks.PURE_COPPER_DUST_BLOCK);
+	public static final DeferredHolder<Item, Item> MIXED_COPPER_DUST_BLOCK = block(TaleOfBiomesModBlocks.MIXED_COPPER_DUST_BLOCK);
+	public static final DeferredHolder<Item, Item> UNPURE_COPPER_DUST_BLOCK = block(TaleOfBiomesModBlocks.UNPURE_COPPER_DUST_BLOCK);
+=======
+>>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
 
 	// Start of user code block custom items
 	// End of user code block custom items

@@ -1,7 +1,11 @@
 package net.nwtg.taleofbiomes.client.gui;
 
 import net.nwtg.taleofbiomes.world.inventory.BasicStoneTableMenuRecipeBookMenu;
+<<<<<<< HEAD
+import net.nwtg.taleofbiomes.procedures.BasicStoneTableMenuRecipeHelperNameScriptProcedure;
+=======
 import net.nwtg.taleofbiomes.procedures.BasicStoneTableRecipeHelperREcipeNameScriptProcedure;
+>>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
 import net.nwtg.taleofbiomes.network.BasicStoneTableMenuRecipeBookButtonMessage;
 
 import net.neoforged.neoforge.network.PacketDistributor;
@@ -76,7 +80,11 @@ public class BasicStoneTableMenuRecipeBookScreen extends AbstractContainerScreen
 		guiGraphics.drawString(this.font, Component.translatable("gui.tale_of_biomes.basic_stone_table_menu_recipe_book.label_inventory"), 7, 73, -12566464, false);
 		guiGraphics.drawString(this.font,
 
+<<<<<<< HEAD
+				BasicStoneTableMenuRecipeHelperNameScriptProcedure.execute(world, entity), -102, 6, -12566464, false);
+=======
 				BasicStoneTableRecipeHelperREcipeNameScriptProcedure.execute(world, entity), -102, 6, -12566464, false);
+>>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
 	}
 
 	@Override

@@ -4,7 +4,11 @@ license="GNU General Public License version 3 (GPLv3)"
 
 [[mods]]
 modId="tale_of_biomes"
+<<<<<<< HEAD
+version="0.7.0"
+=======
 version="0.6.0"
+>>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
 displayName="Tale Of Biomes"
 updateJSONURL="https://raw.githubusercontent.com/MCreator-Examples/Tale-of-Biomes/latest/updates/update.json"
 displayURL="https://github.com/MCreator-Examples/Tale-of-Biomes"

@@ -2,7 +2,10 @@ package net.nwtg.taleofbiomes.procedures;
 
 import net.nwtg.taleofbiomes.init.TaleOfBiomesModBlocks;
 
+<<<<<<< HEAD
+=======
 import net.minecraft.world.level.block.Blocks;
+>>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.inventory.Slot;
@@ -136,12 +139,16 @@ public class BasicStoneTableMenuWhileThisGUIIsOpenTickProcedure {
 				_player.containerMenu.broadcastChanges();
 			}
 		} else {
+<<<<<<< HEAD
+			BasicStoneTableMenuWhileThisGUIIsOpenTick1Procedure.execute(world, entity);
+=======
 			if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 				ItemStack _setstack = new ItemStack(Blocks.AIR).copy();
 				_setstack.setCount(1);
 				((Slot) _slots.get(9)).set(_setstack);
 				_player.containerMenu.broadcastChanges();
 			}
+>>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
 		}
 	}
 }

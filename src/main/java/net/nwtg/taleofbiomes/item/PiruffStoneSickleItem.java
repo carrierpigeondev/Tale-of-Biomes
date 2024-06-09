@@ -28,7 +28,11 @@ public class PiruffStoneSickleItem extends TieredItem {
 	public PiruffStoneSickleItem() {
 		super(new Tier() {
 			public int getUses() {
+<<<<<<< HEAD
+				return 40;
+=======
 				return 55;
+>>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
 			}
 
 			public float getSpeed() {
