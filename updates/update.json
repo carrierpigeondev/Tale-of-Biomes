@@ -8,10 +8,11 @@
     "0.5.0": "Added remainder of the marble blocks.\nAdded new stone materials for basalt, marble, and shale.\nAdded new stone materials have the following subtypes, cobbled, mossy cobbled, polished and raw.\nAdded additional stone subtype to shale for fossils though only a full block.\nAdded buttons for raw basalt, marble and shale subtypes.\nAdded pressure plates for raw basalt, marble and shale.\nAdded slabs for raw basalt, marble and shale subtypes.\nAdded stairs for raw basalt, marble and shale subtypes.\nAdded walls for raw basalt, marble and shale subtypes.\nAdded the basic stone table with recipes for marble, basalt and shale will be added at a later date.\nAdded /tob command to help with function script.\nAdded support for world temperature for the Season Device.\nAdded support for world wind speed for the Season Device.\nAdded weather temperature.\nAdded temperature function.\nRemoved the temperature overlay.\nTemperature procedures no longer run on world or player tick updates.\nTemperature procedures run every tick via the "minecraft:tick" function tag.\nThe temperature script now runs as a function.\nFixed temperature system.\nTemperature mechanics have been corrected"
   },
   "1.20.4": {
-    "0.6.0": "MAJOR UPDATE\n\n- Migrated to MCreator 2024.1.\n- Migrated to NeoFroge 1.20.4."
+    "0.6.0": "MAJOR UPDATE\n\n- Migrated to MCreator 2024.1.\n- Migrated to NeoFroge 1.20.4.",
+    "0.7.0": "ADDED\n\n- Added a new biome called Volcanic.\n\n- Added Basalt block recipes to the Basic Stone Table.\n\n- Added Marble block recipes to the Basic Stone Table.\n\n- Added NeoForge tags for dusts, dusts/copper, dust_block, and dust_block/copper.\n\n- Added Pure Copper Dust, Mixed Copper Dust, and Unpure Copper Dust items.\n\n- Added Pure Copper Dust Block, Mixed Copper Dust Block, and Unpure Copper Dust Block blocks.\n\n- Added Recipe Helper to the Basic Stone Table.\n\n- Added recipe unlocking system using scoreboards and functions.\n\n- Added Shale block recipes to the Basic Stone Table.\n\n- Added tag cycle support for the Basic Tool Table and Basic Stone Table.\n\n- Added Wooden Piruff tools and tool heads.\n\nCHANGES\n\n- Changed procedure names for the Basic Tool Table GUI.\n\n- Changed textures for Basalt and Polished Basalt.\n\n- Changed textures for Piruff Logs and Stripped Piruff Logs.\n\n- Replaced Piruff Log textures."
   },
   "promos": {
-    "1.20.4-latest": "0.6.0",
-    "1.20.4-recommended": "0.6.0"
+    "1.20.4-latest": "0.7.0",
+    "1.20.4-recommended": "0.7.0"
   }
 }
