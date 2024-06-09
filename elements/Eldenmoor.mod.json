@@ -20,6 +20,9 @@
       },
       {
         "value": "CUSTOM:PiruffForest"
+      },
+      {
+        "value": "CUSTOM:Volcanic"
       }
     ],
     "worldGenType": "Normal world gen",

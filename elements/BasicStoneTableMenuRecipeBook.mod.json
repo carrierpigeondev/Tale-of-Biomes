@@ -433,7 +433,7 @@
           "name": "label_recipe_name",
           "text": {
             "fixedValue": "Recipe Name",
-            "name": "BasicStoneTableRecipeHelperREcipeNameScript"
+            "name": "BasicStoneTableMenuRecipeHelperNameScript"
           },
           "color": {
             "value": -12566464,

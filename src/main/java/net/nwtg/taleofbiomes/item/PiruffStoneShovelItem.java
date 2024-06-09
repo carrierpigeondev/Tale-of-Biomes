@@ -17,7 +17,7 @@ public class PiruffStoneShovelItem extends ShovelItem {
 	public PiruffStoneShovelItem() {
 		super(new Tier() {
 			public int getUses() {
-				return 75;
+				return 80;
 			}
 
 			public float getSpeed() {

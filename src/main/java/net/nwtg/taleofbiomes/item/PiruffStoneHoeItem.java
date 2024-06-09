@@ -17,7 +17,7 @@ public class PiruffStoneHoeItem extends HoeItem {
 	public PiruffStoneHoeItem() {
 		super(new Tier() {
 			public int getUses() {
-				return 65;
+				return 70;
 			}
 
 			public float getSpeed() {

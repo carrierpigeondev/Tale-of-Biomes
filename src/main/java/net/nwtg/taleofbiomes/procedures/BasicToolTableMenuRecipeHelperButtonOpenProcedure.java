@@ -1,6 +1,7 @@
 package net.nwtg.taleofbiomes.procedures;
 
 import net.nwtg.taleofbiomes.world.inventory.BasicToolTableMenuRecipeBookMenu;
+import net.nwtg.taleofbiomes.network.TaleOfBiomesModVariables;
 
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -19,6 +20,11 @@ public class BasicToolTableMenuRecipeHelperButtonOpenProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
+		{
+			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
+			_vars.recipeHelperUpdateTimer = 0;
+			_vars.syncPlayerVariables(entity);
+		}
 		if (entity instanceof ServerPlayer _ent) {
 			BlockPos _bpos = BlockPos.containing(x, y, z);
 			_ent.openMenu(new MenuProvider() {

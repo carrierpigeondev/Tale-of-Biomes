@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "tale_of_biomes:temperature_function"
+    "tale_of_biomes:temperature_function",
+    "tale_of_biomes:unlock_crafting_recipes"
   ]
 }

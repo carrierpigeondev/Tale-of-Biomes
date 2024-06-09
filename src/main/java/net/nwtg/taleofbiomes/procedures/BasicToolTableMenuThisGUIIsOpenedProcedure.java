@@ -10,6 +10,11 @@ public class BasicToolTableMenuThisGUIIsOpenedProcedure {
 			return;
 		{
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
+			_vars.recipeHelperUpdateTimer = 0;
+			_vars.syncPlayerVariables(entity);
+		}
+		{
+			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.isBasicToolTableRecipeBookOpen = false;
 			_vars.syncPlayerVariables(entity);
 		}

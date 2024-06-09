@@ -2,7 +2,6 @@ package net.nwtg.taleofbiomes.procedures;
 
 import net.nwtg.taleofbiomes.init.TaleOfBiomesModItems;
 
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.inventory.Slot;
@@ -16,44 +15,44 @@ public class BasicToolTableMenuWhileThisGUIIsOpenTickProcedure {
 	public static void execute(LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return;
-		if (BasicToolTableMenuStoneAxeHeadConditionProcedure.execute(world, entity)) {
+		if (BasicToolTableMenuStoneHeadAxeConditionProcedure.execute(world, entity)) {
 			if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 				ItemStack _setstack = new ItemStack(TaleOfBiomesModItems.STONE_AXE_HEAD.get()).copy();
 				_setstack.setCount(1);
 				((Slot) _slots.get(9)).set(_setstack);
 				_player.containerMenu.broadcastChanges();
 			}
-		} else if (BasicToolTableMenuStoneHoeHeadConditionProcedure.execute(world, entity)) {
+		} else if (BasicToolTableMenuStoneHeadHoeConditionProcedure.execute(world, entity)) {
 			if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 				ItemStack _setstack = new ItemStack(TaleOfBiomesModItems.STONE_HOE_HEAD.get()).copy();
 				_setstack.setCount(1);
 				((Slot) _slots.get(9)).set(_setstack);
 				_player.containerMenu.broadcastChanges();
 			}
-		} else if (BasicToolTableMenuStoneSwordHeadConditionProcedure.execute(world, entity)) {
-			if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
-				ItemStack _setstack = new ItemStack(TaleOfBiomesModItems.STONE_SWORD_HEAD.get()).copy();
-				_setstack.setCount(1);
-				((Slot) _slots.get(9)).set(_setstack);
-				_player.containerMenu.broadcastChanges();
-			}
-		} else if (BasicToolTableMenuStoneShovelHeadConditionProcedure.execute(world, entity)) {
-			if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
-				ItemStack _setstack = new ItemStack(TaleOfBiomesModItems.STONE_SHOVEL_HEAD.get()).copy();
-				_setstack.setCount(1);
-				((Slot) _slots.get(9)).set(_setstack);
-				_player.containerMenu.broadcastChanges();
-			}
-		} else if (BasicToolTableMenuStonePickaxeHeadConditionProcedure.execute(world, entity)) {
+		} else if (BasicToolTableMenuStoneHeadPickaxeConditionProcedure.execute(world, entity)) {
 			if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 				ItemStack _setstack = new ItemStack(TaleOfBiomesModItems.STONE_PICKAXE_HEAD.get()).copy();
 				_setstack.setCount(1);
 				((Slot) _slots.get(9)).set(_setstack);
 				_player.containerMenu.broadcastChanges();
 			}
-		} else if (BasicToolTableMenuStoneSickleHeadConditionProcedure.execute(world, entity)) {
+		} else if (BasicToolTableMenuStoneHeadShovelConditionProcedure.execute(world, entity)) {
+			if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+				ItemStack _setstack = new ItemStack(TaleOfBiomesModItems.STONE_SHOVEL_HEAD.get()).copy();
+				_setstack.setCount(1);
+				((Slot) _slots.get(9)).set(_setstack);
+				_player.containerMenu.broadcastChanges();
+			}
+		} else if (BasicToolTableMenuStoneHeadSickleConditionProcedure.execute(world, entity)) {
 			if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 				ItemStack _setstack = new ItemStack(TaleOfBiomesModItems.STONE_SICKLE_HEAD.get()).copy();
+				_setstack.setCount(1);
+				((Slot) _slots.get(9)).set(_setstack);
+				_player.containerMenu.broadcastChanges();
+			}
+		} else if (BasicToolTableMenuStoneHeadSwordConditionProcedure.execute(world, entity)) {
+			if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+				ItemStack _setstack = new ItemStack(TaleOfBiomesModItems.STONE_SWORD_HEAD.get()).copy();
 				_setstack.setCount(1);
 				((Slot) _slots.get(9)).set(_setstack);
 				_player.containerMenu.broadcastChanges();
@@ -108,12 +107,7 @@ public class BasicToolTableMenuWhileThisGUIIsOpenTickProcedure {
 				_player.containerMenu.broadcastChanges();
 			}
 		} else {
-			if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
-				ItemStack _setstack = new ItemStack(Blocks.AIR).copy();
-				_setstack.setCount(1);
-				((Slot) _slots.get(9)).set(_setstack);
-				_player.containerMenu.broadcastChanges();
-			}
+			BasicToolTableMenuWhileThisGUIIsOpenTick1Procedure.execute(world, entity);
 		}
 	}
 }
