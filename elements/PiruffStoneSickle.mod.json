@@ -20,11 +20,7 @@
     "attackSpeed": 1.6,
     "enchantability": 5,
     "damageVsEntity": 5.0,
-<<<<<<< HEAD
     "usageCount": 40,
-=======
-    "usageCount": 55,
->>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
     "blocksAffected": [],
     "glowCondition": {
       "fixedValue": false
@@ -34,7 +30,7 @@
     "stayInGridWhenCrafting": false,
     "damageOnCrafting": false,
     "onBlockDestroyedWithTool": {
-      "name": "PiruffStoneAxeBlockDestroyedWithTool"
+      "name": "WhenBlockDestroyedWithPiruffTool"
     }
   }
 }

@@ -30,7 +30,7 @@
     "stayInGridWhenCrafting": false,
     "damageOnCrafting": false,
     "onBlockDestroyedWithTool": {
-      "name": "PiruffStoneAxeBlockDestroyedWithTool"
+      "name": "WhenBlockDestroyedWithPiruffTool"
     }
   }
 }

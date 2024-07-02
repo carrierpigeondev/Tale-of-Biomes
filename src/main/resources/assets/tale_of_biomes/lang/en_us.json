@@ -2,19 +2,14 @@
   "block.tale_of_biomes.ghost_bush_1": "Ghost Bush",
   "block.tale_of_biomes.ghost_bush_0": "Ghost Bush",
   "gui.tale_of_biomes.basic_stone_table.mossy_cobbled_block": "Mossy Cobbled Block",
-  "block.tale_of_biomes.ghost_bush_3": "Ghost Bush",
   "block.tale_of_biomes.shale_button": "Shale Button",
-  "block.tale_of_biomes.clay_block": "Clay Block",
-  "block.tale_of_biomes.ghost_bush_2": "Ghost Bush",
-<<<<<<< HEAD
+  "block.tale_of_biomes.ghost_bush_3": "Ghost Bush",
   "item.tale_of_biomes.piruff_sword_head": "Piruff Sword Head",
+  "block.tale_of_biomes.ghost_bush_2": "Ghost Bush",
+  "block.tale_of_biomes.clay_block": "Clay Block",
   "block.tale_of_biomes.piruff_wood": "Piruff Wood",
   "block.tale_of_biomes.kiln_block_corner_center": "Kiln Block",
   "block.tale_of_biomes.unpure_copper_dust_block": "Unpure Copper Dust Block",
-=======
-  "block.tale_of_biomes.piruff_wood": "Piruff Wood",
-  "block.tale_of_biomes.kiln_block_corner_center": "Kiln Block",
->>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
   "block.tale_of_biomes.cobbled_basalt": "Cobbled Basalt",
   "block.tale_of_biomes.light_purple_piruff_bed": "Light Purple Piruff Bed",
   "block.tale_of_biomes.mossy_cobbled_shale_slab": "Mossy Cobbled Shale Slab",
@@ -23,24 +18,16 @@
   "biome.tale_of_biomes.flower_shrub_plains": "Flower Shrub Plains",
   "block.tale_of_biomes.blue_aster": "Blue Aster",
   "block.tale_of_biomes.piruff_vines": "Piruff Vines",
-<<<<<<< HEAD
   "item.tale_of_biomes.piruff_sickle_head": "Piruff Sickle Head",
   "block.tale_of_biomes.marble_stairs": "Marble Stairs",
   "block.tale_of_biomes.ground_lantern_on": "Ground Lantern",
-  "block.tale_of_biomes.purple_aster": "Purple Aster",
   "item.tale_of_biomes.piruff_hoe": "Piruff Hoe",
+  "block.tale_of_biomes.purple_aster": "Purple Aster",
   "block.tale_of_biomes.low_capacity_cable_x": "Low Capacity Cable",
+  "item_group.tale_of_biomes.tob_tool_parts_tab": "ToB Tool Parts",
   "block.tale_of_biomes.low_capacity_cable_t": "Low Capacity Cable",
   "block.tale_of_biomes.low_capacity_cable_s": "Low Capacity Cable",
   "block.tale_of_biomes.pure_copper_dust_block": "Pure Copper Dust Block",
-=======
-  "block.tale_of_biomes.marble_stairs": "Marble Stairs",
-  "block.tale_of_biomes.ground_lantern_on": "Ground Lantern",
-  "block.tale_of_biomes.purple_aster": "Purple Aster",
-  "block.tale_of_biomes.low_capacity_cable_x": "Low Capacity Cable",
-  "block.tale_of_biomes.low_capacity_cable_t": "Low Capacity Cable",
-  "block.tale_of_biomes.low_capacity_cable_s": "Low Capacity Cable",
->>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
   "block.tale_of_biomes.low_capacity_cable_n": "Low Capacity Cable",
   "item.tale_of_biomes.stone_axe_head": "Stone Axe Head",
   "item.tale_of_biomes.stone_hoe_head": "Stone Hoe Head",
@@ -56,12 +43,9 @@
   "item.tale_of_biomes.piruff_stone_hoe": "Piruff Stone Hoe",
   "block.tale_of_biomes.wild_indigo_flower_pot": "Wild Indigo Flower Pot",
   "item.tale_of_biomes.phosphorite_gemstone": "Phosphorite Gemstone",
-  "block.tale_of_biomes.tilled_soil_w_1_s_3": "Tilled Soil",
   "block.tale_of_biomes.marble_button": "Marble Button",
   "gui.tale_of_biomes.basic_stone_table_menu.label_basic_tool_table": "Basic Stone Table",
-  "block.tale_of_biomes.tilled_soil_w_1_s_2": "Tilled Soil",
   "block.tale_of_biomes.moss_block": "Moss Block",
-  "block.tale_of_biomes.tilled_soil_w_1_s_4": "Tilled Soil",
   "gui.tale_of_biomes.kiln_screen.label_kiln_furnace": "Kiln Furnace",
   "item.tale_of_biomes.piruff_stone_sickle": "Piruff Stone Sickle",
   "block.tale_of_biomes.shale": "Shale",
@@ -73,8 +57,6 @@
   "block.tale_of_biomes.kiln_furnace": "Kiln Furnace",
   "block.tale_of_biomes.piruff_fence_gate": "Piruff Fence Gate",
   "item.tale_of_biomes.phosphorite_shovel": "Phosphorite Shovel",
-  "block.tale_of_biomes.tilled_soil_w_1_s_1": "Tilled Soil",
-  "block.tale_of_biomes.tilled_soil_w_1_s_0": "Tilled Soil",
   "block.tale_of_biomes.polished_shale_wall": "Polished Shale Wall",
   "gui.tale_of_biomes.basic_tool_table_menu.label_inventory": "Inventory",
   "block.tale_of_biomes.purple_piruff_bed_top": "Purple Piruff Bed Top",
@@ -84,10 +66,7 @@
   "block.tale_of_biomes.cobbled_marble_stairs": "Cobbled Marble Stairs",
   "block.tale_of_biomes.basalt_pressure_plate": "Basalt Pressure Plate",
   "block.tale_of_biomes.cobbled_limestone": "Cobbled Limestone",
-<<<<<<< HEAD
   "item.tale_of_biomes.piruff_sword": "Piruff Sword",
-=======
->>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
   "block.tale_of_biomes.brick_pressure_plate": "Brick Wall",
   "block.tale_of_biomes.cobbled_shale_stairs": "Cobbled Shale Stairs",
   "biome.tale_of_biomes.grass_plains": "Grass Plains",
@@ -95,10 +74,7 @@
   "block.tale_of_biomes.low_capacity_cable_xc": "Low Capacity Cable",
   "block.tale_of_biomes.mossy_cobbled_marble_stairs": "Mossy Cobbled Marble Stairs",
   "block.tale_of_biomes.shale_fossil": "Shale Fossil",
-<<<<<<< HEAD
   "item.tale_of_biomes.piruff_pickaxe": "Piruff Pickaxe",
-=======
->>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
   "block.tale_of_biomes.stone": "Stone",
   "block.tale_of_biomes.shale_wall": "Shale Wall",
   "gui.tale_of_biomes.basic_tool_table_menu_recipe_book.label_inventory": "Inventory",
@@ -107,15 +83,11 @@
   "block.tale_of_biomes.phosphorite_rake_block": "Phosphorite Rake Block",
   "block.tale_of_biomes.cobbled_shale": "Cobbled Shale",
   "block.tale_of_biomes.large_brick_slab": "Large Brick Slab",
-<<<<<<< HEAD
   "biome.tale_of_biomes.volcanic": "Volcanic",
   "block.tale_of_biomes.cobbled_basalt_wall": "Cobbled Basalt Wall",
+  "item.tale_of_biomes.prairie_dog_spawn_egg": "Prairie Dog Spawn Egg",
   "biome.tale_of_biomes.grass_shrub_plains": "Grass Shrub Plains",
   "item.tale_of_biomes.piruff_shovel": "Piruff Shovel",
-=======
-  "block.tale_of_biomes.cobbled_basalt_wall": "Cobbled Basalt Wall",
-  "biome.tale_of_biomes.grass_shrub_plains": "Grass Shrub Plains",
->>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
   "item.tale_of_biomes.phosphorite_pickaxe": "Phosphorite Pickaxe",
   "block.tale_of_biomes.thatch_slab": "Thatch Slab",
   "block.tale_of_biomes.mossy_cobbled_marble_slab": "Mossy Cobbled Marble Slab",
@@ -130,10 +102,7 @@
   "item.tale_of_biomes.season_device": "Season Device",
   "block.tale_of_biomes.ground_lantern": "Ground Lantern",
   "block.tale_of_biomes.rice_crop_4": "Rice Crop",
-<<<<<<< HEAD
   "item.tale_of_biomes.pure_copper_dust": "Pure Copper Dust",
-=======
->>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
   "block.tale_of_biomes.rice_crop_5": "Rice Crop",
   "gui.tale_of_biomes.basic_stone_table.stairs_block": "Stairs Block",
   "block.tale_of_biomes.rice_crop_6": "Rice Crop",
@@ -143,14 +112,11 @@
   "item.tale_of_biomes.phosphorite_hoe": "Phosphorite Hoe",
   "block.tale_of_biomes.magenta_aster_flower_pot": "Magenta Aster Flower Pot",
   "block.tale_of_biomes.pure_coal_ore": "Pure Coal Ore",
-  "block.tale_of_biomes.tilled_soil_w_0_s_2": "Tilled Soil",
-  "block.tale_of_biomes.tilled_soil_w_0_s_1": "Tilled Soil",
   "item.tale_of_biomes.piruff_stone_sword": "Piruff Stone Sword",
   "block.tale_of_biomes.mossy_cobbled_basalt_stairs": "Mossy Cobbled Basalt Stairs",
   "gui.tale_of_biomes.basic_stone_table_menu_recipe_book.label_inventory": "Inventory",
   "block.tale_of_biomes.low_capacity_cable_tx": "Low Capacity Cable",
-  "block.tale_of_biomes.tilled_soil_w_0_s_4": "Tilled Soil",
-  "block.tale_of_biomes.tilled_soil_w_0_s_3": "Tilled Soil",
+  "entity.tale_of_biomes.prairie_dog": "Prairie Dog",
   "block.tale_of_biomes.purple_aster_flower_pot": "Purple Aster Flower Pot",
   "block.tale_of_biomes.cobbled_shale_slab": "Cobbled Shale Slab",
   "block.tale_of_biomes.brick_stairs": "Brick Stairs",
@@ -163,16 +129,11 @@
   "gui.tale_of_biomes.basic_stone_table.wall_block": "Wall Block",
   "block.tale_of_biomes.brick_button": "Brick Button",
   "block.tale_of_biomes.wall_blueprint": "Wall Blueprint",
-  "block.tale_of_biomes.tilled_soil_w_4_s_2": "Tilled Soil",
   "item.tale_of_biomes.piruff_stone_shovel": "Piruff Stone Shovel",
-  "block.tale_of_biomes.tilled_soil_w_4_s_1": "Tilled Soil",
   "block.tale_of_biomes.basalt_stairs": "Basalt Stairs",
-  "block.tale_of_biomes.tilled_soil_w_4_s_0": "Tilled Soil",
   "block.tale_of_biomes.mossy_cobbled_marble": "Mossy Cobbled Marble",
   "gui.tale_of_biomes.basic_stone_table.pressure_plate_block": "Pressure Plate",
   "block.tale_of_biomes.hay_straw": "Hay Straw",
-  "block.tale_of_biomes.tilled_soil_w_4_s_4": "Tilled Soil",
-  "block.tale_of_biomes.tilled_soil_w_4_s_3": "Tilled Soil",
   "biome.tale_of_biomes.flower_plains": "Flower  Plains",
   "block.tale_of_biomes.yellow_piruff_bed_top": "Yellow Piruff Bed Top",
   "block.tale_of_biomes.shale_slab": "Shale Slab",
@@ -185,18 +146,12 @@
   "block.tale_of_biomes.dirt": "Dirt",
   "block.tale_of_biomes.rice_crop_2": "Rice Crop",
   "block.tale_of_biomes.rice_crop_3": "Rice Crop",
-<<<<<<< HEAD
   "item.tale_of_biomes.mixed_copper_dust": "Mixed Copper Dust",
-=======
->>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
   "block.tale_of_biomes.large_brick_wall": "Large Brick Wall",
   "block.tale_of_biomes.kiln_block_corner_bottom": "Kiln Block",
   "block.tale_of_biomes.piruff_door": "Piruff Door",
   "block.tale_of_biomes.tool_handle_block": "Tool Handle Block",
-<<<<<<< HEAD
   "item.tale_of_biomes.unpure_copper_dust": "Unpure Copper Dust",
-=======
->>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
   "block.tale_of_biomes.goldenrod_flower_pot": "Goldenrod Flower Pot",
   "gui.tale_of_biomes.basic_tool_table_menu.label_basic_tool_table": "Basic Tool Table",
   "item.tale_of_biomes.stone_sickle_head": "Stone Sickle Head",
@@ -220,6 +175,7 @@
   "block.tale_of_biomes.copper_battery_3": "Copper Battery",
   "block.tale_of_biomes.copper_battery_4": "Copper Battery",
   "block.tale_of_biomes.wild_indigo": "Wild Indigo",
+  "item.tale_of_biomes.mixed_raw_copper": "Mixed Raw Copper",
   "block.tale_of_biomes.phosphorite_shovel_block": "Phosphorite Shovel Block",
   "item.tale_of_biomes.piruff_stone_axe": "Piruff Stone Axe",
   "block.tale_of_biomes.polished_basalt_slab": "Polished Basalt Slab",
@@ -244,20 +200,16 @@
   "block.tale_of_biomes.goldenrod": "Godenrod",
   "block.tale_of_biomes.limestone": "Limestone",
   "block.tale_of_biomes.polished_marble_stairs": "Polished Marble Stairs",
-  "block.tale_of_biomes.tilled_soil_w_3_s_4": "Tilled Soil",
   "block.tale_of_biomes.low_capacity_cable_txc": "Low Capacity Cable",
   "block.tale_of_biomes.mossy_cobbled_shale_stairs": "Mossy Cobbled Shale Stairs",
-  "block.tale_of_biomes.tilled_soil_w_3_s_1": "Tilled Soil",
   "block.tale_of_biomes.basic_stone_table": "Basic Stone Table",
-  "block.tale_of_biomes.tilled_soil_w_3_s_0": "Tilled Soil",
-  "block.tale_of_biomes.tilled_soil_w_3_s_3": "Tilled Soil",
-  "block.tale_of_biomes.tilled_soil_w_3_s_2": "Tilled Soil",
   "block.tale_of_biomes.piruff_planks": "Piruff Planks",
   "block.tale_of_biomes.hanging_lantern_on": "Hanging Lantern",
   "block.tale_of_biomes.low_capacity_cable_lcc": "Low Capacity Cable",
   "item.tale_of_biomes.stone_sword_head": "Stone Sword Head",
   "block.tale_of_biomes.mossy_cobbled_basalt_slab": "Mossy Cobbled Basalt Slab",
   "block.tale_of_biomes.phosphorite_stone": "Phosphorite Stone",
+  "item.tale_of_biomes.pure_raw_copper": "Pure Raw Copper",
   "block.tale_of_biomes.polished_shale_slab": "Polished Shale Slab",
   "gui.tale_of_biomes.basic_stone_table.slab_block": "Slab Block",
   "block.tale_of_biomes.purple_piruff_bed": "Purple Piruff Bed",
@@ -270,12 +222,9 @@
   "block.tale_of_biomes.piruff_log": "Piruff Log",
   "block.tale_of_biomes.cobbled_marble": "Cobbled Marble",
   "block.tale_of_biomes.thatch_block": "Thatch Block",
-<<<<<<< HEAD
   "block.tale_of_biomes.mixed_copper_dust_block": "Mixed Copper Dust Block",
   "item.tale_of_biomes.piruff_pickaxe_head": "Piruff Pickaxe Head",
   "item.tale_of_biomes.piruff_hoe_head": "Stone Hoe Head",
-=======
->>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
   "block.tale_of_biomes.tilled_soil": "Tilled Soil",
   "item_group.tale_of_biomes.tob_blocks_tab": "ToB Blocks",
   "block.tale_of_biomes.marble": "Marble",
@@ -287,25 +236,14 @@
   "block.tale_of_biomes.cobbled_basalt_stairs": "Cobbled Basalt Stairs",
   "block.tale_of_biomes.hanging_lantern": "Hanging Lantern",
   "block.tale_of_biomes.piruff_stairs": "Piruff Stairs",
-<<<<<<< HEAD
   "item.tale_of_biomes.piruff_axe": "Piruff Axe",
-=======
->>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
-  "block.tale_of_biomes.tilled_soil_w_2_s_4": "Tilled Soil",
   "block.tale_of_biomes.kiln_block_middle_center": "Kiln Block",
   "block.tale_of_biomes.low_capacity_cable_lc": "Low Capacity Cable",
-  "block.tale_of_biomes.tilled_soil_w_2_s_3": "Tilled Soil",
   "block.tale_of_biomes.polished_marble": "Polished Marble",
-  "block.tale_of_biomes.tilled_soil_w_2_s_2": "Tilled Soil",
   "block.tale_of_biomes.kiln_ladder": "Kiln Ladder",
-  "block.tale_of_biomes.tilled_soil_w_2_s_1": "Tilled Soil",
   "block.tale_of_biomes.marble_wall": "Marble Wall",
-  "block.tale_of_biomes.tilled_soil_w_2_s_0": "Tilled Soil",
   "gui.tale_of_biomes.basic_stone_table_menu_recipe_book.label_basic_tool_table": "Basic Stone Table",
-<<<<<<< HEAD
   "item.tale_of_biomes.piruff_axe_head": "Piruff Axe Head",
-=======
->>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
   "block.tale_of_biomes.grass_block": "Grass Block",
   "item_group.tale_of_biomes.tob_resources_tab": "ToB Resources",
   "block.tale_of_biomes.drill": "Drill",
@@ -319,10 +257,7 @@
   "block.tale_of_biomes.tall_grass_1": "Tall Grass",
   "block.tale_of_biomes.tall_grass_0": "Tall Grass",
   "block.tale_of_biomes.hay_grass": "Hay Grass",
-<<<<<<< HEAD
   "item.tale_of_biomes.piruff_shovel_head": "Piruff Shovel Head",
-=======
->>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
   "gui.tale_of_biomes.basic_stone_table.cobbled_block": "Cobbled Block",
   "block.tale_of_biomes.ivy_shrub": "Ivy Shrub",
   "item.tale_of_biomes.clay": "Clay",
@@ -334,9 +269,7 @@
   "item.tale_of_biomes.stone_pickaxe_head": "Stone Pickaxe Head",
   "block.tale_of_biomes.low_capacity_cable_ltc": "Low Capacity Cable",
   "block.tale_of_biomes.sand": "Sand",
-<<<<<<< HEAD
   "item.tale_of_biomes.piruff_sickle": "Piruff Sickle",
-=======
->>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
-  "block.tale_of_biomes.mossy_cobbled_basalt_wall": "Mossy Cobbled Basalt Wall"
+  "block.tale_of_biomes.mossy_cobbled_basalt_wall": "Mossy Cobbled Basalt Wall",
+  "item.tale_of_biomes.unpure_raw_copper": "Unpure Raw Copper"
 }

@@ -166,7 +166,6 @@
             "depth": 0,
             "offset": 0
           }
-<<<<<<< HEAD
         },
         {
           "biome": "tale_of_biomes:volcanic",
@@ -194,8 +193,6 @@
             "depth": 0,
             "offset": 0
           }
-=======
->>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
         }
       ]
     },
@@ -989,7 +986,6 @@
                 ]
               }
             }
-<<<<<<< HEAD
           },
           {
             "type": "minecraft:condition",
@@ -1062,8 +1058,6 @@
                 ]
               }
             }
-=======
->>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
           }
         ]
       }

@@ -10,6 +10,7 @@ import net.nwtg.taleofbiomes.init.TaleOfBiomesModMobEffects;
 import net.nwtg.taleofbiomes.init.TaleOfBiomesModMenus;
 import net.nwtg.taleofbiomes.init.TaleOfBiomesModItems;
 import net.nwtg.taleofbiomes.init.TaleOfBiomesModFeatures;
+import net.nwtg.taleofbiomes.init.TaleOfBiomesModEntities;
 import net.nwtg.taleofbiomes.init.TaleOfBiomesModBlocks;
 import net.nwtg.taleofbiomes.init.TaleOfBiomesModBlockEntities;
 
@@ -49,7 +50,7 @@ public class TaleOfBiomesMod {
 		TaleOfBiomesModBlocks.REGISTRY.register(modEventBus);
 		TaleOfBiomesModBlockEntities.REGISTRY.register(modEventBus);
 		TaleOfBiomesModItems.register(modEventBus);
-
+		TaleOfBiomesModEntities.REGISTRY.register(modEventBus);
 		TaleOfBiomesModTabs.REGISTRY.register(modEventBus);
 		TaleOfBiomesModVariables.ATTACHMENT_TYPES.register(modEventBus);
 		TaleOfBiomesModFeatures.REGISTRY.register(modEventBus);

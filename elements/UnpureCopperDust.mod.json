@@ -28,7 +28,9 @@
     "damageVsEntity": 0.0,
     "specialInformation": {
       "fixedValue": [
-        "This is a resource to make advanced resources."
+        "§8A common mineral dust",
+        "§8found across Eldenmoor!",
+        "§fThis resource is §cUNPURE§f!"
       ]
     },
     "glowCondition": {

@@ -1,7 +1,7 @@
 
 package net.nwtg.taleofbiomes.item;
 
-import net.nwtg.taleofbiomes.procedures.PiruffStoneAxeBlockDestroyedWithToolProcedure;
+import net.nwtg.taleofbiomes.procedures.WhenBlockDestroyedWithPiruffToolProcedure;
 
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.Level;
@@ -45,7 +45,7 @@ public class PiruffAxeItem extends AxeItem {
 	@Override
 	public boolean mineBlock(ItemStack itemstack, Level world, BlockState blockstate, BlockPos pos, LivingEntity entity) {
 		boolean retval = super.mineBlock(itemstack, world, blockstate, pos, entity);
-		PiruffStoneAxeBlockDestroyedWithToolProcedure.execute(entity, itemstack);
+		WhenBlockDestroyedWithPiruffToolProcedure.execute(entity, itemstack);
 		return retval;
 	}
 }

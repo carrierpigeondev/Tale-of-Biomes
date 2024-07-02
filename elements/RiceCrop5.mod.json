@@ -101,16 +101,7 @@
     "luminance": 0,
     "unbreakable": false,
     "breakHarvestLevel": 0,
-    "placingCondition": {
-      "name": "RiceCropBlockValidPlacementCondition"
-    },
     "isBonemealable": true,
-    "bonemealSuccessCondition": {
-      "name": "RiceCropBoneMealSuccessCondition"
-    },
-    "onBonemealSuccess": {
-      "name": "RiceCropOnBoneMealSuccess"
-    },
     "hasInventory": true,
     "guiBoundTo": "<NONE>",
     "openGUIOnRightClick": false,
@@ -128,15 +119,6 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
-    "onTickUpdate": {
-      "name": "RiceCropUpdateTick"
-    },
-    "onDestroyedByPlayer": {
-      "name": "RiceCrop5BlockDestroyed"
-    },
-    "onDestroyedByExplosion": {
-      "name": "RiceCrop5BlockDestroyed"
-    },
     "generateFeature": false,
     "restrictionBiomes": [],
     "blocksToReplace": [

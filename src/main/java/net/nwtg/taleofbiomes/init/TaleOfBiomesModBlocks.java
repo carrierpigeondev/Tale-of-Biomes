@@ -10,35 +10,8 @@ import net.nwtg.taleofbiomes.block.WindowBlueprintBlock;
 import net.nwtg.taleofbiomes.block.WildIndigoFlowerPotBlock;
 import net.nwtg.taleofbiomes.block.WildIndigoBlock;
 import net.nwtg.taleofbiomes.block.WallBlueprintBlock;
-<<<<<<< HEAD
 import net.nwtg.taleofbiomes.block.UnpureCopperDustBlockBlock;
-=======
->>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
 import net.nwtg.taleofbiomes.block.ToolHandleBlockBlock;
-import net.nwtg.taleofbiomes.block.TilledSoilW4S4Block;
-import net.nwtg.taleofbiomes.block.TilledSoilW4S3Block;
-import net.nwtg.taleofbiomes.block.TilledSoilW4S2Block;
-import net.nwtg.taleofbiomes.block.TilledSoilW4S1Block;
-import net.nwtg.taleofbiomes.block.TilledSoilW4S0Block;
-import net.nwtg.taleofbiomes.block.TilledSoilW3S4Block;
-import net.nwtg.taleofbiomes.block.TilledSoilW3S3Block;
-import net.nwtg.taleofbiomes.block.TilledSoilW3S2Block;
-import net.nwtg.taleofbiomes.block.TilledSoilW3S1Block;
-import net.nwtg.taleofbiomes.block.TilledSoilW3S0Block;
-import net.nwtg.taleofbiomes.block.TilledSoilW2S4Block;
-import net.nwtg.taleofbiomes.block.TilledSoilW2S3Block;
-import net.nwtg.taleofbiomes.block.TilledSoilW2S2Block;
-import net.nwtg.taleofbiomes.block.TilledSoilW2S1Block;
-import net.nwtg.taleofbiomes.block.TilledSoilW2S0Block;
-import net.nwtg.taleofbiomes.block.TilledSoilW1S4Block;
-import net.nwtg.taleofbiomes.block.TilledSoilW1S3Block;
-import net.nwtg.taleofbiomes.block.TilledSoilW1S2Block;
-import net.nwtg.taleofbiomes.block.TilledSoilW1S1Block;
-import net.nwtg.taleofbiomes.block.TilledSoilW1S0Block;
-import net.nwtg.taleofbiomes.block.TilledSoilW0S4Block;
-import net.nwtg.taleofbiomes.block.TilledSoilW0S3Block;
-import net.nwtg.taleofbiomes.block.TilledSoilW0S2Block;
-import net.nwtg.taleofbiomes.block.TilledSoilW0S1Block;
 import net.nwtg.taleofbiomes.block.TilledSoilBlock;
 import net.nwtg.taleofbiomes.block.ThatchStairsBlock;
 import net.nwtg.taleofbiomes.block.ThatchSlabBlock;
@@ -72,10 +45,7 @@ import net.nwtg.taleofbiomes.block.PurplePiruffBedTopBlock;
 import net.nwtg.taleofbiomes.block.PurplePiruffBedBlock;
 import net.nwtg.taleofbiomes.block.PurpleAsterFlowerPotBlock;
 import net.nwtg.taleofbiomes.block.PurpleAsterBlock;
-<<<<<<< HEAD
 import net.nwtg.taleofbiomes.block.PureCopperDustBlockBlock;
-=======
->>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
 import net.nwtg.taleofbiomes.block.PureCoalOreBlock;
 import net.nwtg.taleofbiomes.block.PolishedShaleWallBlock;
 import net.nwtg.taleofbiomes.block.PolishedShaleStairsBlock;
@@ -126,10 +96,7 @@ import net.nwtg.taleofbiomes.block.MossyCobbledBasaltSlabBlock;
 import net.nwtg.taleofbiomes.block.MossyCobbledBasaltBlock;
 import net.nwtg.taleofbiomes.block.MossCarpetBlock;
 import net.nwtg.taleofbiomes.block.MossBlockBlock;
-<<<<<<< HEAD
 import net.nwtg.taleofbiomes.block.MixedCopperDustBlockBlock;
-=======
->>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
 import net.nwtg.taleofbiomes.block.MarbleWallBlock;
 import net.nwtg.taleofbiomes.block.MarbleStairsBlock;
 import net.nwtg.taleofbiomes.block.MarbleSlabBlock;
@@ -276,30 +243,6 @@ public class TaleOfBiomesModBlocks {
 	public static final DeferredHolder<Block, Block> PIRUFF_LOG = REGISTRY.register("piruff_log", () -> new PiruffLogBlock());
 	public static final DeferredHolder<Block, Block> PIRUFF_LEAVES = REGISTRY.register("piruff_leaves", () -> new PiruffLeavesBlock());
 	public static final DeferredHolder<Block, Block> PIRUFF_WOOD = REGISTRY.register("piruff_wood", () -> new PiruffWoodBlock());
-	public static final DeferredHolder<Block, Block> TILLED_SOIL_W_1_S_0 = REGISTRY.register("tilled_soil_w_1_s_0", () -> new TilledSoilW1S0Block());
-	public static final DeferredHolder<Block, Block> TILLED_SOIL_W_1_S_1 = REGISTRY.register("tilled_soil_w_1_s_1", () -> new TilledSoilW1S1Block());
-	public static final DeferredHolder<Block, Block> TILLED_SOIL_W_1_S_2 = REGISTRY.register("tilled_soil_w_1_s_2", () -> new TilledSoilW1S2Block());
-	public static final DeferredHolder<Block, Block> TILLED_SOIL_W_1_S_3 = REGISTRY.register("tilled_soil_w_1_s_3", () -> new TilledSoilW1S3Block());
-	public static final DeferredHolder<Block, Block> TILLED_SOIL_W_1_S_4 = REGISTRY.register("tilled_soil_w_1_s_4", () -> new TilledSoilW1S4Block());
-	public static final DeferredHolder<Block, Block> TILLED_SOIL_W_2_S_0 = REGISTRY.register("tilled_soil_w_2_s_0", () -> new TilledSoilW2S0Block());
-	public static final DeferredHolder<Block, Block> TILLED_SOIL_W_2_S_1 = REGISTRY.register("tilled_soil_w_2_s_1", () -> new TilledSoilW2S1Block());
-	public static final DeferredHolder<Block, Block> TILLED_SOIL_W_2_S_2 = REGISTRY.register("tilled_soil_w_2_s_2", () -> new TilledSoilW2S2Block());
-	public static final DeferredHolder<Block, Block> TILLED_SOIL_W_2_S_3 = REGISTRY.register("tilled_soil_w_2_s_3", () -> new TilledSoilW2S3Block());
-	public static final DeferredHolder<Block, Block> TILLED_SOIL_W_2_S_4 = REGISTRY.register("tilled_soil_w_2_s_4", () -> new TilledSoilW2S4Block());
-	public static final DeferredHolder<Block, Block> TILLED_SOIL_W_3_S_0 = REGISTRY.register("tilled_soil_w_3_s_0", () -> new TilledSoilW3S0Block());
-	public static final DeferredHolder<Block, Block> TILLED_SOIL_W_3_S_1 = REGISTRY.register("tilled_soil_w_3_s_1", () -> new TilledSoilW3S1Block());
-	public static final DeferredHolder<Block, Block> TILLED_SOIL_W_3_S_2 = REGISTRY.register("tilled_soil_w_3_s_2", () -> new TilledSoilW3S2Block());
-	public static final DeferredHolder<Block, Block> TILLED_SOIL_W_3_S_3 = REGISTRY.register("tilled_soil_w_3_s_3", () -> new TilledSoilW3S3Block());
-	public static final DeferredHolder<Block, Block> TILLED_SOIL_W_3_S_4 = REGISTRY.register("tilled_soil_w_3_s_4", () -> new TilledSoilW3S4Block());
-	public static final DeferredHolder<Block, Block> TILLED_SOIL_W_4_S_0 = REGISTRY.register("tilled_soil_w_4_s_0", () -> new TilledSoilW4S0Block());
-	public static final DeferredHolder<Block, Block> TILLED_SOIL_W_4_S_1 = REGISTRY.register("tilled_soil_w_4_s_1", () -> new TilledSoilW4S1Block());
-	public static final DeferredHolder<Block, Block> TILLED_SOIL_W_4_S_2 = REGISTRY.register("tilled_soil_w_4_s_2", () -> new TilledSoilW4S2Block());
-	public static final DeferredHolder<Block, Block> TILLED_SOIL_W_4_S_3 = REGISTRY.register("tilled_soil_w_4_s_3", () -> new TilledSoilW4S3Block());
-	public static final DeferredHolder<Block, Block> TILLED_SOIL_W_4_S_4 = REGISTRY.register("tilled_soil_w_4_s_4", () -> new TilledSoilW4S4Block());
-	public static final DeferredHolder<Block, Block> TILLED_SOIL_W_0_S_1 = REGISTRY.register("tilled_soil_w_0_s_1", () -> new TilledSoilW0S1Block());
-	public static final DeferredHolder<Block, Block> TILLED_SOIL_W_0_S_2 = REGISTRY.register("tilled_soil_w_0_s_2", () -> new TilledSoilW0S2Block());
-	public static final DeferredHolder<Block, Block> TILLED_SOIL_W_0_S_3 = REGISTRY.register("tilled_soil_w_0_s_3", () -> new TilledSoilW0S3Block());
-	public static final DeferredHolder<Block, Block> TILLED_SOIL_W_0_S_4 = REGISTRY.register("tilled_soil_w_0_s_4", () -> new TilledSoilW0S4Block());
 	public static final DeferredHolder<Block, Block> CLAY_BLOCK = REGISTRY.register("clay_block", () -> new ClayBlockBlock());
 	public static final DeferredHolder<Block, Block> BRICKS = REGISTRY.register("bricks", () -> new BricksBlock());
 	public static final DeferredHolder<Block, Block> LARGE_BRICKS = REGISTRY.register("large_bricks", () -> new LargeBricksBlock());
@@ -462,12 +405,9 @@ public class TaleOfBiomesModBlocks {
 	public static final DeferredHolder<Block, Block> MOSSY_COBBLED_SHALE_SLAB = REGISTRY.register("mossy_cobbled_shale_slab", () -> new MossyCobbledShaleSlabBlock());
 	public static final DeferredHolder<Block, Block> MOSSY_COBBLED_SHALE_WALL = REGISTRY.register("mossy_cobbled_shale_wall", () -> new MossyCobbledShaleWallBlock());
 	public static final DeferredHolder<Block, Block> BASIC_STONE_TABLE = REGISTRY.register("basic_stone_table", () -> new BasicStoneTableBlock());
-<<<<<<< HEAD
 	public static final DeferredHolder<Block, Block> PURE_COPPER_DUST_BLOCK = REGISTRY.register("pure_copper_dust_block", () -> new PureCopperDustBlockBlock());
 	public static final DeferredHolder<Block, Block> MIXED_COPPER_DUST_BLOCK = REGISTRY.register("mixed_copper_dust_block", () -> new MixedCopperDustBlockBlock());
 	public static final DeferredHolder<Block, Block> UNPURE_COPPER_DUST_BLOCK = REGISTRY.register("unpure_copper_dust_block", () -> new UnpureCopperDustBlockBlock());
-=======
->>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
 
 	// Start of user code block custom blocks
 	// End of user code block custom blocks

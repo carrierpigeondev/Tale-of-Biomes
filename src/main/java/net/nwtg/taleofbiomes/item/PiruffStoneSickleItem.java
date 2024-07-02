@@ -1,7 +1,7 @@
 
 package net.nwtg.taleofbiomes.item;
 
-import net.nwtg.taleofbiomes.procedures.PiruffStoneAxeBlockDestroyedWithToolProcedure;
+import net.nwtg.taleofbiomes.procedures.WhenBlockDestroyedWithPiruffToolProcedure;
 
 import net.neoforged.neoforge.common.ToolActions;
 import net.neoforged.neoforge.common.ToolAction;
@@ -28,11 +28,7 @@ public class PiruffStoneSickleItem extends TieredItem {
 	public PiruffStoneSickleItem() {
 		super(new Tier() {
 			public int getUses() {
-<<<<<<< HEAD
 				return 40;
-=======
-				return 55;
->>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
 			}
 
 			public float getSpeed() {
@@ -97,7 +93,7 @@ public class PiruffStoneSickleItem extends TieredItem {
 	@Override
 	public boolean mineBlock(ItemStack itemstack, Level world, BlockState blockstate, BlockPos pos, LivingEntity entity) {
 		itemstack.hurtAndBreak(1, entity, i -> i.broadcastBreakEvent(EquipmentSlot.MAINHAND));
-		PiruffStoneAxeBlockDestroyedWithToolProcedure.execute(entity, itemstack);
+		WhenBlockDestroyedWithPiruffToolProcedure.execute(entity, itemstack);
 		return true;
 	}
 

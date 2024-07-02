@@ -1,10 +1,6 @@
 
 package net.nwtg.taleofbiomes.block;
 
-import net.nwtg.taleofbiomes.procedures.RiceCropUpdateTickProcedure;
-import net.nwtg.taleofbiomes.procedures.RiceCropOnBoneMealSuccessProcedure;
-import net.nwtg.taleofbiomes.procedures.RiceCropBoneMealSuccessConditionProcedure;
-import net.nwtg.taleofbiomes.procedures.RiceCropBlockValidPlacementConditionProcedure;
 import net.nwtg.taleofbiomes.init.TaleOfBiomesModItems;
 import net.nwtg.taleofbiomes.block.entity.RiceCrop4BlockEntity;
 
@@ -20,10 +16,8 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.BonemealableBlock;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.item.ItemStack;
@@ -60,22 +54,6 @@ public class RiceCrop4Block extends Block implements EntityBlock, BonemealableBl
 	}
 
 	@Override
-	public boolean canSurvive(BlockState blockstate, LevelReader worldIn, BlockPos pos) {
-		if (worldIn instanceof LevelAccessor world) {
-			int x = pos.getX();
-			int y = pos.getY();
-			int z = pos.getZ();
-			return RiceCropBlockValidPlacementConditionProcedure.execute(world, x, y, z);
-		}
-		return super.canSurvive(blockstate, worldIn, pos);
-	}
-
-	@Override
-	public BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor world, BlockPos currentPos, BlockPos facingPos) {
-		return !state.canSurvive(world, currentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(state, facing, facingState, world, currentPos, facingPos);
-	}
-
-	@Override
 	public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
 		return 60;
 	}
@@ -91,31 +69,17 @@ public class RiceCrop4Block extends Block implements EntityBlock, BonemealableBl
 	}
 
 	@Override
-	public void onPlace(BlockState blockstate, Level world, BlockPos pos, BlockState oldState, boolean moving) {
-		super.onPlace(blockstate, world, pos, oldState, moving);
-		world.scheduleTick(pos, this, 1);
-	}
-
-	@Override
-	public void tick(BlockState blockstate, ServerLevel world, BlockPos pos, RandomSource random) {
-		super.tick(blockstate, world, pos, random);
-		RiceCropUpdateTickProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), blockstate);
-		world.scheduleTick(pos, this, 1);
-	}
-
-	@Override
 	public boolean isValidBonemealTarget(LevelReader worldIn, BlockPos pos, BlockState blockstate) {
 		return true;
 	}
 
 	@Override
 	public boolean isBonemealSuccess(Level world, RandomSource random, BlockPos pos, BlockState blockstate) {
-		return RiceCropBoneMealSuccessConditionProcedure.execute(world);
+		return true;
 	}
 
 	@Override
 	public void performBonemeal(ServerLevel world, RandomSource random, BlockPos pos, BlockState blockstate) {
-		RiceCropOnBoneMealSuccessProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), blockstate);
 	}
 
 	@Override

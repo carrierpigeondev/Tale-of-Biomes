@@ -101,9 +101,6 @@
     "luminance": 0,
     "unbreakable": false,
     "breakHarvestLevel": 0,
-    "placingCondition": {
-      "name": "RiceCropBlockValidPlacementCondition"
-    },
     "isBonemealable": false,
     "hasInventory": true,
     "guiBoundTo": "<NONE>",
@@ -122,9 +119,6 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
-    "onTickUpdate": {
-      "name": "RiceCropUpdateTick"
-    },
     "generateFeature": false,
     "restrictionBiomes": [],
     "blocksToReplace": [

@@ -4,7 +4,8 @@
  */
 package net.nwtg.taleofbiomes.init;
 
-import net.nwtg.taleofbiomes.client.model.Modelyellow_bed;
+import net.nwtg.taleofbiomes.client.model.Modelprairie_dog_standing;
+import net.nwtg.taleofbiomes.client.model.Modelprairie_dog;
 
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.fml.common.Mod;
@@ -15,6 +16,7 @@ import net.neoforged.api.distmarker.Dist;
 public class TaleOfBiomesModModels {
 	@SubscribeEvent
 	public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
-		event.registerLayerDefinition(Modelyellow_bed.LAYER_LOCATION, Modelyellow_bed::createBodyLayer);
+		event.registerLayerDefinition(Modelprairie_dog.LAYER_LOCATION, Modelprairie_dog::createBodyLayer);
+		event.registerLayerDefinition(Modelprairie_dog_standing.LAYER_LOCATION, Modelprairie_dog_standing::createBodyLayer);
 	}
 }

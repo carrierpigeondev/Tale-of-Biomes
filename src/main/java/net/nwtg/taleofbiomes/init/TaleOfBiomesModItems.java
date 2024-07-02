@@ -5,10 +5,8 @@
 package net.nwtg.taleofbiomes.init;
 
 import net.nwtg.taleofbiomes.procedures.SeasonDevicePropertyValueProviderProcedure;
-<<<<<<< HEAD
+import net.nwtg.taleofbiomes.item.UnpureRawCopperItem;
 import net.nwtg.taleofbiomes.item.UnpureCopperDustItem;
-=======
->>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
 import net.nwtg.taleofbiomes.item.StrawItem;
 import net.nwtg.taleofbiomes.item.StoneSwordHeadItem;
 import net.nwtg.taleofbiomes.item.StoneSickleHeadItem;
@@ -19,19 +17,16 @@ import net.nwtg.taleofbiomes.item.StoneAxeHeadItem;
 import net.nwtg.taleofbiomes.item.SeasonDeviceItem;
 import net.nwtg.taleofbiomes.item.RiceSeedsItem;
 import net.nwtg.taleofbiomes.item.QuicklimeItem;
-<<<<<<< HEAD
+import net.nwtg.taleofbiomes.item.PureRawCopperItem;
 import net.nwtg.taleofbiomes.item.PureCopperDustItem;
 import net.nwtg.taleofbiomes.item.PiruffSwordItem;
 import net.nwtg.taleofbiomes.item.PiruffSwordHeadItem;
-=======
->>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
 import net.nwtg.taleofbiomes.item.PiruffStoneSwordItem;
 import net.nwtg.taleofbiomes.item.PiruffStoneSickleItem;
 import net.nwtg.taleofbiomes.item.PiruffStoneShovelItem;
 import net.nwtg.taleofbiomes.item.PiruffStonePickaxeItem;
 import net.nwtg.taleofbiomes.item.PiruffStoneHoeItem;
 import net.nwtg.taleofbiomes.item.PiruffStoneAxeItem;
-<<<<<<< HEAD
 import net.nwtg.taleofbiomes.item.PiruffSickleItem;
 import net.nwtg.taleofbiomes.item.PiruffSickleHeadItem;
 import net.nwtg.taleofbiomes.item.PiruffShovelItem;
@@ -43,25 +38,21 @@ import net.nwtg.taleofbiomes.item.PiruffHoeHeadItem;
 import net.nwtg.taleofbiomes.item.PiruffGripItem;
 import net.nwtg.taleofbiomes.item.PiruffAxeItem;
 import net.nwtg.taleofbiomes.item.PiruffAxeHeadItem;
-=======
-import net.nwtg.taleofbiomes.item.PiruffGripItem;
->>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
 import net.nwtg.taleofbiomes.item.PhosphoriteSwordItem;
 import net.nwtg.taleofbiomes.item.PhosphoriteShovelItem;
 import net.nwtg.taleofbiomes.item.PhosphoritePickaxeItem;
 import net.nwtg.taleofbiomes.item.PhosphoriteHoeItem;
 import net.nwtg.taleofbiomes.item.PhosphoriteGemstoneItem;
 import net.nwtg.taleofbiomes.item.PhosphoriteAxeItem;
-<<<<<<< HEAD
+import net.nwtg.taleofbiomes.item.MixedRawCopperItem;
 import net.nwtg.taleofbiomes.item.MixedCopperDustItem;
-=======
->>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
 import net.nwtg.taleofbiomes.item.GhostBerriesItem;
 import net.nwtg.taleofbiomes.item.ClayItem;
 import net.nwtg.taleofbiomes.TaleOfBiomesMod;
 
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -115,30 +106,6 @@ public class TaleOfBiomesModItems {
 	public static final DeferredHolder<Item, Item> PIRUFF_LOG = block(TaleOfBiomesModBlocks.PIRUFF_LOG);
 	public static final DeferredHolder<Item, Item> PIRUFF_LEAVES = block(TaleOfBiomesModBlocks.PIRUFF_LEAVES);
 	public static final DeferredHolder<Item, Item> PIRUFF_WOOD = block(TaleOfBiomesModBlocks.PIRUFF_WOOD);
-	public static final DeferredHolder<Item, Item> TILLED_SOIL_W_1_S_0 = block(TaleOfBiomesModBlocks.TILLED_SOIL_W_1_S_0);
-	public static final DeferredHolder<Item, Item> TILLED_SOIL_W_1_S_1 = block(TaleOfBiomesModBlocks.TILLED_SOIL_W_1_S_1);
-	public static final DeferredHolder<Item, Item> TILLED_SOIL_W_1_S_2 = block(TaleOfBiomesModBlocks.TILLED_SOIL_W_1_S_2);
-	public static final DeferredHolder<Item, Item> TILLED_SOIL_W_1_S_3 = block(TaleOfBiomesModBlocks.TILLED_SOIL_W_1_S_3);
-	public static final DeferredHolder<Item, Item> TILLED_SOIL_W_1_S_4 = block(TaleOfBiomesModBlocks.TILLED_SOIL_W_1_S_4);
-	public static final DeferredHolder<Item, Item> TILLED_SOIL_W_2_S_0 = block(TaleOfBiomesModBlocks.TILLED_SOIL_W_2_S_0);
-	public static final DeferredHolder<Item, Item> TILLED_SOIL_W_2_S_1 = block(TaleOfBiomesModBlocks.TILLED_SOIL_W_2_S_1);
-	public static final DeferredHolder<Item, Item> TILLED_SOIL_W_2_S_2 = block(TaleOfBiomesModBlocks.TILLED_SOIL_W_2_S_2);
-	public static final DeferredHolder<Item, Item> TILLED_SOIL_W_2_S_3 = block(TaleOfBiomesModBlocks.TILLED_SOIL_W_2_S_3);
-	public static final DeferredHolder<Item, Item> TILLED_SOIL_W_2_S_4 = block(TaleOfBiomesModBlocks.TILLED_SOIL_W_2_S_4);
-	public static final DeferredHolder<Item, Item> TILLED_SOIL_W_3_S_0 = block(TaleOfBiomesModBlocks.TILLED_SOIL_W_3_S_0);
-	public static final DeferredHolder<Item, Item> TILLED_SOIL_W_3_S_1 = block(TaleOfBiomesModBlocks.TILLED_SOIL_W_3_S_1);
-	public static final DeferredHolder<Item, Item> TILLED_SOIL_W_3_S_2 = block(TaleOfBiomesModBlocks.TILLED_SOIL_W_3_S_2);
-	public static final DeferredHolder<Item, Item> TILLED_SOIL_W_3_S_3 = block(TaleOfBiomesModBlocks.TILLED_SOIL_W_3_S_3);
-	public static final DeferredHolder<Item, Item> TILLED_SOIL_W_3_S_4 = block(TaleOfBiomesModBlocks.TILLED_SOIL_W_3_S_4);
-	public static final DeferredHolder<Item, Item> TILLED_SOIL_W_4_S_0 = block(TaleOfBiomesModBlocks.TILLED_SOIL_W_4_S_0);
-	public static final DeferredHolder<Item, Item> TILLED_SOIL_W_4_S_1 = block(TaleOfBiomesModBlocks.TILLED_SOIL_W_4_S_1);
-	public static final DeferredHolder<Item, Item> TILLED_SOIL_W_4_S_2 = block(TaleOfBiomesModBlocks.TILLED_SOIL_W_4_S_2);
-	public static final DeferredHolder<Item, Item> TILLED_SOIL_W_4_S_3 = block(TaleOfBiomesModBlocks.TILLED_SOIL_W_4_S_3);
-	public static final DeferredHolder<Item, Item> TILLED_SOIL_W_4_S_4 = block(TaleOfBiomesModBlocks.TILLED_SOIL_W_4_S_4);
-	public static final DeferredHolder<Item, Item> TILLED_SOIL_W_0_S_1 = block(TaleOfBiomesModBlocks.TILLED_SOIL_W_0_S_1);
-	public static final DeferredHolder<Item, Item> TILLED_SOIL_W_0_S_2 = block(TaleOfBiomesModBlocks.TILLED_SOIL_W_0_S_2);
-	public static final DeferredHolder<Item, Item> TILLED_SOIL_W_0_S_3 = block(TaleOfBiomesModBlocks.TILLED_SOIL_W_0_S_3);
-	public static final DeferredHolder<Item, Item> TILLED_SOIL_W_0_S_4 = block(TaleOfBiomesModBlocks.TILLED_SOIL_W_0_S_4);
 	public static final DeferredHolder<Item, Item> CLAY_BLOCK = block(TaleOfBiomesModBlocks.CLAY_BLOCK);
 	public static final DeferredHolder<Item, Item> CLAY = REGISTRY.register("clay", () -> new ClayItem());
 	public static final DeferredHolder<Item, Item> BRICKS = block(TaleOfBiomesModBlocks.BRICKS);
@@ -320,7 +287,6 @@ public class TaleOfBiomesModItems {
 	public static final DeferredHolder<Item, Item> MOSSY_COBBLED_SHALE_SLAB = block(TaleOfBiomesModBlocks.MOSSY_COBBLED_SHALE_SLAB);
 	public static final DeferredHolder<Item, Item> MOSSY_COBBLED_SHALE_WALL = block(TaleOfBiomesModBlocks.MOSSY_COBBLED_SHALE_WALL);
 	public static final DeferredHolder<Item, Item> BASIC_STONE_TABLE = block(TaleOfBiomesModBlocks.BASIC_STONE_TABLE);
-<<<<<<< HEAD
 	public static final DeferredHolder<Item, Item> PIRUFF_AXE_HEAD = REGISTRY.register("piruff_axe_head", () -> new PiruffAxeHeadItem());
 	public static final DeferredHolder<Item, Item> PIRUFF_PICKAXE_HEAD = REGISTRY.register("piruff_pickaxe_head", () -> new PiruffPickaxeHeadItem());
 	public static final DeferredHolder<Item, Item> PIRUFF_SHOVEL_HEAD = REGISTRY.register("piruff_shovel_head", () -> new PiruffShovelHeadItem());
@@ -339,8 +305,10 @@ public class TaleOfBiomesModItems {
 	public static final DeferredHolder<Item, Item> PURE_COPPER_DUST_BLOCK = block(TaleOfBiomesModBlocks.PURE_COPPER_DUST_BLOCK);
 	public static final DeferredHolder<Item, Item> MIXED_COPPER_DUST_BLOCK = block(TaleOfBiomesModBlocks.MIXED_COPPER_DUST_BLOCK);
 	public static final DeferredHolder<Item, Item> UNPURE_COPPER_DUST_BLOCK = block(TaleOfBiomesModBlocks.UNPURE_COPPER_DUST_BLOCK);
-=======
->>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
+	public static final DeferredHolder<Item, Item> PURE_RAW_COPPER = REGISTRY.register("pure_raw_copper", () -> new PureRawCopperItem());
+	public static final DeferredHolder<Item, Item> MIXED_RAW_COPPER = REGISTRY.register("mixed_raw_copper", () -> new MixedRawCopperItem());
+	public static final DeferredHolder<Item, Item> UNPURE_RAW_COPPER = REGISTRY.register("unpure_raw_copper", () -> new UnpureRawCopperItem());
+	public static final DeferredHolder<Item, Item> PRAIRIE_DOG_SPAWN_EGG = REGISTRY.register("prairie_dog_spawn_egg", () -> new DeferredSpawnEggItem(TaleOfBiomesModEntities.PRAIRIE_DOG, -5602204, -661555, new Item.Properties()));
 
 	// Start of user code block custom items
 	// End of user code block custom items

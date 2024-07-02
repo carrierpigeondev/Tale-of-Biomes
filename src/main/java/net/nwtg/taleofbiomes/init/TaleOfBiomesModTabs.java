@@ -23,13 +23,14 @@ public class TaleOfBiomesModTabs {
 				tabData.accept(TaleOfBiomesModItems.CLAY.get());
 				tabData.accept(TaleOfBiomesModItems.QUICKLIME.get());
 				tabData.accept(TaleOfBiomesModItems.PHOSPHORITE_GEMSTONE.get());
-<<<<<<< HEAD
+				tabData.accept(TaleOfBiomesModItems.PURE_RAW_COPPER.get());
+				tabData.accept(TaleOfBiomesModItems.MIXED_RAW_COPPER.get());
+				tabData.accept(TaleOfBiomesModItems.UNPURE_RAW_COPPER.get());
 				tabData.accept(TaleOfBiomesModItems.PURE_COPPER_DUST.get());
 				tabData.accept(TaleOfBiomesModItems.MIXED_COPPER_DUST.get());
 				tabData.accept(TaleOfBiomesModItems.UNPURE_COPPER_DUST.get());
-=======
->>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
 				tabData.accept(TaleOfBiomesModItems.GHOST_BERRIES.get());
+				tabData.accept(TaleOfBiomesModItems.PRAIRIE_DOG_SPAWN_EGG.get());
 			})
 
 					.build());
@@ -56,45 +57,35 @@ public class TaleOfBiomesModTabs {
 				tabData.accept(TaleOfBiomesModItems.PHOSPHORITE_PICKAXE.get());
 				tabData.accept(TaleOfBiomesModItems.PHOSPHORITE_SHOVEL.get());
 				tabData.accept(TaleOfBiomesModItems.PHOSPHORITE_SWORD.get());
-<<<<<<< HEAD
 				tabData.accept(TaleOfBiomesModItems.PIRUFF_AXE.get());
-				tabData.accept(TaleOfBiomesModItems.PIRUFF_STONE_AXE.get());
 				tabData.accept(TaleOfBiomesModItems.PIRUFF_HOE.get());
-				tabData.accept(TaleOfBiomesModItems.PIRUFF_STONE_HOE.get());
 				tabData.accept(TaleOfBiomesModItems.PIRUFF_PICKAXE.get());
-				tabData.accept(TaleOfBiomesModItems.PIRUFF_STONE_PICKAXE.get());
 				tabData.accept(TaleOfBiomesModItems.PIRUFF_SHOVEL.get());
-				tabData.accept(TaleOfBiomesModItems.PIRUFF_STONE_SHOVEL.get());
 				tabData.accept(TaleOfBiomesModItems.PIRUFF_SICKLE.get());
-				tabData.accept(TaleOfBiomesModItems.PIRUFF_STONE_SICKLE.get());
 				tabData.accept(TaleOfBiomesModItems.PIRUFF_SWORD.get());
+				tabData.accept(TaleOfBiomesModItems.PIRUFF_STONE_AXE.get());
+				tabData.accept(TaleOfBiomesModItems.PIRUFF_STONE_HOE.get());
+				tabData.accept(TaleOfBiomesModItems.PIRUFF_STONE_PICKAXE.get());
+				tabData.accept(TaleOfBiomesModItems.PIRUFF_STONE_SHOVEL.get());
+				tabData.accept(TaleOfBiomesModItems.PIRUFF_STONE_SICKLE.get());
 				tabData.accept(TaleOfBiomesModItems.PIRUFF_STONE_SWORD.get());
+			})
+
+					.build());
+	public static final DeferredHolder<CreativeModeTab, CreativeModeTab> TOB_TOOL_PARTS_TAB = REGISTRY.register("tob_tool_parts_tab",
+			() -> CreativeModeTab.builder().title(Component.translatable("item_group.tale_of_biomes.tob_tool_parts_tab")).icon(() -> new ItemStack(TaleOfBiomesModItems.STONE_AXE_HEAD.get())).displayItems((parameters, tabData) -> {
 				tabData.accept(TaleOfBiomesModItems.PIRUFF_GRIP.get());
 				tabData.accept(TaleOfBiomesModItems.PIRUFF_AXE_HEAD.get());
-				tabData.accept(TaleOfBiomesModItems.STONE_AXE_HEAD.get());
 				tabData.accept(TaleOfBiomesModItems.PIRUFF_HOE_HEAD.get());
-				tabData.accept(TaleOfBiomesModItems.STONE_HOE_HEAD.get());
 				tabData.accept(TaleOfBiomesModItems.PIRUFF_PICKAXE_HEAD.get());
-				tabData.accept(TaleOfBiomesModItems.STONE_PICKAXE_HEAD.get());
 				tabData.accept(TaleOfBiomesModItems.PIRUFF_SHOVEL_HEAD.get());
-				tabData.accept(TaleOfBiomesModItems.STONE_SHOVEL_HEAD.get());
 				tabData.accept(TaleOfBiomesModItems.PIRUFF_SICKLE_HEAD.get());
-				tabData.accept(TaleOfBiomesModItems.STONE_SICKLE_HEAD.get());
 				tabData.accept(TaleOfBiomesModItems.PIRUFF_SWORD_HEAD.get());
-=======
-				tabData.accept(TaleOfBiomesModItems.PIRUFF_STONE_AXE.get());
-				tabData.accept(TaleOfBiomesModItems.PIRUFF_STONE_HOE.get());
-				tabData.accept(TaleOfBiomesModItems.PIRUFF_STONE_PICKAXE.get());
-				tabData.accept(TaleOfBiomesModItems.PIRUFF_STONE_SHOVEL.get());
-				tabData.accept(TaleOfBiomesModItems.PIRUFF_STONE_SICKLE.get());
-				tabData.accept(TaleOfBiomesModItems.PIRUFF_STONE_SWORD.get());
-				tabData.accept(TaleOfBiomesModItems.PIRUFF_GRIP.get());
 				tabData.accept(TaleOfBiomesModItems.STONE_AXE_HEAD.get());
 				tabData.accept(TaleOfBiomesModItems.STONE_HOE_HEAD.get());
 				tabData.accept(TaleOfBiomesModItems.STONE_PICKAXE_HEAD.get());
 				tabData.accept(TaleOfBiomesModItems.STONE_SHOVEL_HEAD.get());
 				tabData.accept(TaleOfBiomesModItems.STONE_SICKLE_HEAD.get());
->>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
 				tabData.accept(TaleOfBiomesModItems.STONE_SWORD_HEAD.get());
 			})
 
@@ -153,12 +144,9 @@ public class TaleOfBiomesModTabs {
 				tabData.accept(TaleOfBiomesModBlocks.COBBLED_LIMESTONE.get().asItem());
 				tabData.accept(TaleOfBiomesModBlocks.QUICKLIME_BLOCK.get().asItem());
 				tabData.accept(TaleOfBiomesModBlocks.PHOSPHORITE_STONE.get().asItem());
-<<<<<<< HEAD
 				tabData.accept(TaleOfBiomesModBlocks.PURE_COPPER_DUST_BLOCK.get().asItem());
 				tabData.accept(TaleOfBiomesModBlocks.MIXED_COPPER_DUST_BLOCK.get().asItem());
 				tabData.accept(TaleOfBiomesModBlocks.UNPURE_COPPER_DUST_BLOCK.get().asItem());
-=======
->>>>>>> dc78bc576cac33261a34dd844807db5157120f1a
 				tabData.accept(TaleOfBiomesModBlocks.PHOSPHORITE_CRYSTAL.get().asItem());
 				tabData.accept(TaleOfBiomesModBlocks.PHOSPHORITE_CRYSTAL_BOTTOM.get().asItem());
 				tabData.accept(TaleOfBiomesModBlocks.PHOSPHORITE_CRYSTAL_TOP.get().asItem());

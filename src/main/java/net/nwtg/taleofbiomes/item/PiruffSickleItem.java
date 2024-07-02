@@ -1,7 +1,7 @@
 
 package net.nwtg.taleofbiomes.item;
 
-import net.nwtg.taleofbiomes.procedures.PiruffStoneAxeBlockDestroyedWithToolProcedure;
+import net.nwtg.taleofbiomes.procedures.WhenBlockDestroyedWithPiruffToolProcedure;
 
 import net.neoforged.neoforge.common.ToolActions;
 import net.neoforged.neoforge.common.ToolAction;
@@ -93,7 +93,7 @@ public class PiruffSickleItem extends TieredItem {
 	@Override
 	public boolean mineBlock(ItemStack itemstack, Level world, BlockState blockstate, BlockPos pos, LivingEntity entity) {
 		itemstack.hurtAndBreak(1, entity, i -> i.broadcastBreakEvent(EquipmentSlot.MAINHAND));
-		PiruffStoneAxeBlockDestroyedWithToolProcedure.execute(entity, itemstack);
+		WhenBlockDestroyedWithPiruffToolProcedure.execute(entity, itemstack);
 		return true;
 	}
 

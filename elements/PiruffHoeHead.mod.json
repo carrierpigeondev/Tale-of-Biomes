@@ -10,7 +10,7 @@
     "name": "Stone Hoe Head",
     "rarity": "COMMON",
     "creativeTab": {
-      "value": "CUSTOM:TOBToolTab"
+      "value": "CUSTOM:TOBToolPartsTab"
     },
     "stackSize": 64,
     "enchantability": 0,
