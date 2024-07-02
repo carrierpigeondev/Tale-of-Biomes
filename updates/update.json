@@ -9,10 +9,11 @@
   },
   "1.20.4": {
     "0.6.0": "MAJOR UPDATE\n\n- Migrated to MCreator 2024.1.\n- Migrated to NeoFroge 1.20.4.",
-    "0.7.0": "ADDED\n\n- Added a new biome called Volcanic.\n\n- Added Basalt block recipes to the Basic Stone Table.\n\n- Added Marble block recipes to the Basic Stone Table.\n\n- Added NeoForge tags for dusts, dusts/copper, dust_block, and dust_block/copper.\n\n- Added Pure Copper Dust, Mixed Copper Dust, and Unpure Copper Dust items.\n\n- Added Pure Copper Dust Block, Mixed Copper Dust Block, and Unpure Copper Dust Block blocks.\n\n- Added Recipe Helper to the Basic Stone Table.\n\n- Added recipe unlocking system using scoreboards and functions.\n\n- Added Shale block recipes to the Basic Stone Table.\n\n- Added tag cycle support for the Basic Tool Table and Basic Stone Table.\n\n- Added Wooden Piruff tools and tool heads.\n\nCHANGES\n\n- Changed procedure names for the Basic Tool Table GUI.\n\n- Changed textures for Basalt and Polished Basalt.\n\n- Changed textures for Piruff Logs and Stripped Piruff Logs.\n\n- Replaced Piruff Log textures."
+    "0.7.0": "ADDED\n\n- Added a new biome called Volcanic.\n\n- Added Basalt block recipes to the Basic Stone Table.\n\n- Added Marble block recipes to the Basic Stone Table.\n\n- Added NeoForge tags for dusts, dusts/copper, dust_block, and dust_block/copper.\n\n- Added Pure Copper Dust, Mixed Copper Dust, and Unpure Copper Dust items.\n\n- Added Pure Copper Dust Block, Mixed Copper Dust Block, and Unpure Copper Dust Block blocks.\n\n- Added Recipe Helper to the Basic Stone Table.\n\n- Added recipe unlocking system using scoreboards and functions.\n\n- Added Shale block recipes to the Basic Stone Table.\n\n- Added tag cycle support for the Basic Tool Table and Basic Stone Table.\n\n- Added Wooden Piruff tools and tool heads.\n\nCHANGES\n\n- Changed procedure names for the Basic Tool Table GUI.\n\n- Changed textures for Basalt and Polished Basalt.\n\n- Changed textures for Piruff Logs and Stripped Piruff Logs.\n\n- Replaced Piruff Log textures.",
+    "0.8.0": "ADDED\n\n- Added a Creative Tab for tool parts.\n\n- Added Prairie Dogs\n\nCHANGES\n\n- Moved tool parts to the new creative tab.\n\nREMOVED\n\n- Removed the old crop mechanics.\n\n- Removed weed support (May be added back somehow at a later date)\n\nKNOWN ISSUES\n\n- Crops do not grow at the moment.\n\n- Prairie Dogs can sometimes walk while in the standing state."
   },
   "promos": {
-    "1.20.4-latest": "0.7.0",
-    "1.20.4-recommended": "0.7.0"
+    "1.20.4-latest": "0.8.0",
+    "1.20.4-recommended": "0.8.0"
   }
 }
