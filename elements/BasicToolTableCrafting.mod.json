@@ -1,0 +1,48 @@
+{
+  "_fv": 60,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "basic_table",
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "TAG:mod:planks/eldenmoor"
+      },
+      {
+        "value": "TAG:mod:planks/eldenmoor"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "TAG:mod:logs/eldenmoor"
+      },
+      {
+        "value": "TAG:mod:logs/eldenmoor"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:BasicToolTable"
+    },
+    "name": "basic_tool_table_crafting",
+    "namespace": "mod"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:simple_random_selector",
+  "config": {
+    "features": [
+      {
+        "feature": {
+          "type": "tale_of_biomes:structure_feature",
+          "config": {
+            "structure": "tale_of_biomes:volcanic_formation_2",
+            "random_rotation": true,
+            "ignored_blocks": "minecraft:structure_block",
+            "offset": [
+              0,
+              -3,
+              0
+            ]
+          }
+        },
+        "placement": []
+      },
+      {
+        "feature": {
+          "type": "tale_of_biomes:structure_feature",
+          "config": {
+            "structure": "tale_of_biomes:volcanic_formation_3",
+            "random_rotation": true,
+            "ignored_blocks": "minecraft:structure_block",
+            "offset": [
+              0,
+              -3,
+              0
+            ]
+          }
+        },
+        "placement": []
+      }
+    ]
+  }
+}

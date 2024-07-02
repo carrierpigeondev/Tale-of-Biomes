@@ -1,0 +1,17 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "tilled_soil": "tilled_soil",
+        "fertile_soil": "fertile_soil",
+        "fertile_soil_side_b": "fertile_soil_side_b",
+        "fertile_soil_side_c": "fertile_soil_side_c",
+        "weeds": "weeds_0",
+        "stones": "stones_0",
+        "fertile_soil_side_d": "fertile_soil_side_d",
+        "fertile_soil_side_a": "fertile_soil_side_a"
+      },
+      "name": "default"
+    }
+  }
+}
