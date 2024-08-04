@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "tale_of_biomes:unlock_crafting_recipes",
-    "tale_of_biomes:player_fluid_function"
+    "tale_of_biomes:deleted_mod_element",
+    "tale_of_biomes:deleted_mod_element"
   ]
 }

@@ -1,8 +1,0 @@
-{
-  "parent": "block/button",
-  "textures": {
-    "particle": "tale_of_biomes:block/marble",
-    "texture": "tale_of_biomes:block/marble"
-  },
-  "render_type": "solid"
-}

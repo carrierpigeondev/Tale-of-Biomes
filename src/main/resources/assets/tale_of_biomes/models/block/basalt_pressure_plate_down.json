@@ -1,8 +1,0 @@
-{
-  "parent": "block/pressure_plate_down",
-  "textures": {
-    "particle": "tale_of_biomes:block/basalt",
-    "texture": "tale_of_biomes:block/basalt"
-  },
-  "render_type": "solid"
-}

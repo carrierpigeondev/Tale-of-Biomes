@@ -3,16 +3,7 @@ package net.nwtg.taleofbiomes;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
-import net.nwtg.taleofbiomes.world.features.StructureFeature;
 import net.nwtg.taleofbiomes.network.TaleOfBiomesModVariables;
-import net.nwtg.taleofbiomes.init.TaleOfBiomesModTabs;
-import net.nwtg.taleofbiomes.init.TaleOfBiomesModMobEffects;
-import net.nwtg.taleofbiomes.init.TaleOfBiomesModMenus;
-import net.nwtg.taleofbiomes.init.TaleOfBiomesModItems;
-import net.nwtg.taleofbiomes.init.TaleOfBiomesModFeatures;
-import net.nwtg.taleofbiomes.init.TaleOfBiomesModEntities;
-import net.nwtg.taleofbiomes.init.TaleOfBiomesModBlocks;
-import net.nwtg.taleofbiomes.init.TaleOfBiomesModBlockEntities;
 
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import net.neoforged.neoforge.network.handling.IPayloadHandler;
@@ -47,18 +38,7 @@ public class TaleOfBiomesMod {
 		NeoForge.EVENT_BUS.register(this);
 		modEventBus.addListener(this::registerNetworking);
 
-		TaleOfBiomesModBlocks.REGISTRY.register(modEventBus);
-		TaleOfBiomesModBlockEntities.REGISTRY.register(modEventBus);
-		TaleOfBiomesModItems.REGISTRY.register(modEventBus);
-		TaleOfBiomesModEntities.REGISTRY.register(modEventBus);
-		TaleOfBiomesModTabs.REGISTRY.register(modEventBus);
 		TaleOfBiomesModVariables.ATTACHMENT_TYPES.register(modEventBus);
-		TaleOfBiomesModFeatures.REGISTRY.register(modEventBus);
-		StructureFeature.REGISTRY.register(modEventBus);
-
-		TaleOfBiomesModMobEffects.REGISTRY.register(modEventBus);
-
-		TaleOfBiomesModMenus.REGISTRY.register(modEventBus);
 
 		// Start of user code block mod init
 		// End of user code block mod init
