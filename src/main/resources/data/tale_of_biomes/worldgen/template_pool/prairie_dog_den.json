@@ -1,0 +1,26 @@
+{
+  "name": "tale_of_biomes:prairie_dog_den",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "tale_of_biomes:prairie_dog_den_main",
+        "projection": "rigid",
+        "processors": {
+          "processors": [
+            {
+              "processor_type": "minecraft:block_ignore",
+              "blocks": [
+                {
+                  "Name": "minecraft:structure_block"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

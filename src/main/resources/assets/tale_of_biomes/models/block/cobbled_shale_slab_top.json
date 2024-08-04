@@ -1,6 +1,7 @@
 {
   "parent": "block/slab_top",
   "textures": {
+    "particle": "tale_of_biomes:block/cobbled_shale",
     "bottom": "tale_of_biomes:block/cobbled_shale",
     "top": "tale_of_biomes:block/cobbled_shale",
     "side": "tale_of_biomes:block/cobbled_shale"

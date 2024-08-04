@@ -1,7 +1,7 @@
 
 package net.nwtg.taleofbiomes.block;
 
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.block.state.BlockState;
@@ -15,14 +15,10 @@ import net.minecraft.core.BlockPos;
 import com.mojang.serialization.MapCodec;
 
 public class GravelBlock extends FallingBlock {
-	public static final MapCodec<GravelBlock> CODEC = simpleCodec(GravelBlock::new);
+	public static final MapCodec<GravelBlock> CODEC = simpleCodec(properties -> new GravelBlock());
 
 	public MapCodec<GravelBlock> codec() {
 		return CODEC;
-	}
-
-	public GravelBlock(BlockBehaviour.Properties ignored) {
-		this();
 	}
 
 	public GravelBlock() {
@@ -35,7 +31,7 @@ public class GravelBlock extends FallingBlock {
 	}
 
 	@Override
-	public BlockPathTypes getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
-		return BlockPathTypes.BLOCKED;
+	public PathType getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
+		return PathType.BLOCKED;
 	}
 }

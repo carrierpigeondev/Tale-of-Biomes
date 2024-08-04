@@ -96,7 +96,7 @@ public class KilnScreenScreen extends AbstractContainerScreen<KilnScreenMenu> {
 		imagebutton_kiln_power_button = new ImageButton(this.leftPos + 114, this.topPos + 52, 18, 18,
 				new WidgetSprites(new ResourceLocation("tale_of_biomes:textures/screens/kiln_power_button.png"), new ResourceLocation("tale_of_biomes:textures/screens/kiln_power_button_hover.png")), e -> {
 					if (true) {
-						PacketDistributor.SERVER.noArg().send(new KilnScreenButtonMessage(0, x, y, z));
+						PacketDistributor.sendToServer(new KilnScreenButtonMessage(0, x, y, z));
 						KilnScreenButtonMessage.handleButtonAction(entity, 0, x, y, z);
 					}
 				}) {

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:netherrack_replace_blobs",
+  "config": {
+    "target": {
+      "Name": "tale_of_biomes:basalt"
+    },
+    "state": {
+      "Name": "tale_of_biomes:cobbled_basalt"
+    },
+    "radius": 5
+  }
+}

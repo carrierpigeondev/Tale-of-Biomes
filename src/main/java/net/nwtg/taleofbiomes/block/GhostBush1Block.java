@@ -8,7 +8,7 @@ import net.nwtg.taleofbiomes.init.TaleOfBiomesModItems;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.block.state.BlockState;
@@ -69,8 +69,8 @@ public class GhostBush1Block extends Block {
 	}
 
 	@Override
-	public BlockPathTypes getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
-		return BlockPathTypes.FENCE;
+	public PathType getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
+		return PathType.FENCE;
 	}
 
 	@Override

@@ -85,7 +85,7 @@ public class BasicStoneTableMenuRecipeBookScreen extends AbstractContainerScreen
 		imagebutton_recipe_helper_button_back = new ImageButton(this.leftPos + -83, this.topPos + 88, 27, 18,
 				new WidgetSprites(new ResourceLocation("tale_of_biomes:textures/screens/recipe_helper_button_back.png"), new ResourceLocation("tale_of_biomes:textures/screens/recipe_helper_button_back_hover.png")), e -> {
 					if (true) {
-						PacketDistributor.SERVER.noArg().send(new BasicStoneTableMenuRecipeBookButtonMessage(0, x, y, z));
+						PacketDistributor.sendToServer(new BasicStoneTableMenuRecipeBookButtonMessage(0, x, y, z));
 						BasicStoneTableMenuRecipeBookButtonMessage.handleButtonAction(entity, 0, x, y, z);
 					}
 				}) {
@@ -99,7 +99,7 @@ public class BasicStoneTableMenuRecipeBookScreen extends AbstractContainerScreen
 		imagebutton_recipe_helper_button_forward = new ImageButton(this.leftPos + -56, this.topPos + 88, 27, 18,
 				new WidgetSprites(new ResourceLocation("tale_of_biomes:textures/screens/recipe_helper_button_forward.png"), new ResourceLocation("tale_of_biomes:textures/screens/recipe_helper_button_forward_hover.png")), e -> {
 					if (true) {
-						PacketDistributor.SERVER.noArg().send(new BasicStoneTableMenuRecipeBookButtonMessage(1, x, y, z));
+						PacketDistributor.sendToServer(new BasicStoneTableMenuRecipeBookButtonMessage(1, x, y, z));
 						BasicStoneTableMenuRecipeBookButtonMessage.handleButtonAction(entity, 1, x, y, z);
 					}
 				}) {
@@ -113,7 +113,7 @@ public class BasicStoneTableMenuRecipeBookScreen extends AbstractContainerScreen
 		imagebutton_kiln_light_on = new ImageButton(this.leftPos + 11, this.topPos + 39, 8, 8,
 				new WidgetSprites(new ResourceLocation("tale_of_biomes:textures/screens/kiln_light_on.png"), new ResourceLocation("tale_of_biomes:textures/screens/kiln_light_off.png")), e -> {
 					if (true) {
-						PacketDistributor.SERVER.noArg().send(new BasicStoneTableMenuRecipeBookButtonMessage(2, x, y, z));
+						PacketDistributor.sendToServer(new BasicStoneTableMenuRecipeBookButtonMessage(2, x, y, z));
 						BasicStoneTableMenuRecipeBookButtonMessage.handleButtonAction(entity, 2, x, y, z);
 					}
 				}) {

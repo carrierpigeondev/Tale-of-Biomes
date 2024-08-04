@@ -9,14 +9,7 @@ import net.nwtg.taleofbiomes.block.entity.WallBlueprintBlockEntity;
 import net.nwtg.taleofbiomes.block.entity.TilledSoilBlockEntity;
 import net.nwtg.taleofbiomes.block.entity.SolarPannelBlockEntity;
 import net.nwtg.taleofbiomes.block.entity.RoseShrubBlockEntity;
-import net.nwtg.taleofbiomes.block.entity.RiceCrop7BlockEntity;
-import net.nwtg.taleofbiomes.block.entity.RiceCrop6BlockEntity;
-import net.nwtg.taleofbiomes.block.entity.RiceCrop5BlockEntity;
-import net.nwtg.taleofbiomes.block.entity.RiceCrop4BlockEntity;
-import net.nwtg.taleofbiomes.block.entity.RiceCrop3BlockEntity;
-import net.nwtg.taleofbiomes.block.entity.RiceCrop2BlockEntity;
-import net.nwtg.taleofbiomes.block.entity.RiceCrop1BlockEntity;
-import net.nwtg.taleofbiomes.block.entity.RiceCrop0BlockEntity;
+import net.nwtg.taleofbiomes.block.entity.RiceCropBlockEntity;
 import net.nwtg.taleofbiomes.block.entity.PlotBlueprintBlockEntity;
 import net.nwtg.taleofbiomes.block.entity.PiruffSaplingBlockEntity;
 import net.nwtg.taleofbiomes.block.entity.PhosphoriteStoneBlockEntity;
@@ -71,14 +64,14 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.capabilities.Capabilities;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.core.registries.BuiltInRegistries;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public class TaleOfBiomesModBlockEntities {
 	public static final DeferredRegister<BlockEntityType<?>> REGISTRY = DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, TaleOfBiomesMod.MODID);
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> GRASS_BLOCK = register("grass_block", TaleOfBiomesModBlocks.GRASS_BLOCK, GrassBlockBlockEntity::new);
@@ -97,14 +90,6 @@ public class TaleOfBiomesModBlockEntities {
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> KILN_BLOCK_MIDDLE_CENTER = register("kiln_block_middle_center", TaleOfBiomesModBlocks.KILN_BLOCK_MIDDLE_CENTER, KilnBlockMiddleCenterBlockEntity::new);
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> KILN_BLOCK_MIDDLE_TOP = register("kiln_block_middle_top", TaleOfBiomesModBlocks.KILN_BLOCK_MIDDLE_TOP, KilnBlockMiddleTopBlockEntity::new);
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> KILN_BLOCK_FOUNDATION = register("kiln_block_foundation", TaleOfBiomesModBlocks.KILN_BLOCK_FOUNDATION, KilnBlockFoundationBlockEntity::new);
-	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> RICE_CROP_0 = register("rice_crop_0", TaleOfBiomesModBlocks.RICE_CROP_0, RiceCrop0BlockEntity::new);
-	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> RICE_CROP_1 = register("rice_crop_1", TaleOfBiomesModBlocks.RICE_CROP_1, RiceCrop1BlockEntity::new);
-	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> RICE_CROP_2 = register("rice_crop_2", TaleOfBiomesModBlocks.RICE_CROP_2, RiceCrop2BlockEntity::new);
-	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> RICE_CROP_3 = register("rice_crop_3", TaleOfBiomesModBlocks.RICE_CROP_3, RiceCrop3BlockEntity::new);
-	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> RICE_CROP_4 = register("rice_crop_4", TaleOfBiomesModBlocks.RICE_CROP_4, RiceCrop4BlockEntity::new);
-	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> RICE_CROP_5 = register("rice_crop_5", TaleOfBiomesModBlocks.RICE_CROP_5, RiceCrop5BlockEntity::new);
-	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> RICE_CROP_6 = register("rice_crop_6", TaleOfBiomesModBlocks.RICE_CROP_6, RiceCrop6BlockEntity::new);
-	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> RICE_CROP_7 = register("rice_crop_7", TaleOfBiomesModBlocks.RICE_CROP_7, RiceCrop7BlockEntity::new);
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> HAY_GRASS = register("hay_grass", TaleOfBiomesModBlocks.HAY_GRASS, HayGrassBlockEntity::new);
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> HAY_STRAW = register("hay_straw", TaleOfBiomesModBlocks.HAY_STRAW, HayStrawBlockEntity::new);
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> PLOT_BLUEPRINT = register("plot_blueprint", TaleOfBiomesModBlocks.PLOT_BLUEPRINT, PlotBlueprintBlockEntity::new);
@@ -142,6 +127,7 @@ public class TaleOfBiomesModBlockEntities {
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> COPPER_BATTERY_4 = register("copper_battery_4", TaleOfBiomesModBlocks.COPPER_BATTERY_4, CopperBattery4BlockEntity::new);
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> DRILL = register("drill", TaleOfBiomesModBlocks.DRILL, DrillBlockEntity::new);
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> BASIC_STONE_TABLE = register("basic_stone_table", TaleOfBiomesModBlocks.BASIC_STONE_TABLE, BasicStoneTableBlockEntity::new);
+	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> RICE_CROP = register("rice_crop", TaleOfBiomesModBlocks.RICE_CROP, RiceCropBlockEntity::new);
 
 	private static DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> register(String registryname, DeferredHolder<Block, Block> block, BlockEntityType.BlockEntitySupplier<?> supplier) {
 		return REGISTRY.register(registryname, () -> BlockEntityType.Builder.of(supplier, block.get()).build(null));
@@ -165,14 +151,6 @@ public class TaleOfBiomesModBlockEntities {
 		event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, KILN_BLOCK_MIDDLE_CENTER.get(), (blockEntity, side) -> ((KilnBlockMiddleCenterBlockEntity) blockEntity).getItemHandler());
 		event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, KILN_BLOCK_MIDDLE_TOP.get(), (blockEntity, side) -> ((KilnBlockMiddleTopBlockEntity) blockEntity).getItemHandler());
 		event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, KILN_BLOCK_FOUNDATION.get(), (blockEntity, side) -> ((KilnBlockFoundationBlockEntity) blockEntity).getItemHandler());
-		event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, RICE_CROP_0.get(), (blockEntity, side) -> ((RiceCrop0BlockEntity) blockEntity).getItemHandler());
-		event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, RICE_CROP_1.get(), (blockEntity, side) -> ((RiceCrop1BlockEntity) blockEntity).getItemHandler());
-		event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, RICE_CROP_2.get(), (blockEntity, side) -> ((RiceCrop2BlockEntity) blockEntity).getItemHandler());
-		event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, RICE_CROP_3.get(), (blockEntity, side) -> ((RiceCrop3BlockEntity) blockEntity).getItemHandler());
-		event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, RICE_CROP_4.get(), (blockEntity, side) -> ((RiceCrop4BlockEntity) blockEntity).getItemHandler());
-		event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, RICE_CROP_5.get(), (blockEntity, side) -> ((RiceCrop5BlockEntity) blockEntity).getItemHandler());
-		event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, RICE_CROP_6.get(), (blockEntity, side) -> ((RiceCrop6BlockEntity) blockEntity).getItemHandler());
-		event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, RICE_CROP_7.get(), (blockEntity, side) -> ((RiceCrop7BlockEntity) blockEntity).getItemHandler());
 		event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, HAY_GRASS.get(), (blockEntity, side) -> ((HayGrassBlockEntity) blockEntity).getItemHandler());
 		event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, HAY_STRAW.get(), (blockEntity, side) -> ((HayStrawBlockEntity) blockEntity).getItemHandler());
 		event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, PLOT_BLUEPRINT.get(), (blockEntity, side) -> ((PlotBlueprintBlockEntity) blockEntity).getItemHandler());
@@ -234,5 +212,6 @@ public class TaleOfBiomesModBlockEntities {
 		event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, DRILL.get(), (blockEntity, side) -> ((DrillBlockEntity) blockEntity).getItemHandler());
 		event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK, DRILL.get(), (blockEntity, side) -> ((DrillBlockEntity) blockEntity).getEnergyStorage());
 		event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, BASIC_STONE_TABLE.get(), (blockEntity, side) -> ((BasicStoneTableBlockEntity) blockEntity).getItemHandler());
+		event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, RICE_CROP.get(), (blockEntity, side) -> ((RiceCropBlockEntity) blockEntity).getItemHandler());
 	}
 }

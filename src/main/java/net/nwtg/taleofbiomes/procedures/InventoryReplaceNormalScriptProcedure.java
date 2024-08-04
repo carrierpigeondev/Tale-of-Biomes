@@ -16,185 +16,185 @@ public class InventoryReplaceNormalScriptProcedure {
 	public static void execute(Entity entity) {
 		if (entity == null)
 			return;
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot0.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot0.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(0, _setstack);
+			_modHandler.setStackInSlot(0, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot1.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot1.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(1, _setstack);
+			_modHandler.setStackInSlot(1, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot2.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot2.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(2, _setstack);
+			_modHandler.setStackInSlot(2, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot3.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot3.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(3, _setstack);
+			_modHandler.setStackInSlot(3, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot4.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot4.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(4, _setstack);
+			_modHandler.setStackInSlot(4, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot5.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot5.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(5, _setstack);
+			_modHandler.setStackInSlot(5, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot6.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot6.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(6, _setstack);
+			_modHandler.setStackInSlot(6, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot7.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot7.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(7, _setstack);
+			_modHandler.setStackInSlot(7, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot8.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot8.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(8, _setstack);
+			_modHandler.setStackInSlot(8, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot9.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot9.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(9, _setstack);
+			_modHandler.setStackInSlot(9, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot10.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot10.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(10, _setstack);
+			_modHandler.setStackInSlot(10, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot11.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot11.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(11, _setstack);
+			_modHandler.setStackInSlot(11, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot12.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot12.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(12, _setstack);
+			_modHandler.setStackInSlot(12, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot13.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot13.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(13, _setstack);
+			_modHandler.setStackInSlot(13, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot14.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot14.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(14, _setstack);
+			_modHandler.setStackInSlot(14, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot15.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot15.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(15, _setstack);
+			_modHandler.setStackInSlot(15, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot16.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot16.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(16, _setstack);
+			_modHandler.setStackInSlot(16, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot17.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot17.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(17, _setstack);
+			_modHandler.setStackInSlot(17, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot18.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot18.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(18, _setstack);
+			_modHandler.setStackInSlot(18, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot19.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot19.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(19, _setstack);
+			_modHandler.setStackInSlot(19, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot20.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot20.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(20, _setstack);
+			_modHandler.setStackInSlot(20, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot21.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot21.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(21, _setstack);
+			_modHandler.setStackInSlot(21, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot22.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot22.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(22, _setstack);
+			_modHandler.setStackInSlot(22, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot23.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot23.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(23, _setstack);
+			_modHandler.setStackInSlot(23, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot24.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot24.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(24, _setstack);
+			_modHandler.setStackInSlot(24, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot25.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot25.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(25, _setstack);
+			_modHandler.setStackInSlot(25, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot26.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot26.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(26, _setstack);
+			_modHandler.setStackInSlot(26, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot27.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot27.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(27, _setstack);
+			_modHandler.setStackInSlot(27, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot28.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot28.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(28, _setstack);
+			_modHandler.setStackInSlot(28, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot29.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot29.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(29, _setstack);
+			_modHandler.setStackInSlot(29, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot30.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot30.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(30, _setstack);
+			_modHandler.setStackInSlot(30, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot31.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot31.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(31, _setstack);
+			_modHandler.setStackInSlot(31, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot32.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot32.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(32, _setstack);
+			_modHandler.setStackInSlot(32, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot33.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot33.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(33, _setstack);
+			_modHandler.setStackInSlot(33, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot34.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot34.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(34, _setstack);
+			_modHandler.setStackInSlot(34, _setstack);
 		}
-		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntSetSlot) {
+		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot35.copy();
 			_setstack.setCount(entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot35.getCount());
-			_modHandlerEntSetSlot.setStackInSlot(35, _setstack);
+			_modHandler.setStackInSlot(35, _setstack);
 		}
 		if (entity instanceof LivingEntity _entity) {
 			ItemStack _setstack = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).normalSlot36.copy();

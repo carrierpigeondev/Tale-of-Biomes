@@ -1,5 +1,5 @@
 {
-  "_fv": 60,
+  "_fv": 66,
   "_type": "tool",
   "definition": {
     "toolType": "Sword",
@@ -12,21 +12,23 @@
     "specialInformation": {
       "fixedValue": []
     },
-    "creativeTab": {
-      "value": "CUSTOM:TOBToolTab"
-    },
-    "harvestLevel": 0,
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:TOBToolTab"
+      }
+    ],
     "efficiency": 4.0,
     "attackSpeed": 1.6,
     "enchantability": 5,
     "damageVsEntity": 5.0,
     "usageCount": 25,
-    "blocksAffected": [],
     "glowCondition": {
       "fixedValue": false
     },
     "repairItems": [],
     "immuneToFire": false,
+    "blockDropsTier": "WOOD",
+    "blocksAffected": [],
     "stayInGridWhenCrafting": false,
     "damageOnCrafting": false,
     "onBlockDestroyedWithTool": {

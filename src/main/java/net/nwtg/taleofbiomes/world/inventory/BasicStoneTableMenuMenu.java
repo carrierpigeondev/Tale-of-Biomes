@@ -7,15 +7,18 @@ import net.nwtg.taleofbiomes.network.BasicStoneTableMenuSlotMessage;
 import net.nwtg.taleofbiomes.init.TaleOfBiomesModMenus;
 
 import net.neoforged.neoforge.network.PacketDistributor;
+import net.neoforged.neoforge.items.wrapper.InvWrapper;
 import net.neoforged.neoforge.items.SlotItemHandler;
 import net.neoforged.neoforge.items.ItemStackHandler;
+import net.neoforged.neoforge.items.IItemHandlerModifiable;
 import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.event.TickEvent;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.capabilities.Capabilities;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.inventory.Slot;
@@ -32,7 +35,7 @@ import java.util.function.Supplier;
 import java.util.Map;
 import java.util.HashMap;
 
-@Mod.EventBusSubscriber
+@EventBusSubscriber
 public class BasicStoneTableMenuMenu extends AbstractContainerMenu implements Supplier<Map<Integer, Slot>> {
 	public final static HashMap<String, Object> guistate = new HashMap<>();
 	public final Level world;
@@ -81,45 +84,31 @@ public class BasicStoneTableMenuMenu extends AbstractContainerMenu implements Su
 				}
 			} else { // might be bound to block
 				boundBlockEntity = this.world.getBlockEntity(pos);
-				if (boundBlockEntity != null) {
-					IItemHandler cap = this.world.getCapability(Capabilities.ItemHandler.BLOCK, pos, null);
-					if (cap != null) {
-						this.internal = cap;
-						this.bound = true;
-					}
+				if (boundBlockEntity instanceof BaseContainerBlockEntity baseContainerBlockEntity) {
+					this.internal = new InvWrapper(baseContainerBlockEntity);
+					this.bound = true;
 				}
 			}
 		}
 		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 26, 17) {
-			private final int slot = 0;
 		}));
 		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 44, 17) {
-			private final int slot = 1;
 		}));
 		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 62, 17) {
-			private final int slot = 2;
 		}));
 		this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 26, 35) {
-			private final int slot = 3;
 		}));
 		this.customSlots.put(4, this.addSlot(new SlotItemHandler(internal, 4, 44, 35) {
-			private final int slot = 4;
 		}));
 		this.customSlots.put(5, this.addSlot(new SlotItemHandler(internal, 5, 62, 35) {
-			private final int slot = 5;
 		}));
 		this.customSlots.put(6, this.addSlot(new SlotItemHandler(internal, 6, 26, 53) {
-			private final int slot = 6;
 		}));
 		this.customSlots.put(7, this.addSlot(new SlotItemHandler(internal, 7, 44, 53) {
-			private final int slot = 7;
 		}));
 		this.customSlots.put(8, this.addSlot(new SlotItemHandler(internal, 8, 62, 53) {
-			private final int slot = 8;
 		}));
 		this.customSlots.put(9, this.addSlot(new SlotItemHandler(internal, 9, 134, 35) {
-			private final int slot = 9;
-
 			@Override
 			public void onTake(Player entity, ItemStack stack) {
 				super.onTake(entity, stack);
@@ -195,25 +184,25 @@ public class BasicStoneTableMenuMenu extends AbstractContainerMenu implements Su
 			while (!p_38904_.isEmpty() && (p_38907_ ? i >= p_38905_ : i < p_38906_)) {
 				Slot slot = this.slots.get(i);
 				ItemStack itemstack = slot.getItem();
-				if (slot.mayPlace(itemstack) && !itemstack.isEmpty() && ItemStack.isSameItemSameTags(p_38904_, itemstack)) {
+				if (slot.mayPlace(itemstack) && !itemstack.isEmpty() && ItemStack.isSameItemSameComponents(p_38904_, itemstack)) {
 					int j = itemstack.getCount() + p_38904_.getCount();
-					int maxSize = Math.min(slot.getMaxStackSize(), p_38904_.getMaxStackSize());
-					if (j <= maxSize) {
+					int k = slot.getMaxStackSize(itemstack);
+					if (j <= k) {
 						p_38904_.setCount(0);
 						itemstack.setCount(j);
 						slot.set(itemstack);
 						flag = true;
-					} else if (itemstack.getCount() < maxSize) {
-						p_38904_.shrink(maxSize - itemstack.getCount());
-						itemstack.setCount(maxSize);
+					} else if (itemstack.getCount() < k) {
+						p_38904_.shrink(k - itemstack.getCount());
+						itemstack.setCount(k);
 						slot.set(itemstack);
 						flag = true;
 					}
 				}
 				if (p_38907_) {
-					--i;
+					i--;
 				} else {
-					++i;
+					i++;
 				}
 			}
 		}
@@ -227,19 +216,16 @@ public class BasicStoneTableMenuMenu extends AbstractContainerMenu implements Su
 				Slot slot1 = this.slots.get(i);
 				ItemStack itemstack1 = slot1.getItem();
 				if (itemstack1.isEmpty() && slot1.mayPlace(p_38904_)) {
-					if (p_38904_.getCount() > slot1.getMaxStackSize()) {
-						slot1.setByPlayer(p_38904_.split(slot1.getMaxStackSize()));
-					} else {
-						slot1.setByPlayer(p_38904_.split(p_38904_.getCount()));
-					}
+					int l = slot1.getMaxStackSize(p_38904_);
+					slot1.setByPlayer(p_38904_.split(Math.min(p_38904_.getCount(), l)));
 					slot1.setChanged();
 					flag = true;
 					break;
 				}
 				if (p_38907_) {
-					--i;
+					i--;
 				} else {
-					++i;
+					i++;
 				}
 			}
 		}
@@ -252,11 +238,15 @@ public class BasicStoneTableMenuMenu extends AbstractContainerMenu implements Su
 		if (!bound && playerIn instanceof ServerPlayer serverPlayer) {
 			if (!serverPlayer.isAlive() || serverPlayer.hasDisconnected()) {
 				for (int j = 0; j < internal.getSlots(); ++j) {
-					playerIn.drop(internal.extractItem(j, internal.getStackInSlot(j).getCount(), false), false);
+					playerIn.drop(internal.getStackInSlot(j), false);
+					if (internal instanceof IItemHandlerModifiable ihm)
+						ihm.setStackInSlot(j, ItemStack.EMPTY);
 				}
 			} else {
 				for (int i = 0; i < internal.getSlots(); ++i) {
-					playerIn.getInventory().placeItemBackInInventory(internal.extractItem(i, internal.getStackInSlot(i).getCount(), false));
+					playerIn.getInventory().placeItemBackInInventory(internal.getStackInSlot(i));
+					if (internal instanceof IItemHandlerModifiable ihm)
+						ihm.setStackInSlot(i, ItemStack.EMPTY);
 				}
 			}
 		}
@@ -264,7 +254,7 @@ public class BasicStoneTableMenuMenu extends AbstractContainerMenu implements Su
 
 	private void slotChanged(int slotid, int ctype, int meta) {
 		if (this.world != null && this.world.isClientSide()) {
-			PacketDistributor.SERVER.noArg().send(new BasicStoneTableMenuSlotMessage(slotid, x, y, z, ctype, meta));
+			PacketDistributor.sendToServer(new BasicStoneTableMenuSlotMessage(slotid, x, y, z, ctype, meta));
 			BasicStoneTableMenuSlotMessage.handleSlotAction(entity, slotid, ctype, meta, x, y, z);
 		}
 	}
@@ -274,9 +264,9 @@ public class BasicStoneTableMenuMenu extends AbstractContainerMenu implements Su
 	}
 
 	@SubscribeEvent
-	public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
-		Player entity = event.player;
-		if (event.phase == TickEvent.Phase.END && entity.containerMenu instanceof BasicStoneTableMenuMenu) {
+	public static void onPlayerTick(PlayerTickEvent.Post event) {
+		Player entity = event.getEntity();
+		if (entity.containerMenu instanceof BasicStoneTableMenuMenu) {
 			Level world = entity.level();
 			double x = entity.getX();
 			double y = entity.getY();

@@ -1,0 +1,33 @@
+{
+  "feature": "tale_of_biomes:volcanic_large_basalt_columns",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 5
+    },
+    {
+      "type": "minecraft:count_on_every_layer",
+      "count": 2
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "OCEAN_FLOOR_WG"
+    },
+    {
+      "type": "minecraft:random_offset",
+      "xz_spread": {
+        "type": "uniform",
+        "min_inclusive": 0,
+        "max_inclusive": 0
+      },
+      "y_spread": {
+        "type": "uniform",
+        "min_inclusive": -5,
+        "max_inclusive": 0
+      }
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

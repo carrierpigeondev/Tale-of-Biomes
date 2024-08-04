@@ -1,6 +1,7 @@
 {
   "parent": "block/inner_stairs",
   "textures": {
+    "particle": "tale_of_biomes:block/shale_end",
     "bottom": "tale_of_biomes:block/shale_end",
     "top": "tale_of_biomes:block/shale_end",
     "side": "tale_of_biomes:block/shale_side"

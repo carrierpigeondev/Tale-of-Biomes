@@ -4,13 +4,13 @@ import net.nwtg.taleofbiomes.TaleOfBiomesMod;
 
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import net.neoforged.neoforge.network.handling.PlayPayloadContext;
+import net.neoforged.neoforge.network.handling.IPayloadContext;
 import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.common.util.INBTSerializable;
 import net.neoforged.neoforge.attachment.AttachmentType;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 
 import net.minecraft.world.level.saveddata.SavedData;
@@ -24,25 +24,26 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.network.protocol.PacketFlow;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.client.Minecraft;
+import net.minecraft.core.HolderLookup;
 
 import java.util.function.Supplier;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public class TaleOfBiomesModVariables {
 	public static final DeferredRegister<AttachmentType<?>> ATTACHMENT_TYPES = DeferredRegister.create(NeoForgeRegistries.Keys.ATTACHMENT_TYPES, TaleOfBiomesMod.MODID);
 	public static final Supplier<AttachmentType<PlayerVariables>> PLAYER_VARIABLES = ATTACHMENT_TYPES.register("player_variables", () -> AttachmentType.serializable(() -> new PlayerVariables()).build());
 
 	@SubscribeEvent
 	public static void init(FMLCommonSetupEvent event) {
-		TaleOfBiomesMod.addNetworkMessage(SavedDataSyncMessage.ID, SavedDataSyncMessage::new, SavedDataSyncMessage::handleData);
-		TaleOfBiomesMod.addNetworkMessage(PlayerVariablesSyncMessage.ID, PlayerVariablesSyncMessage::new, PlayerVariablesSyncMessage::handleData);
+		TaleOfBiomesMod.addNetworkMessage(SavedDataSyncMessage.TYPE, SavedDataSyncMessage.STREAM_CODEC, SavedDataSyncMessage::handleData);
+		TaleOfBiomesMod.addNetworkMessage(PlayerVariablesSyncMessage.TYPE, PlayerVariablesSyncMessage.STREAM_CODEC, PlayerVariablesSyncMessage::handleData);
 	}
 
-	@Mod.EventBusSubscriber
+	@EventBusSubscriber
 	public static class EventBusVariableHandlers {
 		@SubscribeEvent
 		public static void onPlayerLoggedInSyncPlayerVariables(PlayerEvent.PlayerLoggedInEvent event) {
@@ -160,6 +161,9 @@ public class TaleOfBiomesModVariables {
 				clone.clientTemperatureC = original.clientTemperatureC;
 				clone.clientTemperatureF = original.clientTemperatureF;
 				clone.recipePage = original.recipePage;
+				clone.playerFluid = original.playerFluid;
+				clone.playerFluidSaturation = original.playerFluidSaturation;
+				clone.playerFluidDamageTime = original.playerFluidDamageTime;
 			}
 			event.getEntity().setData(PLAYER_VARIABLES, clone);
 		}
@@ -170,9 +174,9 @@ public class TaleOfBiomesModVariables {
 				SavedData mapdata = MapVariables.get(event.getEntity().level());
 				SavedData worlddata = WorldVariables.get(event.getEntity().level());
 				if (mapdata != null)
-					PacketDistributor.PLAYER.with(player).send(new SavedDataSyncMessage(0, mapdata));
+					PacketDistributor.sendToPlayer(player, new SavedDataSyncMessage(0, mapdata));
 				if (worlddata != null)
-					PacketDistributor.PLAYER.with(player).send(new SavedDataSyncMessage(1, worlddata));
+					PacketDistributor.sendToPlayer(player, new SavedDataSyncMessage(1, worlddata));
 			}
 		}
 
@@ -181,7 +185,7 @@ public class TaleOfBiomesModVariables {
 			if (event.getEntity() instanceof ServerPlayer player) {
 				SavedData worlddata = WorldVariables.get(event.getEntity().level());
 				if (worlddata != null)
-					PacketDistributor.PLAYER.with(player).send(new SavedDataSyncMessage(1, worlddata));
+					PacketDistributor.sendToPlayer(player, new SavedDataSyncMessage(1, worlddata));
 			}
 		}
 	}
@@ -200,13 +204,13 @@ public class TaleOfBiomesModVariables {
 		public double worldWeatherTemperature = 4.0;
 		public double worldTimeTemperature = 0.0;
 
-		public static WorldVariables load(CompoundTag tag) {
+		public static WorldVariables load(CompoundTag tag, HolderLookup.Provider lookupProvider) {
 			WorldVariables data = new WorldVariables();
-			data.read(tag);
+			data.read(tag, lookupProvider);
 			return data;
 		}
 
-		public void read(CompoundTag nbt) {
+		public void read(CompoundTag nbt, HolderLookup.Provider lookupProvider) {
 			worldSeasonName = nbt.getString("worldSeasonName");
 			worldSeasonDay = nbt.getDouble("worldSeasonDay");
 			worldMaxSeasonDay = nbt.getDouble("worldMaxSeasonDay");
@@ -221,7 +225,7 @@ public class TaleOfBiomesModVariables {
 		}
 
 		@Override
-		public CompoundTag save(CompoundTag nbt) {
+		public CompoundTag save(CompoundTag nbt, HolderLookup.Provider lookupProvider) {
 			nbt.putString("worldSeasonName", worldSeasonName);
 			nbt.putDouble("worldSeasonDay", worldSeasonDay);
 			nbt.putDouble("worldMaxSeasonDay", worldMaxSeasonDay);
@@ -238,8 +242,8 @@ public class TaleOfBiomesModVariables {
 
 		public void syncData(LevelAccessor world) {
 			this.setDirty();
-			if (world instanceof Level level && !level.isClientSide())
-				PacketDistributor.DIMENSION.with(level.dimension()).send(new SavedDataSyncMessage(1, this));
+			if (world instanceof ServerLevel level)
+				PacketDistributor.sendToPlayersInDimension(level, new SavedDataSyncMessage(1, this));
 		}
 
 		static WorldVariables clientSide = new WorldVariables();
@@ -258,19 +262,19 @@ public class TaleOfBiomesModVariables {
 		public String modNamespace = "tale_of_biomes";
 		public double forgeFlow = 0;
 
-		public static MapVariables load(CompoundTag tag) {
+		public static MapVariables load(CompoundTag tag, HolderLookup.Provider lookupProvider) {
 			MapVariables data = new MapVariables();
-			data.read(tag);
+			data.read(tag, lookupProvider);
 			return data;
 		}
 
-		public void read(CompoundTag nbt) {
+		public void read(CompoundTag nbt, HolderLookup.Provider lookupProvider) {
 			modNamespace = nbt.getString("modNamespace");
 			forgeFlow = nbt.getDouble("forgeFlow");
 		}
 
 		@Override
-		public CompoundTag save(CompoundTag nbt) {
+		public CompoundTag save(CompoundTag nbt, HolderLookup.Provider lookupProvider) {
 			nbt.putString("modNamespace", modNamespace);
 			nbt.putDouble("forgeFlow", forgeFlow);
 			return nbt;
@@ -279,7 +283,7 @@ public class TaleOfBiomesModVariables {
 		public void syncData(LevelAccessor world) {
 			this.setDirty();
 			if (world instanceof Level && !world.isClientSide())
-				PacketDistributor.ALL.noArg().send(new SavedDataSyncMessage(0, this));
+				PacketDistributor.sendToAllPlayers(new SavedDataSyncMessage(0, this));
 		}
 
 		static MapVariables clientSide = new MapVariables();
@@ -293,49 +297,40 @@ public class TaleOfBiomesModVariables {
 		}
 	}
 
-	public static class SavedDataSyncMessage implements CustomPacketPayload {
-		public static final ResourceLocation ID = new ResourceLocation(TaleOfBiomesMod.MODID, "saved_data_sync");
-		private final int type;
-		private SavedData data;
-
-		public SavedDataSyncMessage(FriendlyByteBuf buffer) {
-			this.type = buffer.readInt();
+	public record SavedDataSyncMessage(int dataType, SavedData data) implements CustomPacketPayload {
+		public static final Type<SavedDataSyncMessage> TYPE = new Type<>(new ResourceLocation(TaleOfBiomesMod.MODID, "saved_data_sync"));
+		public static final StreamCodec<RegistryFriendlyByteBuf, SavedDataSyncMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, SavedDataSyncMessage message) -> {
+			buffer.writeInt(message.dataType);
+			if (message.data != null)
+				buffer.writeNbt(message.data.save(new CompoundTag(), buffer.registryAccess()));
+		}, (RegistryFriendlyByteBuf buffer) -> {
+			int dataType = buffer.readInt();
 			CompoundTag nbt = buffer.readNbt();
+			SavedData data = null;
 			if (nbt != null) {
-				this.data = this.type == 0 ? new MapVariables() : new WorldVariables();
-				if (this.data instanceof MapVariables mapVariables)
-					mapVariables.read(nbt);
-				else if (this.data instanceof WorldVariables worldVariables)
-					worldVariables.read(nbt);
+				data = dataType == 0 ? new MapVariables() : new WorldVariables();
+				if (data instanceof MapVariables mapVariables)
+					mapVariables.read(nbt, buffer.registryAccess());
+				else if (data instanceof WorldVariables worldVariables)
+					worldVariables.read(nbt, buffer.registryAccess());
 			}
-		}
-
-		public SavedDataSyncMessage(int type, SavedData data) {
-			this.type = type;
-			this.data = data;
-		}
+			return new SavedDataSyncMessage(dataType, data);
+		});
 
 		@Override
-		public void write(final FriendlyByteBuf buffer) {
-			buffer.writeInt(type);
-			if (data != null)
-				buffer.writeNbt(data.save(new CompoundTag()));
+		public Type<SavedDataSyncMessage> type() {
+			return TYPE;
 		}
 
-		@Override
-		public ResourceLocation id() {
-			return ID;
-		}
-
-		public static void handleData(final SavedDataSyncMessage message, final PlayPayloadContext context) {
+		public static void handleData(final SavedDataSyncMessage message, final IPayloadContext context) {
 			if (context.flow() == PacketFlow.CLIENTBOUND && message.data != null) {
-				context.workHandler().submitAsync(() -> {
-					if (message.type == 0)
-						MapVariables.clientSide.read(message.data.save(new CompoundTag()));
+				context.enqueueWork(() -> {
+					if (message.dataType == 0)
+						MapVariables.clientSide.read(message.data.save(new CompoundTag(), context.player().registryAccess()), context.player().registryAccess());
 					else
-						WorldVariables.clientSide.read(message.data.save(new CompoundTag()));
+						WorldVariables.clientSide.read(message.data.save(new CompoundTag(), context.player().registryAccess()), context.player().registryAccess());
 				}).exceptionally(e -> {
-					context.packetHandler().disconnect(Component.literal(e.getMessage()));
+					context.connection().disconnect(Component.literal(e.getMessage()));
 					return null;
 				});
 			}
@@ -436,96 +431,99 @@ public class TaleOfBiomesModVariables {
 		public boolean isBasicToolTableRecipeBookOpen = false;
 		public boolean isRecipeHelperOpen = false;
 		public double recipeHelperUpdateTimer = 0;
+		public double playerFluid = 20.0;
+		public double playerFluidSaturation = 3000.0;
+		public double playerFluidDamageTime = 100.0;
 
 		@Override
-		public CompoundTag serializeNBT() {
+		public CompoundTag serializeNBT(HolderLookup.Provider lookupProvider) {
 			CompoundTag nbt = new CompoundTag();
 			nbt.putBoolean("CanTravelToEldenmoor", CanTravelToEldenmoor);
 			nbt.putDouble("blockPosX", blockPosX);
 			nbt.putDouble("blockPosY", blockPosY);
 			nbt.putDouble("blockPosZ", blockPosZ);
-			nbt.put("normalSlot0", normalSlot0.save(new CompoundTag()));
-			nbt.put("normalSlot1", normalSlot1.save(new CompoundTag()));
-			nbt.put("normalSlot2", normalSlot2.save(new CompoundTag()));
-			nbt.put("normalSlot3", normalSlot3.save(new CompoundTag()));
-			nbt.put("normalSlot4", normalSlot4.save(new CompoundTag()));
-			nbt.put("normalSlot5", normalSlot5.save(new CompoundTag()));
-			nbt.put("normalSlot6", normalSlot6.save(new CompoundTag()));
-			nbt.put("normalSlot7", normalSlot7.save(new CompoundTag()));
-			nbt.put("normalSlot8", normalSlot8.save(new CompoundTag()));
-			nbt.put("normalSlot9", normalSlot9.save(new CompoundTag()));
-			nbt.put("normalSlot10", normalSlot10.save(new CompoundTag()));
-			nbt.put("normalSlot11", normalSlot11.save(new CompoundTag()));
-			nbt.put("normalSlot12", normalSlot12.save(new CompoundTag()));
-			nbt.put("normalSlot13", normalSlot13.save(new CompoundTag()));
-			nbt.put("normalSlot14", normalSlot14.save(new CompoundTag()));
-			nbt.put("normalSlot15", normalSlot15.save(new CompoundTag()));
-			nbt.put("normalSlot16", normalSlot16.save(new CompoundTag()));
-			nbt.put("normalSlot17", normalSlot17.save(new CompoundTag()));
-			nbt.put("normalSlot18", normalSlot18.save(new CompoundTag()));
-			nbt.put("normalSlot19", normalSlot19.save(new CompoundTag()));
-			nbt.put("normalSlot20", normalSlot20.save(new CompoundTag()));
-			nbt.put("normalSlot21", normalSlot21.save(new CompoundTag()));
-			nbt.put("normalSlot22", normalSlot22.save(new CompoundTag()));
-			nbt.put("normalSlot23", normalSlot23.save(new CompoundTag()));
-			nbt.put("normalSlot24", normalSlot24.save(new CompoundTag()));
-			nbt.put("normalSlot25", normalSlot25.save(new CompoundTag()));
-			nbt.put("normalSlot26", normalSlot26.save(new CompoundTag()));
-			nbt.put("normalSlot27", normalSlot27.save(new CompoundTag()));
-			nbt.put("normalSlot28", normalSlot28.save(new CompoundTag()));
-			nbt.put("normalSlot29", normalSlot29.save(new CompoundTag()));
-			nbt.put("normalSlot30", normalSlot30.save(new CompoundTag()));
-			nbt.put("normalSlot31", normalSlot31.save(new CompoundTag()));
-			nbt.put("normalSlot32", normalSlot32.save(new CompoundTag()));
-			nbt.put("normalSlot33", normalSlot33.save(new CompoundTag()));
-			nbt.put("normalSlot34", normalSlot34.save(new CompoundTag()));
-			nbt.put("normalSlot35", normalSlot35.save(new CompoundTag()));
-			nbt.put("normalSlot36", normalSlot36.save(new CompoundTag()));
-			nbt.put("normalSlot37", normalSlot37.save(new CompoundTag()));
-			nbt.put("normalSlot38", normalSlot38.save(new CompoundTag()));
-			nbt.put("normalSlot39", normalSlot39.save(new CompoundTag()));
-			nbt.put("normalSlot40", normalSlot40.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot0", eldenmoorSlot0.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot1", eldenmoorSlot1.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot2", eldenmoorSlot2.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot3", eldenmoorSlot3.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot4", eldenmoorSlot4.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot5", eldenmoorSlot5.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot6", eldenmoorSlot6.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot7", eldenmoorSlot7.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot8", eldenmoorSlot8.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot9", eldenmoorSlot9.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot10", eldenmoorSlot10.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot11", eldenmoorSlot11.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot12", eldenmoorSlot12.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot13", eldenmoorSlot13.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot14", eldenmoorSlot14.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot15", eldenmoorSlot15.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot16", eldenmoorSlot16.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot17", eldenmoorSlot17.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot18", eldenmoorSlot18.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot19", eldenmoorSlot19.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot20", eldenmoorSlot20.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot21", eldenmoorSlot21.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot22", eldenmoorSlot22.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot23", eldenmoorSlot23.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot24", eldenmoorSlot24.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot25", eldenmoorSlot25.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot26", eldenmoorSlot26.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot27", eldenmoorSlot27.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot28", eldenmoorSlot28.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot29", eldenmoorSlot29.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot30", eldenmoorSlot30.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot31", eldenmoorSlot31.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot32", eldenmoorSlot32.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot33", eldenmoorSlot33.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot34", eldenmoorSlot34.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot35", eldenmoorSlot35.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot36", eldenmoorSlot36.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot37", eldenmoorSlot37.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot38", eldenmoorSlot38.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot39", eldenmoorSlot39.save(new CompoundTag()));
-			nbt.put("eldenmoorSlot40", eldenmoorSlot40.save(new CompoundTag()));
+			nbt.put("normalSlot0", normalSlot0.saveOptional(lookupProvider));
+			nbt.put("normalSlot1", normalSlot1.saveOptional(lookupProvider));
+			nbt.put("normalSlot2", normalSlot2.saveOptional(lookupProvider));
+			nbt.put("normalSlot3", normalSlot3.saveOptional(lookupProvider));
+			nbt.put("normalSlot4", normalSlot4.saveOptional(lookupProvider));
+			nbt.put("normalSlot5", normalSlot5.saveOptional(lookupProvider));
+			nbt.put("normalSlot6", normalSlot6.saveOptional(lookupProvider));
+			nbt.put("normalSlot7", normalSlot7.saveOptional(lookupProvider));
+			nbt.put("normalSlot8", normalSlot8.saveOptional(lookupProvider));
+			nbt.put("normalSlot9", normalSlot9.saveOptional(lookupProvider));
+			nbt.put("normalSlot10", normalSlot10.saveOptional(lookupProvider));
+			nbt.put("normalSlot11", normalSlot11.saveOptional(lookupProvider));
+			nbt.put("normalSlot12", normalSlot12.saveOptional(lookupProvider));
+			nbt.put("normalSlot13", normalSlot13.saveOptional(lookupProvider));
+			nbt.put("normalSlot14", normalSlot14.saveOptional(lookupProvider));
+			nbt.put("normalSlot15", normalSlot15.saveOptional(lookupProvider));
+			nbt.put("normalSlot16", normalSlot16.saveOptional(lookupProvider));
+			nbt.put("normalSlot17", normalSlot17.saveOptional(lookupProvider));
+			nbt.put("normalSlot18", normalSlot18.saveOptional(lookupProvider));
+			nbt.put("normalSlot19", normalSlot19.saveOptional(lookupProvider));
+			nbt.put("normalSlot20", normalSlot20.saveOptional(lookupProvider));
+			nbt.put("normalSlot21", normalSlot21.saveOptional(lookupProvider));
+			nbt.put("normalSlot22", normalSlot22.saveOptional(lookupProvider));
+			nbt.put("normalSlot23", normalSlot23.saveOptional(lookupProvider));
+			nbt.put("normalSlot24", normalSlot24.saveOptional(lookupProvider));
+			nbt.put("normalSlot25", normalSlot25.saveOptional(lookupProvider));
+			nbt.put("normalSlot26", normalSlot26.saveOptional(lookupProvider));
+			nbt.put("normalSlot27", normalSlot27.saveOptional(lookupProvider));
+			nbt.put("normalSlot28", normalSlot28.saveOptional(lookupProvider));
+			nbt.put("normalSlot29", normalSlot29.saveOptional(lookupProvider));
+			nbt.put("normalSlot30", normalSlot30.saveOptional(lookupProvider));
+			nbt.put("normalSlot31", normalSlot31.saveOptional(lookupProvider));
+			nbt.put("normalSlot32", normalSlot32.saveOptional(lookupProvider));
+			nbt.put("normalSlot33", normalSlot33.saveOptional(lookupProvider));
+			nbt.put("normalSlot34", normalSlot34.saveOptional(lookupProvider));
+			nbt.put("normalSlot35", normalSlot35.saveOptional(lookupProvider));
+			nbt.put("normalSlot36", normalSlot36.saveOptional(lookupProvider));
+			nbt.put("normalSlot37", normalSlot37.saveOptional(lookupProvider));
+			nbt.put("normalSlot38", normalSlot38.saveOptional(lookupProvider));
+			nbt.put("normalSlot39", normalSlot39.saveOptional(lookupProvider));
+			nbt.put("normalSlot40", normalSlot40.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot0", eldenmoorSlot0.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot1", eldenmoorSlot1.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot2", eldenmoorSlot2.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot3", eldenmoorSlot3.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot4", eldenmoorSlot4.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot5", eldenmoorSlot5.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot6", eldenmoorSlot6.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot7", eldenmoorSlot7.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot8", eldenmoorSlot8.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot9", eldenmoorSlot9.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot10", eldenmoorSlot10.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot11", eldenmoorSlot11.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot12", eldenmoorSlot12.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot13", eldenmoorSlot13.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot14", eldenmoorSlot14.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot15", eldenmoorSlot15.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot16", eldenmoorSlot16.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot17", eldenmoorSlot17.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot18", eldenmoorSlot18.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot19", eldenmoorSlot19.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot20", eldenmoorSlot20.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot21", eldenmoorSlot21.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot22", eldenmoorSlot22.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot23", eldenmoorSlot23.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot24", eldenmoorSlot24.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot25", eldenmoorSlot25.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot26", eldenmoorSlot26.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot27", eldenmoorSlot27.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot28", eldenmoorSlot28.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot29", eldenmoorSlot29.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot30", eldenmoorSlot30.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot31", eldenmoorSlot31.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot32", eldenmoorSlot32.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot33", eldenmoorSlot33.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot34", eldenmoorSlot34.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot35", eldenmoorSlot35.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot36", eldenmoorSlot36.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot37", eldenmoorSlot37.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot38", eldenmoorSlot38.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot39", eldenmoorSlot39.saveOptional(lookupProvider));
+			nbt.put("eldenmoorSlot40", eldenmoorSlot40.saveOptional(lookupProvider));
 			nbt.putString("playerSeasonName", playerSeasonName);
 			nbt.putDouble("clientTemperatureC", clientTemperatureC);
 			nbt.putDouble("clientTemperatureF", clientTemperatureF);
@@ -533,97 +531,100 @@ public class TaleOfBiomesModVariables {
 			nbt.putBoolean("isBasicToolTableRecipeBookOpen", isBasicToolTableRecipeBookOpen);
 			nbt.putBoolean("isRecipeHelperOpen", isRecipeHelperOpen);
 			nbt.putDouble("recipeHelperUpdateTimer", recipeHelperUpdateTimer);
+			nbt.putDouble("playerFluid", playerFluid);
+			nbt.putDouble("playerFluidSaturation", playerFluidSaturation);
+			nbt.putDouble("playerFluidDamageTime", playerFluidDamageTime);
 			return nbt;
 		}
 
 		@Override
-		public void deserializeNBT(CompoundTag nbt) {
+		public void deserializeNBT(HolderLookup.Provider lookupProvider, CompoundTag nbt) {
 			CanTravelToEldenmoor = nbt.getBoolean("CanTravelToEldenmoor");
 			blockPosX = nbt.getDouble("blockPosX");
 			blockPosY = nbt.getDouble("blockPosY");
 			blockPosZ = nbt.getDouble("blockPosZ");
-			normalSlot0 = ItemStack.of(nbt.getCompound("normalSlot0"));
-			normalSlot1 = ItemStack.of(nbt.getCompound("normalSlot1"));
-			normalSlot2 = ItemStack.of(nbt.getCompound("normalSlot2"));
-			normalSlot3 = ItemStack.of(nbt.getCompound("normalSlot3"));
-			normalSlot4 = ItemStack.of(nbt.getCompound("normalSlot4"));
-			normalSlot5 = ItemStack.of(nbt.getCompound("normalSlot5"));
-			normalSlot6 = ItemStack.of(nbt.getCompound("normalSlot6"));
-			normalSlot7 = ItemStack.of(nbt.getCompound("normalSlot7"));
-			normalSlot8 = ItemStack.of(nbt.getCompound("normalSlot8"));
-			normalSlot9 = ItemStack.of(nbt.getCompound("normalSlot9"));
-			normalSlot10 = ItemStack.of(nbt.getCompound("normalSlot10"));
-			normalSlot11 = ItemStack.of(nbt.getCompound("normalSlot11"));
-			normalSlot12 = ItemStack.of(nbt.getCompound("normalSlot12"));
-			normalSlot13 = ItemStack.of(nbt.getCompound("normalSlot13"));
-			normalSlot14 = ItemStack.of(nbt.getCompound("normalSlot14"));
-			normalSlot15 = ItemStack.of(nbt.getCompound("normalSlot15"));
-			normalSlot16 = ItemStack.of(nbt.getCompound("normalSlot16"));
-			normalSlot17 = ItemStack.of(nbt.getCompound("normalSlot17"));
-			normalSlot18 = ItemStack.of(nbt.getCompound("normalSlot18"));
-			normalSlot19 = ItemStack.of(nbt.getCompound("normalSlot19"));
-			normalSlot20 = ItemStack.of(nbt.getCompound("normalSlot20"));
-			normalSlot21 = ItemStack.of(nbt.getCompound("normalSlot21"));
-			normalSlot22 = ItemStack.of(nbt.getCompound("normalSlot22"));
-			normalSlot23 = ItemStack.of(nbt.getCompound("normalSlot23"));
-			normalSlot24 = ItemStack.of(nbt.getCompound("normalSlot24"));
-			normalSlot25 = ItemStack.of(nbt.getCompound("normalSlot25"));
-			normalSlot26 = ItemStack.of(nbt.getCompound("normalSlot26"));
-			normalSlot27 = ItemStack.of(nbt.getCompound("normalSlot27"));
-			normalSlot28 = ItemStack.of(nbt.getCompound("normalSlot28"));
-			normalSlot29 = ItemStack.of(nbt.getCompound("normalSlot29"));
-			normalSlot30 = ItemStack.of(nbt.getCompound("normalSlot30"));
-			normalSlot31 = ItemStack.of(nbt.getCompound("normalSlot31"));
-			normalSlot32 = ItemStack.of(nbt.getCompound("normalSlot32"));
-			normalSlot33 = ItemStack.of(nbt.getCompound("normalSlot33"));
-			normalSlot34 = ItemStack.of(nbt.getCompound("normalSlot34"));
-			normalSlot35 = ItemStack.of(nbt.getCompound("normalSlot35"));
-			normalSlot36 = ItemStack.of(nbt.getCompound("normalSlot36"));
-			normalSlot37 = ItemStack.of(nbt.getCompound("normalSlot37"));
-			normalSlot38 = ItemStack.of(nbt.getCompound("normalSlot38"));
-			normalSlot39 = ItemStack.of(nbt.getCompound("normalSlot39"));
-			normalSlot40 = ItemStack.of(nbt.getCompound("normalSlot40"));
-			eldenmoorSlot0 = ItemStack.of(nbt.getCompound("eldenmoorSlot0"));
-			eldenmoorSlot1 = ItemStack.of(nbt.getCompound("eldenmoorSlot1"));
-			eldenmoorSlot2 = ItemStack.of(nbt.getCompound("eldenmoorSlot2"));
-			eldenmoorSlot3 = ItemStack.of(nbt.getCompound("eldenmoorSlot3"));
-			eldenmoorSlot4 = ItemStack.of(nbt.getCompound("eldenmoorSlot4"));
-			eldenmoorSlot5 = ItemStack.of(nbt.getCompound("eldenmoorSlot5"));
-			eldenmoorSlot6 = ItemStack.of(nbt.getCompound("eldenmoorSlot6"));
-			eldenmoorSlot7 = ItemStack.of(nbt.getCompound("eldenmoorSlot7"));
-			eldenmoorSlot8 = ItemStack.of(nbt.getCompound("eldenmoorSlot8"));
-			eldenmoorSlot9 = ItemStack.of(nbt.getCompound("eldenmoorSlot9"));
-			eldenmoorSlot10 = ItemStack.of(nbt.getCompound("eldenmoorSlot10"));
-			eldenmoorSlot11 = ItemStack.of(nbt.getCompound("eldenmoorSlot11"));
-			eldenmoorSlot12 = ItemStack.of(nbt.getCompound("eldenmoorSlot12"));
-			eldenmoorSlot13 = ItemStack.of(nbt.getCompound("eldenmoorSlot13"));
-			eldenmoorSlot14 = ItemStack.of(nbt.getCompound("eldenmoorSlot14"));
-			eldenmoorSlot15 = ItemStack.of(nbt.getCompound("eldenmoorSlot15"));
-			eldenmoorSlot16 = ItemStack.of(nbt.getCompound("eldenmoorSlot16"));
-			eldenmoorSlot17 = ItemStack.of(nbt.getCompound("eldenmoorSlot17"));
-			eldenmoorSlot18 = ItemStack.of(nbt.getCompound("eldenmoorSlot18"));
-			eldenmoorSlot19 = ItemStack.of(nbt.getCompound("eldenmoorSlot19"));
-			eldenmoorSlot20 = ItemStack.of(nbt.getCompound("eldenmoorSlot20"));
-			eldenmoorSlot21 = ItemStack.of(nbt.getCompound("eldenmoorSlot21"));
-			eldenmoorSlot22 = ItemStack.of(nbt.getCompound("eldenmoorSlot22"));
-			eldenmoorSlot23 = ItemStack.of(nbt.getCompound("eldenmoorSlot23"));
-			eldenmoorSlot24 = ItemStack.of(nbt.getCompound("eldenmoorSlot24"));
-			eldenmoorSlot25 = ItemStack.of(nbt.getCompound("eldenmoorSlot25"));
-			eldenmoorSlot26 = ItemStack.of(nbt.getCompound("eldenmoorSlot26"));
-			eldenmoorSlot27 = ItemStack.of(nbt.getCompound("eldenmoorSlot27"));
-			eldenmoorSlot28 = ItemStack.of(nbt.getCompound("eldenmoorSlot28"));
-			eldenmoorSlot29 = ItemStack.of(nbt.getCompound("eldenmoorSlot29"));
-			eldenmoorSlot30 = ItemStack.of(nbt.getCompound("eldenmoorSlot30"));
-			eldenmoorSlot31 = ItemStack.of(nbt.getCompound("eldenmoorSlot31"));
-			eldenmoorSlot32 = ItemStack.of(nbt.getCompound("eldenmoorSlot32"));
-			eldenmoorSlot33 = ItemStack.of(nbt.getCompound("eldenmoorSlot33"));
-			eldenmoorSlot34 = ItemStack.of(nbt.getCompound("eldenmoorSlot34"));
-			eldenmoorSlot35 = ItemStack.of(nbt.getCompound("eldenmoorSlot35"));
-			eldenmoorSlot36 = ItemStack.of(nbt.getCompound("eldenmoorSlot36"));
-			eldenmoorSlot37 = ItemStack.of(nbt.getCompound("eldenmoorSlot37"));
-			eldenmoorSlot38 = ItemStack.of(nbt.getCompound("eldenmoorSlot38"));
-			eldenmoorSlot39 = ItemStack.of(nbt.getCompound("eldenmoorSlot39"));
-			eldenmoorSlot40 = ItemStack.of(nbt.getCompound("eldenmoorSlot40"));
+			normalSlot0 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot0"));
+			normalSlot1 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot1"));
+			normalSlot2 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot2"));
+			normalSlot3 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot3"));
+			normalSlot4 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot4"));
+			normalSlot5 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot5"));
+			normalSlot6 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot6"));
+			normalSlot7 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot7"));
+			normalSlot8 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot8"));
+			normalSlot9 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot9"));
+			normalSlot10 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot10"));
+			normalSlot11 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot11"));
+			normalSlot12 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot12"));
+			normalSlot13 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot13"));
+			normalSlot14 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot14"));
+			normalSlot15 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot15"));
+			normalSlot16 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot16"));
+			normalSlot17 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot17"));
+			normalSlot18 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot18"));
+			normalSlot19 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot19"));
+			normalSlot20 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot20"));
+			normalSlot21 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot21"));
+			normalSlot22 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot22"));
+			normalSlot23 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot23"));
+			normalSlot24 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot24"));
+			normalSlot25 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot25"));
+			normalSlot26 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot26"));
+			normalSlot27 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot27"));
+			normalSlot28 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot28"));
+			normalSlot29 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot29"));
+			normalSlot30 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot30"));
+			normalSlot31 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot31"));
+			normalSlot32 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot32"));
+			normalSlot33 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot33"));
+			normalSlot34 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot34"));
+			normalSlot35 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot35"));
+			normalSlot36 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot36"));
+			normalSlot37 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot37"));
+			normalSlot38 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot38"));
+			normalSlot39 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot39"));
+			normalSlot40 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("normalSlot40"));
+			eldenmoorSlot0 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot0"));
+			eldenmoorSlot1 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot1"));
+			eldenmoorSlot2 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot2"));
+			eldenmoorSlot3 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot3"));
+			eldenmoorSlot4 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot4"));
+			eldenmoorSlot5 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot5"));
+			eldenmoorSlot6 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot6"));
+			eldenmoorSlot7 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot7"));
+			eldenmoorSlot8 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot8"));
+			eldenmoorSlot9 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot9"));
+			eldenmoorSlot10 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot10"));
+			eldenmoorSlot11 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot11"));
+			eldenmoorSlot12 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot12"));
+			eldenmoorSlot13 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot13"));
+			eldenmoorSlot14 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot14"));
+			eldenmoorSlot15 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot15"));
+			eldenmoorSlot16 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot16"));
+			eldenmoorSlot17 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot17"));
+			eldenmoorSlot18 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot18"));
+			eldenmoorSlot19 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot19"));
+			eldenmoorSlot20 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot20"));
+			eldenmoorSlot21 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot21"));
+			eldenmoorSlot22 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot22"));
+			eldenmoorSlot23 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot23"));
+			eldenmoorSlot24 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot24"));
+			eldenmoorSlot25 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot25"));
+			eldenmoorSlot26 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot26"));
+			eldenmoorSlot27 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot27"));
+			eldenmoorSlot28 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot28"));
+			eldenmoorSlot29 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot29"));
+			eldenmoorSlot30 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot30"));
+			eldenmoorSlot31 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot31"));
+			eldenmoorSlot32 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot32"));
+			eldenmoorSlot33 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot33"));
+			eldenmoorSlot34 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot34"));
+			eldenmoorSlot35 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot35"));
+			eldenmoorSlot36 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot36"));
+			eldenmoorSlot37 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot37"));
+			eldenmoorSlot38 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot38"));
+			eldenmoorSlot39 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot39"));
+			eldenmoorSlot40 = ItemStack.parseOptional(lookupProvider, nbt.getCompound("eldenmoorSlot40"));
 			playerSeasonName = nbt.getString("playerSeasonName");
 			clientTemperatureC = nbt.getDouble("clientTemperatureC");
 			clientTemperatureF = nbt.getDouble("clientTemperatureF");
@@ -631,36 +632,35 @@ public class TaleOfBiomesModVariables {
 			isBasicToolTableRecipeBookOpen = nbt.getBoolean("isBasicToolTableRecipeBookOpen");
 			isRecipeHelperOpen = nbt.getBoolean("isRecipeHelperOpen");
 			recipeHelperUpdateTimer = nbt.getDouble("recipeHelperUpdateTimer");
+			playerFluid = nbt.getDouble("playerFluid");
+			playerFluidSaturation = nbt.getDouble("playerFluidSaturation");
+			playerFluidDamageTime = nbt.getDouble("playerFluidDamageTime");
 		}
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayer serverPlayer)
-				PacketDistributor.PLAYER.with(serverPlayer).send(new PlayerVariablesSyncMessage(this));
+				PacketDistributor.sendToPlayer(serverPlayer, new PlayerVariablesSyncMessage(this));
 		}
 	}
 
 	public record PlayerVariablesSyncMessage(PlayerVariables data) implements CustomPacketPayload {
-		public static final ResourceLocation ID = new ResourceLocation(TaleOfBiomesMod.MODID, "player_variables_sync");
-
-		public PlayerVariablesSyncMessage(FriendlyByteBuf buffer) {
-			this(new PlayerVariables());
-			this.data.deserializeNBT(buffer.readNbt());
-		}
-
-		@Override
-		public void write(final FriendlyByteBuf buffer) {
-			buffer.writeNbt(data.serializeNBT());
-		}
+		public static final Type<PlayerVariablesSyncMessage> TYPE = new Type<>(new ResourceLocation(TaleOfBiomesMod.MODID, "player_variables_sync"));
+		public static final StreamCodec<RegistryFriendlyByteBuf, PlayerVariablesSyncMessage> STREAM_CODEC = StreamCodec
+				.of((RegistryFriendlyByteBuf buffer, PlayerVariablesSyncMessage message) -> buffer.writeNbt(message.data().serializeNBT(buffer.registryAccess())), (RegistryFriendlyByteBuf buffer) -> {
+					PlayerVariablesSyncMessage message = new PlayerVariablesSyncMessage(new PlayerVariables());
+					message.data.deserializeNBT(buffer.registryAccess(), buffer.readNbt());
+					return message;
+				});
 
 		@Override
-		public ResourceLocation id() {
-			return ID;
+		public Type<PlayerVariablesSyncMessage> type() {
+			return TYPE;
 		}
 
-		public static void handleData(final PlayerVariablesSyncMessage message, final PlayPayloadContext context) {
+		public static void handleData(final PlayerVariablesSyncMessage message, final IPayloadContext context) {
 			if (context.flow() == PacketFlow.CLIENTBOUND && message.data != null) {
-				context.workHandler().submitAsync(() -> Minecraft.getInstance().player.getData(PLAYER_VARIABLES).deserializeNBT(message.data.serializeNBT())).exceptionally(e -> {
-					context.packetHandler().disconnect(Component.literal(e.getMessage()));
+				context.enqueueWork(() -> context.player().getData(PLAYER_VARIABLES).deserializeNBT(context.player().registryAccess(), message.data.serializeNBT(context.player().registryAccess()))).exceptionally(e -> {
+					context.connection().disconnect(Component.literal(e.getMessage()));
 					return null;
 				});
 			}

@@ -3,13 +3,15 @@ package net.nwtg.taleofbiomes.block;
 
 import org.checkerframework.checker.units.qual.s;
 
+import net.nwtg.taleofbiomes.procedures.TilledSoilOnTickUpdateProcedure;
+import net.nwtg.taleofbiomes.procedures.TilledSoilBlockAddedProcedure;
 import net.nwtg.taleofbiomes.init.TaleOfBiomesModBlocks;
 import net.nwtg.taleofbiomes.block.entity.TilledSoilBlockEntity;
 
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.FluidState;
@@ -32,6 +34,8 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.MenuProvider;
+import net.minecraft.util.RandomSource;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 
@@ -98,8 +102,22 @@ public class TilledSoilBlock extends Block implements SimpleWaterloggedBlock, En
 	}
 
 	@Override
-	public BlockPathTypes getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
-		return BlockPathTypes.BLOCKED;
+	public PathType getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
+		return PathType.BLOCKED;
+	}
+
+	@Override
+	public void onPlace(BlockState blockstate, Level world, BlockPos pos, BlockState oldState, boolean moving) {
+		super.onPlace(blockstate, world, pos, oldState, moving);
+		world.scheduleTick(pos, this, 1);
+		TilledSoilBlockAddedProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
+	}
+
+	@Override
+	public void tick(BlockState blockstate, ServerLevel world, BlockPos pos, RandomSource random) {
+		super.tick(blockstate, world, pos, random);
+		TilledSoilOnTickUpdateProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), blockstate);
+		world.scheduleTick(pos, this, 1);
 	}
 
 	@Override

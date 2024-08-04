@@ -1,5 +1,5 @@
 {
-  "_fv": 60,
+  "_fv": 66,
   "_type": "block",
   "definition": {
     "texture": "ghost_bush_3",
@@ -41,9 +41,7 @@
     "resistance": 0.0,
     "hasGravity": false,
     "isWaterloggable": false,
-    "creativeTab": {
-      "value": "No creative tab entry"
-    },
+    "creativeTabs": [],
     "destroyTool": "axe",
     "customDrop": {
       "value": "CUSTOM:GhostBerries"
@@ -100,7 +98,7 @@
     },
     "luminance": 0,
     "unbreakable": false,
-    "breakHarvestLevel": 0,
+    "vanillaToolTier": "NONE",
     "placingCondition": {
       "name": "GhostBush0BlockValidPlacementCondition"
     },

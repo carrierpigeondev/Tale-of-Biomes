@@ -1,6 +1,7 @@
 {
   "parent": "block/stairs",
   "textures": {
+    "particle": "tale_of_biomes:block/cobbled_basalt",
     "bottom": "tale_of_biomes:block/cobbled_basalt",
     "top": "tale_of_biomes:block/cobbled_basalt",
     "side": "tale_of_biomes:block/cobbled_basalt"

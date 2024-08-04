@@ -76,7 +76,7 @@ public class BasicStoneTableMenuScreen extends AbstractContainerScreen<BasicSton
 		imagebutton_kiln_light_off = new ImageButton(this.leftPos + 11, this.topPos + 39, 8, 8,
 				new WidgetSprites(new ResourceLocation("tale_of_biomes:textures/screens/kiln_light_off.png"), new ResourceLocation("tale_of_biomes:textures/screens/kiln_light_on.png")), e -> {
 					if (true) {
-						PacketDistributor.SERVER.noArg().send(new BasicStoneTableMenuButtonMessage(0, x, y, z));
+						PacketDistributor.sendToServer(new BasicStoneTableMenuButtonMessage(0, x, y, z));
 						BasicStoneTableMenuButtonMessage.handleButtonAction(entity, 0, x, y, z);
 					}
 				}) {

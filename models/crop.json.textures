@@ -41,6 +41,12 @@
         "crop": "rice_7"
       },
       "name": "rice_f"
+    },
+    "rice_g": {
+      "map": {
+        "crop": "rice_7"
+      },
+      "name": "rice_g"
     }
   }
 }

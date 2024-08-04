@@ -1,5 +1,5 @@
 {
-  "_fv": 60,
+  "_fv": 66,
   "_type": "block",
   "definition": {
     "texture": "fertile_soil",
@@ -41,9 +41,11 @@
     "resistance": 0.5,
     "hasGravity": false,
     "isWaterloggable": true,
-    "creativeTab": {
-      "value": "CUSTOM:TOBBlocksTab"
-    },
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:TOBBlocksTab"
+      }
+    ],
     "destroyTool": "shovel",
     "customDrop": {
       "value": "CUSTOM:FertileSoil"
@@ -100,7 +102,7 @@
     },
     "luminance": 3,
     "unbreakable": false,
-    "breakHarvestLevel": 0,
+    "vanillaToolTier": "NONE",
     "isBonemealable": false,
     "hasInventory": true,
     "guiBoundTo": "<NONE>",
@@ -119,6 +121,12 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
+    "onBlockAdded": {
+      "name": "TilledSoilBlockAdded"
+    },
+    "onTickUpdate": {
+      "name": "TilledSoilOnTickUpdate"
+    },
     "generateFeature": false,
     "restrictionBiomes": [],
     "blocksToReplace": [],

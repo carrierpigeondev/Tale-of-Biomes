@@ -11,8 +11,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.core.BlockPos;
 
-import java.util.Map;
-
 public class GrassBlockSpreadingMechanicsProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z) {
 		double posX = 0;
@@ -50,18 +48,18 @@ public class GrassBlockSpreadingMechanicsProcedure {
 				BlockPos _bp = BlockPos.containing(posX, posY, posZ);
 				BlockState _bs = TaleOfBiomesModBlocks.GRASS_BLOCK.get().defaultBlockState();
 				BlockState _bso = world.getBlockState(_bp);
-				for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
-					Property _property = _bs.getBlock().getStateDefinition().getProperty(entry.getKey().getName());
-					if (_property != null && _bs.getValue(_property) != null)
+				for (Property<?> _propertyOld : _bso.getProperties()) {
+					Property _propertyNew = _bs.getBlock().getStateDefinition().getProperty(_propertyOld.getName());
+					if (_propertyNew != null && _bs.getValue(_propertyNew) != null)
 						try {
-							_bs = _bs.setValue(_property, (Comparable) entry.getValue());
+							_bs = _bs.setValue(_propertyNew, _bso.getValue(_propertyOld));
 						} catch (Exception e) {
 						}
 				}
 				BlockEntity _be = world.getBlockEntity(_bp);
 				CompoundTag _bnbt = null;
 				if (_be != null) {
-					_bnbt = _be.saveWithFullMetadata();
+					_bnbt = _be.saveWithFullMetadata(world.registryAccess());
 					_be.setRemoved();
 				}
 				world.setBlock(_bp, _bs, 3);
@@ -69,7 +67,7 @@ public class GrassBlockSpreadingMechanicsProcedure {
 					_be = world.getBlockEntity(_bp);
 					if (_be != null) {
 						try {
-							_be.load(_bnbt);
+							_be.loadWithComponents(_bnbt, world.registryAccess());
 						} catch (Exception ignored) {
 						}
 					}
@@ -77,23 +75,23 @@ public class GrassBlockSpreadingMechanicsProcedure {
 			}
 		}
 		if (world.getBlockState(BlockPos.containing(x, y + 1, z)).getLightBlock(world, BlockPos.containing(x, y + 1, z)) >= 8
-				&& !(world.getBlockState(BlockPos.containing(posX, posY + 1, posZ))).is(BlockTags.create(new ResourceLocation("minecraft:air")))) {
+				|| !(world.getBlockState(BlockPos.containing(posX, posY + 1, posZ))).is(BlockTags.create(new ResourceLocation("minecraft:air")))) {
 			{
 				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockState _bs = TaleOfBiomesModBlocks.DIRT.get().defaultBlockState();
 				BlockState _bso = world.getBlockState(_bp);
-				for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
-					Property _property = _bs.getBlock().getStateDefinition().getProperty(entry.getKey().getName());
-					if (_property != null && _bs.getValue(_property) != null)
+				for (Property<?> _propertyOld : _bso.getProperties()) {
+					Property _propertyNew = _bs.getBlock().getStateDefinition().getProperty(_propertyOld.getName());
+					if (_propertyNew != null && _bs.getValue(_propertyNew) != null)
 						try {
-							_bs = _bs.setValue(_property, (Comparable) entry.getValue());
+							_bs = _bs.setValue(_propertyNew, _bso.getValue(_propertyOld));
 						} catch (Exception e) {
 						}
 				}
 				BlockEntity _be = world.getBlockEntity(_bp);
 				CompoundTag _bnbt = null;
 				if (_be != null) {
-					_bnbt = _be.saveWithFullMetadata();
+					_bnbt = _be.saveWithFullMetadata(world.registryAccess());
 					_be.setRemoved();
 				}
 				world.setBlock(_bp, _bs, 3);
@@ -101,7 +99,7 @@ public class GrassBlockSpreadingMechanicsProcedure {
 					_be = world.getBlockEntity(_bp);
 					if (_be != null) {
 						try {
-							_be.load(_bnbt);
+							_be.loadWithComponents(_bnbt, world.registryAccess());
 						} catch (Exception ignored) {
 						}
 					}

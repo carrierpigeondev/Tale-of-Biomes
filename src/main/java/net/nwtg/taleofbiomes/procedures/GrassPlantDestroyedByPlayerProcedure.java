@@ -4,7 +4,7 @@ import net.nwtg.taleofbiomes.network.TaleOfBiomesModVariables;
 import net.nwtg.taleofbiomes.init.TaleOfBiomesModBlocks;
 
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.bus.api.ICancellableEvent;
 import net.neoforged.bus.api.Event;
@@ -26,14 +26,10 @@ import net.minecraft.client.Minecraft;
 
 import javax.annotation.Nullable;
 
-import java.util.Map;
-
-@Mod.EventBusSubscriber
+@EventBusSubscriber
 public class GrassPlantDestroyedByPlayerProcedure {
 	@SubscribeEvent
 	public static void onLeftClickBlock(PlayerInteractEvent.LeftClickBlock event) {
-		if (event.getHand() != event.getEntity().getUsedItemHand())
-			return;
 		execute(event, event.getLevel(), event.getPos().getX(), event.getPos().getY(), event.getPos().getZ(), event.getLevel().getBlockState(event.getPos()), event.getEntity());
 	}
 
@@ -63,11 +59,11 @@ public class GrassPlantDestroyedByPlayerProcedure {
 					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockState _bs = TaleOfBiomesModBlocks.HAY_GRASS.get().defaultBlockState();
 					BlockState _bso = world.getBlockState(_bp);
-					for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
-						Property _property = _bs.getBlock().getStateDefinition().getProperty(entry.getKey().getName());
-						if (_property != null && _bs.getValue(_property) != null)
+					for (Property<?> _propertyOld : _bso.getProperties()) {
+						Property _propertyNew = _bs.getBlock().getStateDefinition().getProperty(_propertyOld.getName());
+						if (_propertyNew != null && _bs.getValue(_propertyNew) != null)
 							try {
-								_bs = _bs.setValue(_property, (Comparable) entry.getValue());
+								_bs = _bs.setValue(_propertyNew, _bso.getValue(_propertyOld));
 							} catch (Exception e) {
 							}
 					}

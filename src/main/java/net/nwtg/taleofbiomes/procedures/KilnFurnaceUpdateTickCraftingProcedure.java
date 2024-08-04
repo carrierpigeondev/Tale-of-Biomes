@@ -1,13 +1,11 @@
 package net.nwtg.taleofbiomes.procedures;
 
-import net.nwtg.taleofbiomes.network.TaleOfBiomesModVariables;
 import net.nwtg.taleofbiomes.init.TaleOfBiomesModBlocks;
 
 import net.neoforged.neoforge.items.IItemHandlerModifiable;
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.common.extensions.ILevelExtension;
 import net.neoforged.neoforge.capabilities.Capabilities;
-import net.neoforged.fml.loading.FMLPaths;
 
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
@@ -30,11 +28,8 @@ import java.io.BufferedReader;
 
 public class KilnFurnaceUpdateTickCraftingProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z) {
-		com.google.gson.JsonObject mainObject = new com.google.gson.JsonObject();
-		com.google.gson.JsonObject subObject = new com.google.gson.JsonObject();
 		ItemStack display = ItemStack.EMPTY;
 		ItemStack output = ItemStack.EMPTY;
-		File file = new File("");
 		String fileLayer1 = "";
 		String fileLayer2 = "";
 		String fileLayer3 = "";
@@ -50,22 +45,28 @@ public class KilnFurnaceUpdateTickCraftingProcedure {
 		double posZ = 0;
 		double offsetPosX = 0;
 		double offsetPosZ = 0;
+		File fmFile = new File("");
+		com.google.gson.JsonObject mainObject = new com.google.gson.JsonObject();
+		com.google.gson.JsonObject subObject = new com.google.gson.JsonObject();
+		com.google.gson.JsonObject fmMain = new com.google.gson.JsonObject();
+		com.google.gson.JsonObject fmRecipes = new com.google.gson.JsonObject();
+		com.google.gson.JsonObject fmRecipe = new com.google.gson.JsonObject();
 		posX = x;
 		posY = y;
 		posZ = z;
 		if ((world.getBlockState(BlockPos.containing(posX, posY, posZ))).getBlock() == TaleOfBiomesModBlocks.KILN_FURNACE_ON.get()) {
-			file = new File((FMLPaths.GAMEDIR.get().toString() + "/config/" + TaleOfBiomesModVariables.MapVariables.get(world).modNamespace + "/recipes"), File.separator + "kiln.json");
-			if (file.exists()) {
+			fmFile = new File(RootConfigFileFolderProcedure.execute(), File.separator + "kiln_recipes.json");
+			if (fmFile.exists()) {
 				{
 					try {
-						BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+						BufferedReader bufferedReader = new BufferedReader(new FileReader(fmFile));
 						StringBuilder jsonstringbuilder = new StringBuilder();
 						String line;
 						while ((line = bufferedReader.readLine()) != null) {
 							jsonstringbuilder.append(line);
 						}
 						bufferedReader.close();
-						mainObject = new com.google.gson.Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
+						fmMain = new com.google.gson.Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 						objectNumber = 1;
 						if ((new Object() {
 							public Direction getDirection(BlockState _bs) {
@@ -110,100 +111,105 @@ public class KilnFurnaceUpdateTickCraftingProcedure {
 							offsetPosX = posX + 1;
 							offsetPosZ = posZ - 1;
 						}
-						for (int index0 = 0; index0 < (int) mainObject.size(); index0++) {
-							subObject = mainObject.get((new java.text.DecimalFormat("##").format(objectNumber))).getAsJsonObject();
-							fileLayer1 = subObject.get("layer_1").getAsString();
-							fileLayer2 = subObject.get("layer_2").getAsString();
-							fileLayer3 = subObject.get("layer_3").getAsString();
-							fileLayer4 = subObject.get("layer_4").getAsString();
-							if ((world.getBlockState(BlockPos.containing(offsetPosX, posY, offsetPosZ))).getBlock() == BuiltInRegistries.BLOCK.get(new ResourceLocation((fileLayer1).toLowerCase(java.util.Locale.ENGLISH)))
-									&& (world.getBlockState(BlockPos.containing(offsetPosX, posY + 1, offsetPosZ))).getBlock() == BuiltInRegistries.BLOCK.get(new ResourceLocation((fileLayer2).toLowerCase(java.util.Locale.ENGLISH)))
-									&& (world.getBlockState(BlockPos.containing(offsetPosX, posY + 2, offsetPosZ))).getBlock() == BuiltInRegistries.BLOCK.get(new ResourceLocation((fileLayer3).toLowerCase(java.util.Locale.ENGLISH)))
-									&& (world.getBlockState(BlockPos.containing(offsetPosX, posY + 3, offsetPosZ))).getBlock() == BuiltInRegistries.BLOCK.get(new ResourceLocation((fileLayer4).toLowerCase(java.util.Locale.ENGLISH)))) {
-								if (!world.isClientSide()) {
-									BlockPos _bp = BlockPos.containing(posX, posY, posZ);
-									BlockEntity _blockEntity = world.getBlockEntity(_bp);
-									BlockState _bs = world.getBlockState(_bp);
-									if (_blockEntity != null)
-										_blockEntity.getPersistentData().putString("layer1", fileLayer1);
-									if (world instanceof Level _level)
-										_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+						if (fmMain.has("recipes")) {
+							fmRecipes = fmRecipes.get("recipes").getAsJsonObject();
+							for (int index0 = 0; index0 < (int) mainObject.size(); index0++) {
+								if (fmRecipes.has((new java.text.DecimalFormat("##").format(objectNumber)))) {
+									fmRecipe = fmRecipes.get((new java.text.DecimalFormat("##").format(objectNumber))).getAsJsonObject();
+									fileLayer1 = fmRecipe.get("layer_1").getAsString();
+									fileLayer2 = fmRecipe.get("layer_2").getAsString();
+									fileLayer3 = fmRecipe.get("layer_3").getAsString();
+									fileLayer4 = fmRecipe.get("layer_4").getAsString();
+									if ((world.getBlockState(BlockPos.containing(offsetPosX, posY, offsetPosZ))).getBlock() == BuiltInRegistries.BLOCK.get(new ResourceLocation((fileLayer1).toLowerCase(java.util.Locale.ENGLISH)))
+											&& (world.getBlockState(BlockPos.containing(offsetPosX, posY + 1, offsetPosZ))).getBlock() == BuiltInRegistries.BLOCK.get(new ResourceLocation((fileLayer2).toLowerCase(java.util.Locale.ENGLISH)))
+											&& (world.getBlockState(BlockPos.containing(offsetPosX, posY + 2, offsetPosZ))).getBlock() == BuiltInRegistries.BLOCK.get(new ResourceLocation((fileLayer3).toLowerCase(java.util.Locale.ENGLISH)))
+											&& (world.getBlockState(BlockPos.containing(offsetPosX, posY + 3, offsetPosZ))).getBlock() == BuiltInRegistries.BLOCK.get(new ResourceLocation((fileLayer4).toLowerCase(java.util.Locale.ENGLISH)))) {
+										if (!world.isClientSide()) {
+											BlockPos _bp = BlockPos.containing(posX, posY, posZ);
+											BlockEntity _blockEntity = world.getBlockEntity(_bp);
+											BlockState _bs = world.getBlockState(_bp);
+											if (_blockEntity != null)
+												_blockEntity.getPersistentData().putString("layer1", fileLayer1);
+											if (world instanceof Level _level)
+												_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+										}
+										if (!world.isClientSide()) {
+											BlockPos _bp = BlockPos.containing(posX, posY, posZ);
+											BlockEntity _blockEntity = world.getBlockEntity(_bp);
+											BlockState _bs = world.getBlockState(_bp);
+											if (_blockEntity != null)
+												_blockEntity.getPersistentData().putString("layer2", fileLayer2);
+											if (world instanceof Level _level)
+												_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+										}
+										if (!world.isClientSide()) {
+											BlockPos _bp = BlockPos.containing(posX, posY, posZ);
+											BlockEntity _blockEntity = world.getBlockEntity(_bp);
+											BlockState _bs = world.getBlockState(_bp);
+											if (_blockEntity != null)
+												_blockEntity.getPersistentData().putString("layer3", fileLayer3);
+											if (world instanceof Level _level)
+												_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+										}
+										if (!world.isClientSide()) {
+											BlockPos _bp = BlockPos.containing(posX, posY, posZ);
+											BlockEntity _blockEntity = world.getBlockEntity(_bp);
+											BlockState _bs = world.getBlockState(_bp);
+											if (_blockEntity != null)
+												_blockEntity.getPersistentData().putString("layer4", fileLayer4);
+											if (world instanceof Level _level)
+												_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+										}
+										if (!world.isClientSide()) {
+											BlockPos _bp = BlockPos.containing(posX, posY, posZ);
+											BlockEntity _blockEntity = world.getBlockEntity(_bp);
+											BlockState _bs = world.getBlockState(_bp);
+											if (_blockEntity != null)
+												_blockEntity.getPersistentData().putString("display", subObject.get("display").getAsString());
+											if (world instanceof Level _level)
+												_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+										}
+										if (!world.isClientSide()) {
+											BlockPos _bp = BlockPos.containing(posX, posY, posZ);
+											BlockEntity _blockEntity = world.getBlockEntity(_bp);
+											BlockState _bs = world.getBlockState(_bp);
+											if (_blockEntity != null)
+												_blockEntity.getPersistentData().putString("output", subObject.get("output").getAsString());
+											if (world instanceof Level _level)
+												_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+										}
+										if (!world.isClientSide()) {
+											BlockPos _bp = BlockPos.containing(posX, posY, posZ);
+											BlockEntity _blockEntity = world.getBlockEntity(_bp);
+											BlockState _bs = world.getBlockState(_bp);
+											if (_blockEntity != null)
+												_blockEntity.getPersistentData().putDouble("amount", subObject.get("amount").getAsDouble());
+											if (world instanceof Level _level)
+												_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+										}
+										if (!world.isClientSide()) {
+											BlockPos _bp = BlockPos.containing(posX, posY, posZ);
+											BlockEntity _blockEntity = world.getBlockEntity(_bp);
+											BlockState _bs = world.getBlockState(_bp);
+											if (_blockEntity != null)
+												_blockEntity.getPersistentData().putDouble("minTemperature", subObject.get("min_temperature").getAsDouble());
+											if (world instanceof Level _level)
+												_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+										}
+										if (!world.isClientSide()) {
+											BlockPos _bp = BlockPos.containing(posX, posY, posZ);
+											BlockEntity _blockEntity = world.getBlockEntity(_bp);
+											BlockState _bs = world.getBlockState(_bp);
+											if (_blockEntity != null)
+												_blockEntity.getPersistentData().putDouble("maxTemperature", subObject.get("max_temperature").getAsDouble());
+											if (world instanceof Level _level)
+												_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+										}
+										break;
+									}
+									objectNumber = objectNumber + 1;
 								}
-								if (!world.isClientSide()) {
-									BlockPos _bp = BlockPos.containing(posX, posY, posZ);
-									BlockEntity _blockEntity = world.getBlockEntity(_bp);
-									BlockState _bs = world.getBlockState(_bp);
-									if (_blockEntity != null)
-										_blockEntity.getPersistentData().putString("layer2", fileLayer2);
-									if (world instanceof Level _level)
-										_level.sendBlockUpdated(_bp, _bs, _bs, 3);
-								}
-								if (!world.isClientSide()) {
-									BlockPos _bp = BlockPos.containing(posX, posY, posZ);
-									BlockEntity _blockEntity = world.getBlockEntity(_bp);
-									BlockState _bs = world.getBlockState(_bp);
-									if (_blockEntity != null)
-										_blockEntity.getPersistentData().putString("layer3", fileLayer3);
-									if (world instanceof Level _level)
-										_level.sendBlockUpdated(_bp, _bs, _bs, 3);
-								}
-								if (!world.isClientSide()) {
-									BlockPos _bp = BlockPos.containing(posX, posY, posZ);
-									BlockEntity _blockEntity = world.getBlockEntity(_bp);
-									BlockState _bs = world.getBlockState(_bp);
-									if (_blockEntity != null)
-										_blockEntity.getPersistentData().putString("layer4", fileLayer4);
-									if (world instanceof Level _level)
-										_level.sendBlockUpdated(_bp, _bs, _bs, 3);
-								}
-								if (!world.isClientSide()) {
-									BlockPos _bp = BlockPos.containing(posX, posY, posZ);
-									BlockEntity _blockEntity = world.getBlockEntity(_bp);
-									BlockState _bs = world.getBlockState(_bp);
-									if (_blockEntity != null)
-										_blockEntity.getPersistentData().putString("display", subObject.get("display").getAsString());
-									if (world instanceof Level _level)
-										_level.sendBlockUpdated(_bp, _bs, _bs, 3);
-								}
-								if (!world.isClientSide()) {
-									BlockPos _bp = BlockPos.containing(posX, posY, posZ);
-									BlockEntity _blockEntity = world.getBlockEntity(_bp);
-									BlockState _bs = world.getBlockState(_bp);
-									if (_blockEntity != null)
-										_blockEntity.getPersistentData().putString("output", subObject.get("output").getAsString());
-									if (world instanceof Level _level)
-										_level.sendBlockUpdated(_bp, _bs, _bs, 3);
-								}
-								if (!world.isClientSide()) {
-									BlockPos _bp = BlockPos.containing(posX, posY, posZ);
-									BlockEntity _blockEntity = world.getBlockEntity(_bp);
-									BlockState _bs = world.getBlockState(_bp);
-									if (_blockEntity != null)
-										_blockEntity.getPersistentData().putDouble("amount", subObject.get("amount").getAsDouble());
-									if (world instanceof Level _level)
-										_level.sendBlockUpdated(_bp, _bs, _bs, 3);
-								}
-								if (!world.isClientSide()) {
-									BlockPos _bp = BlockPos.containing(posX, posY, posZ);
-									BlockEntity _blockEntity = world.getBlockEntity(_bp);
-									BlockState _bs = world.getBlockState(_bp);
-									if (_blockEntity != null)
-										_blockEntity.getPersistentData().putDouble("minTemperature", subObject.get("min_temperature").getAsDouble());
-									if (world instanceof Level _level)
-										_level.sendBlockUpdated(_bp, _bs, _bs, 3);
-								}
-								if (!world.isClientSide()) {
-									BlockPos _bp = BlockPos.containing(posX, posY, posZ);
-									BlockEntity _blockEntity = world.getBlockEntity(_bp);
-									BlockState _bs = world.getBlockState(_bp);
-									if (_blockEntity != null)
-										_blockEntity.getPersistentData().putDouble("maxTemperature", subObject.get("max_temperature").getAsDouble());
-									if (world instanceof Level _level)
-										_level.sendBlockUpdated(_bp, _bs, _bs, 3);
-								}
-								break;
 							}
-							objectNumber = objectNumber + 1;
 						}
 					} catch (IOException e) {
 						e.printStackTrace();

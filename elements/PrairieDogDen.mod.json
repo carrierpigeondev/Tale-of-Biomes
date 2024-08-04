@@ -1,0 +1,133 @@
+{
+  "_fv": 66,
+  "_type": "structure",
+  "definition": {
+    "structure": "prairie_dog_den_main",
+    "projection": "rigid",
+    "ignoredBlocks": [
+      {
+        "value": "Blocks.STRUCTURE_BLOCK"
+      }
+    ],
+    "spacing": 10,
+    "separation": 8,
+    "restrictionBiomes": [
+      {
+        "value": "#tale_of_biomes:eldenmoor/plains"
+      }
+    ],
+    "terrainAdaptation": "beard_thin",
+    "generationStep": "SURFACE_STRUCTURES",
+    "surfaceDetectionType": "WORLD_SURFACE_WG",
+    "useStartHeight": false,
+    "startHeightProviderType": "UNIFORM",
+    "startHeightMin": 0,
+    "startHeightMax": 128,
+    "size": 5,
+    "maxDistanceFromCenter": 20,
+    "jigsawPools": [
+      {
+        "poolName": "parts",
+        "fallbackPool": "",
+        "poolParts": [
+          {
+            "weight": 1,
+            "structure": "prairie_dog_den_part_a",
+            "projection": "rigid",
+            "ignoredBlocks": []
+          },
+          {
+            "weight": 1,
+            "structure": "prairie_dog_den_part_b",
+            "projection": "rigid",
+            "ignoredBlocks": []
+          },
+          {
+            "weight": 1,
+            "structure": "prairie_dog_den_part_c",
+            "projection": "rigid",
+            "ignoredBlocks": []
+          },
+          {
+            "weight": 1,
+            "structure": "prairie_dog_den_part_d",
+            "projection": "rigid",
+            "ignoredBlocks": []
+          },
+          {
+            "weight": 1,
+            "structure": "prairie_dog_den_part_e",
+            "projection": "rigid",
+            "ignoredBlocks": []
+          },
+          {
+            "weight": 1,
+            "structure": "prairie_dog_den_part_f",
+            "projection": "rigid",
+            "ignoredBlocks": []
+          },
+          {
+            "weight": 1,
+            "structure": "prairie_dog_den_part_g",
+            "projection": "rigid",
+            "ignoredBlocks": []
+          },
+          {
+            "weight": 1,
+            "structure": "prairie_dog_den_part_h",
+            "projection": "rigid",
+            "ignoredBlocks": []
+          },
+          {
+            "weight": 1,
+            "structure": "prairie_dog_den_part_i",
+            "projection": "rigid",
+            "ignoredBlocks": []
+          },
+          {
+            "weight": 1,
+            "structure": "prairie_dog_den_part_j",
+            "projection": "rigid",
+            "ignoredBlocks": []
+          },
+          {
+            "weight": 1,
+            "structure": "prairie_dog_den_part_k",
+            "projection": "rigid",
+            "ignoredBlocks": []
+          },
+          {
+            "weight": 1,
+            "structure": "prairie_dog_den_part_l",
+            "projection": "rigid",
+            "ignoredBlocks": []
+          },
+          {
+            "weight": 1,
+            "structure": "prairie_dog_den_part_m",
+            "projection": "rigid",
+            "ignoredBlocks": []
+          },
+          {
+            "weight": 1,
+            "structure": "prairie_dog_den_part_n",
+            "projection": "rigid",
+            "ignoredBlocks": []
+          },
+          {
+            "weight": 1,
+            "structure": "prairie_dog_den_part_o",
+            "projection": "rigid",
+            "ignoredBlocks": []
+          },
+          {
+            "weight": 1,
+            "structure": "prairie_dog_den_part_p",
+            "projection": "rigid",
+            "ignoredBlocks": []
+          }
+        ]
+      }
+    ]
+  }
+}

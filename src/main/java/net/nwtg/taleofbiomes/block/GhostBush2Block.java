@@ -10,7 +10,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.block.state.BlockState;
@@ -26,7 +26,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.util.RandomSource;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.Direction;
@@ -75,8 +74,8 @@ public class GhostBush2Block extends Block {
 	}
 
 	@Override
-	public BlockPathTypes getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
-		return BlockPathTypes.FENCE;
+	public PathType getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
+		return PathType.FENCE;
 	}
 
 	@Override
@@ -86,8 +85,8 @@ public class GhostBush2Block extends Block {
 	}
 
 	@Override
-	public InteractionResult use(BlockState blockstate, Level world, BlockPos pos, Player entity, InteractionHand hand, BlockHitResult hit) {
-		super.use(blockstate, world, pos, entity, hand, hit);
+	public InteractionResult useWithoutItem(BlockState blockstate, Level world, BlockPos pos, Player entity, BlockHitResult hit) {
+		super.useWithoutItem(blockstate, world, pos, entity, hit);
 		int x = pos.getX();
 		int y = pos.getY();
 		int z = pos.getZ();

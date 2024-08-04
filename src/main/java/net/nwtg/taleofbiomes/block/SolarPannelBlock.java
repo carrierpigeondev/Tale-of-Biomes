@@ -5,7 +5,7 @@ import net.nwtg.taleofbiomes.procedures.SolarPannelUpdateTickProcedure;
 import net.nwtg.taleofbiomes.procedures.SolarPannelBlockAddedProcedure;
 import net.nwtg.taleofbiomes.block.entity.SolarPannelBlockEntity;
 
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.block.state.BlockState;
@@ -33,8 +33,8 @@ public class SolarPannelBlock extends Block implements EntityBlock {
 	}
 
 	@Override
-	public BlockPathTypes getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
-		return BlockPathTypes.BLOCKED;
+	public PathType getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
+		return PathType.BLOCKED;
 	}
 
 	@Override

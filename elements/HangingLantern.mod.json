@@ -1,5 +1,5 @@
 {
-  "_fv": 60,
+  "_fv": 66,
   "_type": "block",
   "definition": {
     "texture": "lantern_off",
@@ -86,9 +86,7 @@
     "resistance": 3.5,
     "hasGravity": false,
     "isWaterloggable": true,
-    "creativeTab": {
-      "value": "No creative tab entry"
-    },
+    "creativeTabs": [],
     "destroyTool": "pickaxe",
     "customDrop": {
       "value": "CUSTOM:GroundLantern"
@@ -145,7 +143,7 @@
     },
     "luminance": 0,
     "unbreakable": false,
-    "breakHarvestLevel": 0,
+    "vanillaToolTier": "NONE",
     "placingCondition": {
       "name": "HangingLanternBlockValidPlacementCondition"
     },

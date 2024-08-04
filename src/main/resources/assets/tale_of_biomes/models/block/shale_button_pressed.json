@@ -1,6 +1,7 @@
 {
   "parent": "block/button_pressed",
   "textures": {
+    "particle": "tale_of_biomes:block/shale_side",
     "texture": "tale_of_biomes:block/shale_side"
   },
   "render_type": "solid"

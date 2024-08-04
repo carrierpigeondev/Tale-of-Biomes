@@ -3,7 +3,7 @@ package net.nwtg.taleofbiomes.procedures;
 import net.nwtg.taleofbiomes.network.TaleOfBiomesModVariables;
 
 import net.neoforged.neoforge.event.CommandEvent;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.bus.api.Event;
 
@@ -17,7 +17,7 @@ import net.minecraft.core.registries.Registries;
 
 import javax.annotation.Nullable;
 
-@Mod.EventBusSubscriber
+@EventBusSubscriber
 public class PlayerTravelsToADimensionProcedure {
 	@SubscribeEvent
 	public static void onCommand(CommandEvent event) {

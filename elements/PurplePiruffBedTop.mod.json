@@ -1,5 +1,5 @@
 {
-  "_fv": 60,
+  "_fv": 66,
   "_type": "block",
   "definition": {
     "texture": "purple_piruff_bed_block",
@@ -95,9 +95,7 @@
     "resistance": 2.5,
     "hasGravity": false,
     "isWaterloggable": true,
-    "creativeTab": {
-      "value": "No creative tab entry"
-    },
+    "creativeTabs": [],
     "destroyTool": "axe",
     "customDrop": {
       "value": ""
@@ -154,7 +152,7 @@
     },
     "luminance": 0,
     "unbreakable": false,
-    "breakHarvestLevel": 0,
+    "vanillaToolTier": "NONE",
     "isBonemealable": false,
     "hasInventory": false,
     "guiBoundTo": "<NONE>",

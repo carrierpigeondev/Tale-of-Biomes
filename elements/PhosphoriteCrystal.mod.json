@@ -1,5 +1,5 @@
 {
-  "_fv": 60,
+  "_fv": 66,
   "_type": "block",
   "definition": {
     "texture": "phosphorite_crystal",
@@ -41,9 +41,11 @@
     "resistance": 1.0,
     "hasGravity": false,
     "isWaterloggable": true,
-    "creativeTab": {
-      "value": "CUSTOM:TOBBlocksTab"
-    },
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:TOBBlocksTab"
+      }
+    ],
     "destroyTool": "pickaxe",
     "customDrop": {
       "value": "CUSTOM:PhosphoriteGemstone"
@@ -100,7 +102,7 @@
     },
     "luminance": 0,
     "unbreakable": false,
-    "breakHarvestLevel": 2,
+    "vanillaToolTier": "IRON",
     "isBonemealable": false,
     "hasInventory": true,
     "guiBoundTo": "<NONE>",

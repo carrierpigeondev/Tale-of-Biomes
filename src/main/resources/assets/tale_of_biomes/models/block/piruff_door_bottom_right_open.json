@@ -1,6 +1,7 @@
 {
   "parent": "block/door_bottom_right_open",
   "textures": {
+    "particle": "tale_of_biomes:block/piruff_door_bottom",
     "bottom": "tale_of_biomes:block/piruff_door_bottom",
     "top": "tale_of_biomes:block/piruff_door_top"
   },

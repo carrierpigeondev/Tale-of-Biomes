@@ -1,7 +1,7 @@
 
 package net.nwtg.taleofbiomes.block;
 
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -36,7 +36,7 @@ public class PiruffFenceBlock extends FenceBlock {
 	}
 
 	@Override
-	public BlockPathTypes getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
-		return BlockPathTypes.FENCE;
+	public PathType getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
+		return PathType.FENCE;
 	}
 }

@@ -1,5 +1,5 @@
 {
-  "_fv": 60,
+  "_fv": 66,
   "_type": "block",
   "definition": {
     "texture": "magenta_piruff_bed_block",
@@ -77,9 +77,11 @@
     "resistance": 2.5,
     "hasGravity": false,
     "isWaterloggable": true,
-    "creativeTab": {
-      "value": "CUSTOM:TOBDecorationTab"
-    },
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:TOBDecorationTab"
+      }
+    ],
     "destroyTool": "axe",
     "customDrop": {
       "value": ""
@@ -136,7 +138,7 @@
     },
     "luminance": 0,
     "unbreakable": false,
-    "breakHarvestLevel": 0,
+    "vanillaToolTier": "NONE",
     "isBonemealable": false,
     "hasInventory": false,
     "guiBoundTo": "<NONE>",

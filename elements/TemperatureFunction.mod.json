@@ -1,8 +1,8 @@
 {
-  "_fv": 60,
+  "_fv": 66,
   "_type": "function",
   "definition": {
-    "code": "tob script temperature world\ntob script temperature player @a",
+    "code": "# tob script temperature world\n# tob script temperature player @a",
     "name": "temperature_function",
     "namespace": "mod"
   }

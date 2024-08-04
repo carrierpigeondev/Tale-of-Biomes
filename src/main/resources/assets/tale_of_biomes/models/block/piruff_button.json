@@ -1,6 +1,7 @@
 {
   "parent": "block/button",
   "textures": {
+    "particle": "tale_of_biomes:block/piruff_door_bottom",
     "texture": "tale_of_biomes:block/piruff_door_bottom"
   },
   "render_type": "solid"

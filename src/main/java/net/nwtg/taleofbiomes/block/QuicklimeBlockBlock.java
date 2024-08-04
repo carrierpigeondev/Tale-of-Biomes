@@ -1,7 +1,7 @@
 
 package net.nwtg.taleofbiomes.block;
 
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.block.state.BlockState;
@@ -15,14 +15,10 @@ import net.minecraft.core.BlockPos;
 import com.mojang.serialization.MapCodec;
 
 public class QuicklimeBlockBlock extends FallingBlock {
-	public static final MapCodec<QuicklimeBlockBlock> CODEC = simpleCodec(QuicklimeBlockBlock::new);
+	public static final MapCodec<QuicklimeBlockBlock> CODEC = simpleCodec(properties -> new QuicklimeBlockBlock());
 
 	public MapCodec<QuicklimeBlockBlock> codec() {
 		return CODEC;
-	}
-
-	public QuicklimeBlockBlock(BlockBehaviour.Properties ignored) {
-		this();
 	}
 
 	public QuicklimeBlockBlock() {
@@ -35,7 +31,7 @@ public class QuicklimeBlockBlock extends FallingBlock {
 	}
 
 	@Override
-	public BlockPathTypes getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
-		return BlockPathTypes.BLOCKED;
+	public PathType getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
+		return PathType.BLOCKED;
 	}
 }

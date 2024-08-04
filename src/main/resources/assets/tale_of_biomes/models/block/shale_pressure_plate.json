@@ -1,6 +1,7 @@
 {
   "parent": "block/pressure_plate_up",
   "textures": {
+    "particle": "tale_of_biomes:block/shale_end",
     "texture": "tale_of_biomes:block/shale_end"
   },
   "render_type": "solid"

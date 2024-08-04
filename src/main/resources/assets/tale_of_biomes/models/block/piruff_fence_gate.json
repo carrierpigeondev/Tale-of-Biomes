@@ -1,6 +1,7 @@
 {
   "parent": "block/template_fence_gate",
   "textures": {
+    "particle": "tale_of_biomes:block/piruff_planks",
     "texture": "tale_of_biomes:block/piruff_planks"
   },
   "render_type": "cutout"

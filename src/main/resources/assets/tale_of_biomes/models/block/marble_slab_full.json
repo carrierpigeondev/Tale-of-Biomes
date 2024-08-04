@@ -1,6 +1,7 @@
 {
   "parent": "block/cube_bottom_top",
   "textures": {
+    "particle": "tale_of_biomes:block/marble",
     "bottom": "tale_of_biomes:block/marble",
     "top": "tale_of_biomes:block/marble",
     "side": "tale_of_biomes:block/marble"

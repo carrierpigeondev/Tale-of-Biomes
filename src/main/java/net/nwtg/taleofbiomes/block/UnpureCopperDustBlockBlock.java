@@ -1,7 +1,10 @@
 
 package net.nwtg.taleofbiomes.block;
 
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.neoforged.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.Dist;
+
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -12,6 +15,7 @@ import net.minecraft.world.level.block.FallingBlock;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.BlockPos;
@@ -21,14 +25,10 @@ import java.util.List;
 import com.mojang.serialization.MapCodec;
 
 public class UnpureCopperDustBlockBlock extends FallingBlock {
-	public static final MapCodec<UnpureCopperDustBlockBlock> CODEC = simpleCodec(UnpureCopperDustBlockBlock::new);
+	public static final MapCodec<UnpureCopperDustBlockBlock> CODEC = simpleCodec(properties -> new UnpureCopperDustBlockBlock());
 
 	public MapCodec<UnpureCopperDustBlockBlock> codec() {
 		return CODEC;
-	}
-
-	public UnpureCopperDustBlockBlock(BlockBehaviour.Properties ignored) {
-		this();
 	}
 
 	public UnpureCopperDustBlockBlock() {
@@ -36,8 +36,9 @@ public class UnpureCopperDustBlockBlock extends FallingBlock {
 	}
 
 	@Override
-	public void appendHoverText(ItemStack itemstack, BlockGetter level, List<Component> list, TooltipFlag flag) {
-		super.appendHoverText(itemstack, level, list, flag);
+	@OnlyIn(Dist.CLIENT)
+	public void appendHoverText(ItemStack itemstack, Item.TooltipContext context, List<Component> list, TooltipFlag flag) {
+		super.appendHoverText(itemstack, context, list, flag);
 		list.add(Component.literal("This block is very compressed!"));
 	}
 
@@ -47,7 +48,7 @@ public class UnpureCopperDustBlockBlock extends FallingBlock {
 	}
 
 	@Override
-	public BlockPathTypes getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
-		return BlockPathTypes.BLOCKED;
+	public PathType getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
+		return PathType.BLOCKED;
 	}
 }

@@ -8,7 +8,7 @@ import net.nwtg.taleofbiomes.network.TaleOfBiomesModVariables;
 import net.nwtg.taleofbiomes.init.TaleOfBiomesModBlocks;
 
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.bus.api.Event;
 
@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
 
 import io.netty.buffer.Unpooled;
 
-@Mod.EventBusSubscriber
+@EventBusSubscriber
 public class PlayerRightClicksOnCraftingTableProcedure {
 	@SubscribeEvent
 	public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
@@ -54,6 +54,11 @@ public class PlayerRightClicksOnCraftingTableProcedure {
 						}
 
 						@Override
+						public boolean shouldTriggerClientSideContainerClosingOnOpen() {
+							return false;
+						}
+
+						@Override
 						public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
 							return new BasicToolTableMenuRecipeBookMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
 						}
@@ -66,6 +71,11 @@ public class PlayerRightClicksOnCraftingTableProcedure {
 						@Override
 						public Component getDisplayName() {
 							return Component.literal("BasicToolTableMenu");
+						}
+
+						@Override
+						public boolean shouldTriggerClientSideContainerClosingOnOpen() {
+							return false;
 						}
 
 						@Override
@@ -86,6 +96,11 @@ public class PlayerRightClicksOnCraftingTableProcedure {
 						}
 
 						@Override
+						public boolean shouldTriggerClientSideContainerClosingOnOpen() {
+							return false;
+						}
+
+						@Override
 						public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
 							return new BasicStoneTableMenuRecipeBookMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
 						}
@@ -98,6 +113,11 @@ public class PlayerRightClicksOnCraftingTableProcedure {
 						@Override
 						public Component getDisplayName() {
 							return Component.literal("BasicStoneTableMenu");
+						}
+
+						@Override
+						public boolean shouldTriggerClientSideContainerClosingOnOpen() {
+							return false;
 						}
 
 						@Override

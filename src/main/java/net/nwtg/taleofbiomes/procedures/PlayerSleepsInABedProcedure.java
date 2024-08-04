@@ -1,7 +1,7 @@
 package net.nwtg.taleofbiomes.procedures;
 
 import net.neoforged.neoforge.event.entity.player.PlayerWakeUpEvent;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.bus.api.Event;
 
@@ -19,7 +19,7 @@ import net.minecraft.commands.CommandSource;
 
 import javax.annotation.Nullable;
 
-@Mod.EventBusSubscriber
+@EventBusSubscriber
 public class PlayerSleepsInABedProcedure {
 	@SubscribeEvent
 	public static void onEntityEndSleep(PlayerWakeUpEvent event) {

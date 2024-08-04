@@ -5,7 +5,7 @@ import net.nwtg.taleofbiomes.init.TaleOfBiomesModItems;
 import net.nwtg.taleofbiomes.init.TaleOfBiomesModBlocks;
 
 import net.neoforged.neoforge.event.level.BlockEvent;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.bus.api.ICancellableEvent;
 import net.neoforged.bus.api.Event;
@@ -26,7 +26,7 @@ import net.minecraft.core.BlockPos;
 
 import javax.annotation.Nullable;
 
-@Mod.EventBusSubscriber
+@EventBusSubscriber
 public class HayStrawBlockBrokenProcedure {
 	@SubscribeEvent
 	public static void onBlockBreak(BlockEvent.BreakEvent event) {
@@ -59,10 +59,10 @@ public class HayStrawBlockBrokenProcedure {
 				}
 				{
 					ItemStack _ist = (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY);
-					if (_ist.hurt(1, RandomSource.create(), null)) {
+					_ist.hurtAndBreak(1, RandomSource.create(), null, () -> {
 						_ist.shrink(1);
 						_ist.setDamageValue(0);
-					}
+					});
 				}
 			} else {
 				if (event instanceof ICancellableEvent _cancellable) {
@@ -82,10 +82,10 @@ public class HayStrawBlockBrokenProcedure {
 				}
 				{
 					ItemStack _ist = (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY);
-					if (_ist.hurt(1, RandomSource.create(), null)) {
+					_ist.hurtAndBreak(1, RandomSource.create(), null, () -> {
 						_ist.shrink(1);
 						_ist.setDamageValue(0);
-					}
+					});
 				}
 			} else {
 				if (event instanceof ICancellableEvent _cancellable) {

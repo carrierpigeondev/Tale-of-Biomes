@@ -11,11 +11,11 @@ import net.nwtg.taleofbiomes.client.gui.BasicStoneTableMenuScreen;
 import net.nwtg.taleofbiomes.client.gui.BasicStoneTableMenuRecipeBookScreen;
 
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.api.distmarker.Dist;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class TaleOfBiomesModScreens {
 	@SubscribeEvent
 	public static void clientLoad(RegisterMenuScreensEvent event) {

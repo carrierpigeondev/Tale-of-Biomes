@@ -7,6 +7,8 @@ import net.nwtg.taleofbiomes.procedures.PrairieDogOnEntityTickUpdateProcedure;
 import net.nwtg.taleofbiomes.procedures.PrairieDogLookAIConditionProcedure;
 import net.nwtg.taleofbiomes.procedures.PrairieDogEntityIsHurtProcedure;
 
+import net.neoforged.neoforge.event.entity.SpawnPlacementRegisterEvent;
+
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.Level;
@@ -19,7 +21,6 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.PathfinderMob;
-import net.minecraft.world.entity.MobType;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.LivingEntity;
@@ -46,18 +47,17 @@ public class PrairieDogEntity extends PathfinderMob {
 
 	public PrairieDogEntity(EntityType<PrairieDogEntity> type, Level world) {
 		super(type, world);
-		setMaxUpStep(0.6f);
 		xpReward = 0;
 		setNoAi(false);
 		setPersistenceRequired();
 	}
 
 	@Override
-	protected void defineSynchedData() {
-		super.defineSynchedData();
-		this.entityData.define(DATA_animation, "normal");
-		this.entityData.define(DATA_animationTime, 0);
-		this.entityData.define(DATA_animationTimeDefault, 600);
+	protected void defineSynchedData(SynchedEntityData.Builder builder) {
+		super.defineSynchedData(builder);
+		builder.define(DATA_animation, "normal");
+		builder.define(DATA_animationTime, 0);
+		builder.define(DATA_animationTimeDefault, 600);
 	}
 
 	@Override
@@ -112,11 +112,6 @@ public class PrairieDogEntity extends PathfinderMob {
 	}
 
 	@Override
-	public MobType getMobType() {
-		return MobType.UNDEFINED;
-	}
-
-	@Override
 	public boolean removeWhenFarAway(double distanceToClosestPlayer) {
 		return false;
 	}
@@ -156,8 +151,8 @@ public class PrairieDogEntity extends PathfinderMob {
 	}
 
 	@Override
-	public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType reason, @Nullable SpawnGroupData livingdata, @Nullable CompoundTag tag) {
-		SpawnGroupData retval = super.finalizeSpawn(world, difficulty, reason, livingdata, tag);
+	public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType reason, @Nullable SpawnGroupData livingdata) {
+		SpawnGroupData retval = super.finalizeSpawn(world, difficulty, reason, livingdata);
 		PrairieDogOnInitialEntitySpawnProcedure.execute(this);
 		return retval;
 	}
@@ -187,7 +182,7 @@ public class PrairieDogEntity extends PathfinderMob {
 		PrairieDogOnEntityTickUpdateProcedure.execute(this);
 	}
 
-	public static void init() {
+	public static void init(SpawnPlacementRegisterEvent event) {
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
@@ -197,6 +192,7 @@ public class PrairieDogEntity extends PathfinderMob {
 		builder = builder.add(Attributes.ARMOR, 0);
 		builder = builder.add(Attributes.ATTACK_DAMAGE, 3);
 		builder = builder.add(Attributes.FOLLOW_RANGE, 16);
+		builder = builder.add(Attributes.STEP_HEIGHT, 0.6);
 		return builder;
 	}
 }

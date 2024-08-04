@@ -1,6 +1,7 @@
 {
   "parent": "block/inner_stairs",
   "textures": {
+    "particle": "tale_of_biomes:block/thatch_side",
     "bottom": "tale_of_biomes:block/thatch_side",
     "top": "tale_of_biomes:block/thatch_side",
     "side": "tale_of_biomes:block/thatch_side"

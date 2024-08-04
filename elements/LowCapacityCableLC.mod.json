@@ -1,5 +1,5 @@
 {
-  "_fv": 60,
+  "_fv": 66,
   "_type": "block",
   "definition": {
     "texture": "electrical_cable",
@@ -50,9 +50,7 @@
     "resistance": 2.5,
     "hasGravity": false,
     "isWaterloggable": false,
-    "creativeTab": {
-      "value": "No creative tab entry"
-    },
+    "creativeTabs": [],
     "destroyTool": "axe",
     "customDrop": {
       "value": "CUSTOM:LowCapacityCableN"
@@ -109,7 +107,7 @@
     },
     "luminance": 0,
     "unbreakable": false,
-    "breakHarvestLevel": 0,
+    "vanillaToolTier": "NONE",
     "isBonemealable": false,
     "hasInventory": true,
     "guiBoundTo": "<NONE>",

@@ -13,7 +13,7 @@ import net.minecraft.core.BlockPos;
 
 public class ThatchStairsBlock extends StairBlock {
 	public ThatchStairsBlock() {
-		super(() -> Blocks.AIR.defaultBlockState(), BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).sound(SoundType.GRASS).strength(0.5f).dynamicShape());
+		super(Blocks.AIR.defaultBlockState(), BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).sound(SoundType.GRASS).strength(0.5f).dynamicShape());
 	}
 
 	@Override

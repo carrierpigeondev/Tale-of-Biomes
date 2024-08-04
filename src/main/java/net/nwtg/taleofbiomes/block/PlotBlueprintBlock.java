@@ -6,7 +6,7 @@ import net.nwtg.taleofbiomes.block.entity.PlotBlueprintBlockEntity;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.FluidState;
@@ -89,8 +89,8 @@ public class PlotBlueprintBlock extends Block implements SimpleWaterloggedBlock,
 	}
 
 	@Override
-	public BlockPathTypes getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
-		return BlockPathTypes.OPEN;
+	public PathType getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
+		return PathType.OPEN;
 	}
 
 	@Override

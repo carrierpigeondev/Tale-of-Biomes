@@ -5,5 +5,7 @@
   "ingredient": {
     "item": "tale_of_biomes:large_bricks"
   },
-  "result": "tale_of_biomes:large_brick_stairs"
+  "result": {
+    "id": "tale_of_biomes:large_brick_stairs"
+  }
 }

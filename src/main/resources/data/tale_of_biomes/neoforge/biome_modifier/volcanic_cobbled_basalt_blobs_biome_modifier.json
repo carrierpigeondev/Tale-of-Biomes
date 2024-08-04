@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "tale_of_biomes:volcanic",
+  "features": "tale_of_biomes:volcanic_cobbled_basalt_blobs",
+  "step": "vegetal_decoration"
+}

@@ -2,6 +2,7 @@ package net.nwtg.taleofbiomes.procedures;
 
 import net.nwtg.taleofbiomes.entity.PrairieDogEntity;
 
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.Entity;
 
 public class PrairieDogOnEntityTickUpdateProcedure {
@@ -17,6 +18,8 @@ public class PrairieDogOnEntityTickUpdateProcedure {
 			if ((entity instanceof PrairieDogEntity _datEntS ? _datEntS.getEntityData().get(PrairieDogEntity.DATA_animation) : "").equals("normal")) {
 				if (entity instanceof PrairieDogEntity _datEntSetS)
 					_datEntSetS.getEntityData().set(PrairieDogEntity.DATA_animation, "standing");
+				if (entity instanceof Mob _entity)
+					_entity.getNavigation().stop();
 			} else {
 				if (entity instanceof PrairieDogEntity _datEntSetS)
 					_datEntSetS.getEntityData().set(PrairieDogEntity.DATA_animation, "normal");

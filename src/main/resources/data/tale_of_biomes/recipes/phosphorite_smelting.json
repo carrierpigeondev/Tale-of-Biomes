@@ -7,5 +7,7 @@
   "ingredient": {
     "tag": "tale_of_biomes:tools/phosphorite"
   },
-  "result": "tale_of_biomes:phosphorite_gemstone"
+  "result": {
+    "id": "tale_of_biomes:phosphorite_gemstone"
+  }
 }

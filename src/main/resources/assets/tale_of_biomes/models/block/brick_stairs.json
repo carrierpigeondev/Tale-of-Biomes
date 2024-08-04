@@ -1,6 +1,7 @@
 {
   "parent": "block/stairs",
   "textures": {
+    "particle": "tale_of_biomes:block/bricks",
     "bottom": "tale_of_biomes:block/bricks",
     "top": "tale_of_biomes:block/bricks",
     "side": "tale_of_biomes:block/bricks"

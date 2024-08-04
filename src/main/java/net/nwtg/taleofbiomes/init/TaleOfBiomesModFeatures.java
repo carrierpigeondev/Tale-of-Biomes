@@ -4,6 +4,7 @@
  */
 package net.nwtg.taleofbiomes.init;
 
+import net.nwtg.taleofbiomes.world.features.VolcanicLargeBasaltColumnsFeature;
 import net.nwtg.taleofbiomes.world.features.SmallPiruffTreeFeatureWoodsFeature;
 import net.nwtg.taleofbiomes.world.features.SmallPiruffTreeFeaturePlainsFeature;
 import net.nwtg.taleofbiomes.world.features.SmallPiruffTreeFeatureForestFeature;
@@ -36,4 +37,5 @@ public class TaleOfBiomesModFeatures {
 	public static final DeferredHolder<Feature<?>, Feature<?>> SMALL_PIRUFF_TREE_FEATURE_WOODS = REGISTRY.register("small_piruff_tree_feature_woods", SmallPiruffTreeFeatureWoodsFeature::new);
 	public static final DeferredHolder<Feature<?>, Feature<?>> SMALL_PIRUFF_TREE_FEATURE_PLAINS = REGISTRY.register("small_piruff_tree_feature_plains", SmallPiruffTreeFeaturePlainsFeature::new);
 	public static final DeferredHolder<Feature<?>, Feature<?>> LARGE_PIRUFF_TREE_FEATURE_WOODS = REGISTRY.register("large_piruff_tree_feature_woods", LargePiruffTreeFeatureWoodsFeature::new);
+	public static final DeferredHolder<Feature<?>, Feature<?>> VOLCANIC_LARGE_BASALT_COLUMNS = REGISTRY.register("volcanic_large_basalt_columns", VolcanicLargeBasaltColumnsFeature::new);
 }

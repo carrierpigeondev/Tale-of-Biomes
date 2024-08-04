@@ -3,7 +3,7 @@ package net.nwtg.taleofbiomes.procedures;
 import net.nwtg.taleofbiomes.init.TaleOfBiomesModBlocks;
 
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.bus.api.Event;
 
@@ -27,9 +27,7 @@ import net.minecraft.core.BlockPos;
 
 import javax.annotation.Nullable;
 
-import java.util.Map;
-
-@Mod.EventBusSubscriber
+@EventBusSubscriber
 public class FertileSoilOnBlockRightClickedProcedure {
 	@SubscribeEvent
 	public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
@@ -50,27 +48,27 @@ public class FertileSoilOnBlockRightClickedProcedure {
 				_entity.swing(InteractionHand.MAIN_HAND, true);
 			{
 				ItemStack _ist = (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY);
-				if (_ist.hurt(1, RandomSource.create(), null)) {
+				_ist.hurtAndBreak(1, RandomSource.create(), null, () -> {
 					_ist.shrink(1);
 					_ist.setDamageValue(0);
-				}
+				});
 			}
 			{
 				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockState _bs = TaleOfBiomesModBlocks.TILLED_SOIL.get().defaultBlockState();
 				BlockState _bso = world.getBlockState(_bp);
-				for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
-					Property _property = _bs.getBlock().getStateDefinition().getProperty(entry.getKey().getName());
-					if (_property != null && _bs.getValue(_property) != null)
+				for (Property<?> _propertyOld : _bso.getProperties()) {
+					Property _propertyNew = _bs.getBlock().getStateDefinition().getProperty(_propertyOld.getName());
+					if (_propertyNew != null && _bs.getValue(_propertyNew) != null)
 						try {
-							_bs = _bs.setValue(_property, (Comparable) entry.getValue());
+							_bs = _bs.setValue(_propertyNew, _bso.getValue(_propertyOld));
 						} catch (Exception e) {
 						}
 				}
 				BlockEntity _be = world.getBlockEntity(_bp);
 				CompoundTag _bnbt = null;
 				if (_be != null) {
-					_bnbt = _be.saveWithFullMetadata();
+					_bnbt = _be.saveWithFullMetadata(world.registryAccess());
 					_be.setRemoved();
 				}
 				world.setBlock(_bp, _bs, 3);
@@ -78,7 +76,7 @@ public class FertileSoilOnBlockRightClickedProcedure {
 					_be = world.getBlockEntity(_bp);
 					if (_be != null) {
 						try {
-							_be.load(_bnbt);
+							_be.loadWithComponents(_bnbt, world.registryAccess());
 						} catch (Exception ignored) {
 						}
 					}

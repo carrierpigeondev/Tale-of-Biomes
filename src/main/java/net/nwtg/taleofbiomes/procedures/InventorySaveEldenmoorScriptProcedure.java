@@ -18,8 +18,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot0 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(0, entity));
@@ -29,8 +30,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot1 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(1, entity));
@@ -40,8 +42,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot2 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(2, entity));
@@ -51,8 +54,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot3 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(3, entity));
@@ -62,8 +66,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot4 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(4, entity));
@@ -73,8 +78,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot5 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(5, entity));
@@ -84,8 +90,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot6 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(6, entity));
@@ -95,8 +102,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot7 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(7, entity));
@@ -106,8 +114,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot8 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(8, entity));
@@ -117,8 +126,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot9 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(9, entity));
@@ -128,8 +138,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot10 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(10, entity));
@@ -139,8 +150,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot11 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(11, entity));
@@ -150,8 +162,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot12 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(12, entity));
@@ -161,8 +174,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot13 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(13, entity));
@@ -172,8 +186,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot14 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(14, entity));
@@ -183,8 +198,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot15 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(15, entity));
@@ -194,8 +210,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot16 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(16, entity));
@@ -205,8 +222,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot17 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(17, entity));
@@ -216,8 +234,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot18 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(18, entity));
@@ -227,8 +246,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot19 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(19, entity));
@@ -238,8 +258,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot20 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(20, entity));
@@ -249,8 +270,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot21 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(21, entity));
@@ -260,8 +282,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot22 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(22, entity));
@@ -271,8 +294,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot23 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(23, entity));
@@ -282,8 +306,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot24 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(24, entity));
@@ -293,8 +318,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot25 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(25, entity));
@@ -304,8 +330,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot26 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(26, entity));
@@ -315,8 +342,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot27 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(27, entity));
@@ -326,8 +354,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot28 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(28, entity));
@@ -337,8 +366,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot29 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(29, entity));
@@ -348,8 +378,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot30 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(30, entity));
@@ -359,8 +390,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot31 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(31, entity));
@@ -370,8 +402,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot32 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(32, entity));
@@ -381,8 +414,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot33 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(33, entity));
@@ -392,8 +426,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot34 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(34, entity));
@@ -403,8 +438,9 @@ public class InventorySaveEldenmoorScriptProcedure {
 			TaleOfBiomesModVariables.PlayerVariables _vars = entity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES);
 			_vars.eldenmoorSlot35 = (new Object() {
 				public ItemStack getItemStack(int sltid, Entity entity) {
-					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerEntGetSlot)
-						return _modHandlerEntGetSlot.getStackInSlot(sltid).copy();
+					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandler) {
+						return _modHandler.getStackInSlot(sltid).copy();
+					}
 					return ItemStack.EMPTY;
 				}
 			}.getItemStack(35, entity));

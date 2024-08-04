@@ -54,9 +54,8 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.bus.api.IEventBus;
 import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.api.distmarker.Dist;
 
@@ -65,11 +64,10 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.DoubleHighBlockItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.client.renderer.item.ItemProperties;
 
 public class TaleOfBiomesModItems {
-	public static final DeferredRegister<Item> REGISTRY = DeferredRegister.create(BuiltInRegistries.ITEM, TaleOfBiomesMod.MODID);
+	public static final DeferredRegister.Items REGISTRY = DeferredRegister.createItems(TaleOfBiomesMod.MODID);
 	public static final DeferredHolder<Item, Item> GRASS_BLOCK = block(TaleOfBiomesModBlocks.GRASS_BLOCK);
 	public static final DeferredHolder<Item, Item> DIRT = block(TaleOfBiomesModBlocks.DIRT);
 	public static final DeferredHolder<Item, Item> BLUE_ASTER = block(TaleOfBiomesModBlocks.BLUE_ASTER);
@@ -97,17 +95,17 @@ public class TaleOfBiomesModItems {
 	public static final DeferredHolder<Item, Item> PHOSPHORITE_CRYSTAL = block(TaleOfBiomesModBlocks.PHOSPHORITE_CRYSTAL);
 	public static final DeferredHolder<Item, Item> PHOSPHORITE_CRYSTAL_BOTTOM = block(TaleOfBiomesModBlocks.PHOSPHORITE_CRYSTAL_BOTTOM);
 	public static final DeferredHolder<Item, Item> PHOSPHORITE_CRYSTAL_TOP = block(TaleOfBiomesModBlocks.PHOSPHORITE_CRYSTAL_TOP);
-	public static final DeferredHolder<Item, Item> PHOSPHORITE_GEMSTONE = REGISTRY.register("phosphorite_gemstone", () -> new PhosphoriteGemstoneItem());
-	public static final DeferredHolder<Item, Item> PHOSPHORITE_PICKAXE = REGISTRY.register("phosphorite_pickaxe", () -> new PhosphoritePickaxeItem());
-	public static final DeferredHolder<Item, Item> PHOSPHORITE_AXE = REGISTRY.register("phosphorite_axe", () -> new PhosphoriteAxeItem());
-	public static final DeferredHolder<Item, Item> PHOSPHORITE_SHOVEL = REGISTRY.register("phosphorite_shovel", () -> new PhosphoriteShovelItem());
-	public static final DeferredHolder<Item, Item> PHOSPHORITE_HOE = REGISTRY.register("phosphorite_hoe", () -> new PhosphoriteHoeItem());
-	public static final DeferredHolder<Item, Item> PHOSPHORITE_SWORD = REGISTRY.register("phosphorite_sword", () -> new PhosphoriteSwordItem());
+	public static final DeferredHolder<Item, Item> PHOSPHORITE_GEMSTONE = REGISTRY.register("phosphorite_gemstone", PhosphoriteGemstoneItem::new);
+	public static final DeferredHolder<Item, Item> PHOSPHORITE_PICKAXE = REGISTRY.register("phosphorite_pickaxe", PhosphoritePickaxeItem::new);
+	public static final DeferredHolder<Item, Item> PHOSPHORITE_AXE = REGISTRY.register("phosphorite_axe", PhosphoriteAxeItem::new);
+	public static final DeferredHolder<Item, Item> PHOSPHORITE_SHOVEL = REGISTRY.register("phosphorite_shovel", PhosphoriteShovelItem::new);
+	public static final DeferredHolder<Item, Item> PHOSPHORITE_HOE = REGISTRY.register("phosphorite_hoe", PhosphoriteHoeItem::new);
+	public static final DeferredHolder<Item, Item> PHOSPHORITE_SWORD = REGISTRY.register("phosphorite_sword", PhosphoriteSwordItem::new);
 	public static final DeferredHolder<Item, Item> PIRUFF_LOG = block(TaleOfBiomesModBlocks.PIRUFF_LOG);
 	public static final DeferredHolder<Item, Item> PIRUFF_LEAVES = block(TaleOfBiomesModBlocks.PIRUFF_LEAVES);
 	public static final DeferredHolder<Item, Item> PIRUFF_WOOD = block(TaleOfBiomesModBlocks.PIRUFF_WOOD);
 	public static final DeferredHolder<Item, Item> CLAY_BLOCK = block(TaleOfBiomesModBlocks.CLAY_BLOCK);
-	public static final DeferredHolder<Item, Item> CLAY = REGISTRY.register("clay", () -> new ClayItem());
+	public static final DeferredHolder<Item, Item> CLAY = REGISTRY.register("clay", ClayItem::new);
 	public static final DeferredHolder<Item, Item> BRICKS = block(TaleOfBiomesModBlocks.BRICKS);
 	public static final DeferredHolder<Item, Item> LARGE_BRICKS = block(TaleOfBiomesModBlocks.LARGE_BRICKS);
 	public static final DeferredHolder<Item, Item> LARGE_BRICK_WALL = block(TaleOfBiomesModBlocks.LARGE_BRICK_WALL);
@@ -121,7 +119,7 @@ public class TaleOfBiomesModItems {
 	public static final DeferredHolder<Item, Item> LIMESTONE = block(TaleOfBiomesModBlocks.LIMESTONE);
 	public static final DeferredHolder<Item, Item> COBBLED_LIMESTONE = block(TaleOfBiomesModBlocks.COBBLED_LIMESTONE);
 	public static final DeferredHolder<Item, Item> QUICKLIME_BLOCK = block(TaleOfBiomesModBlocks.QUICKLIME_BLOCK);
-	public static final DeferredHolder<Item, Item> QUICKLIME = REGISTRY.register("quicklime", () -> new QuicklimeItem());
+	public static final DeferredHolder<Item, Item> QUICKLIME = REGISTRY.register("quicklime", QuicklimeItem::new);
 	public static final DeferredHolder<Item, Item> KILN_FURNACE = block(TaleOfBiomesModBlocks.KILN_FURNACE);
 	public static final DeferredHolder<Item, Item> KILN_FURNACE_ON = block(TaleOfBiomesModBlocks.KILN_FURNACE_ON);
 	public static final DeferredHolder<Item, Item> KILN_LADDER = block(TaleOfBiomesModBlocks.KILN_LADDER);
@@ -132,15 +130,7 @@ public class TaleOfBiomesModItems {
 	public static final DeferredHolder<Item, Item> KILN_BLOCK_MIDDLE_CENTER = block(TaleOfBiomesModBlocks.KILN_BLOCK_MIDDLE_CENTER);
 	public static final DeferredHolder<Item, Item> KILN_BLOCK_MIDDLE_TOP = block(TaleOfBiomesModBlocks.KILN_BLOCK_MIDDLE_TOP);
 	public static final DeferredHolder<Item, Item> KILN_BLOCK_FOUNDATION = block(TaleOfBiomesModBlocks.KILN_BLOCK_FOUNDATION);
-	public static final DeferredHolder<Item, Item> RICE_CROP_0 = block(TaleOfBiomesModBlocks.RICE_CROP_0);
-	public static final DeferredHolder<Item, Item> RICE_CROP_1 = block(TaleOfBiomesModBlocks.RICE_CROP_1);
-	public static final DeferredHolder<Item, Item> RICE_CROP_2 = block(TaleOfBiomesModBlocks.RICE_CROP_2);
-	public static final DeferredHolder<Item, Item> RICE_CROP_3 = block(TaleOfBiomesModBlocks.RICE_CROP_3);
-	public static final DeferredHolder<Item, Item> RICE_CROP_4 = block(TaleOfBiomesModBlocks.RICE_CROP_4);
-	public static final DeferredHolder<Item, Item> RICE_CROP_5 = block(TaleOfBiomesModBlocks.RICE_CROP_5);
-	public static final DeferredHolder<Item, Item> RICE_CROP_6 = block(TaleOfBiomesModBlocks.RICE_CROP_6);
-	public static final DeferredHolder<Item, Item> RICE_CROP_7 = block(TaleOfBiomesModBlocks.RICE_CROP_7);
-	public static final DeferredHolder<Item, Item> RICE_SEEDS = REGISTRY.register("rice_seeds", () -> new RiceSeedsItem());
+	public static final DeferredHolder<Item, Item> RICE_SEEDS = REGISTRY.register("rice_seeds", RiceSeedsItem::new);
 	public static final DeferredHolder<Item, Item> STRIPPED_PIRUFF_LOG = block(TaleOfBiomesModBlocks.STRIPPED_PIRUFF_LOG);
 	public static final DeferredHolder<Item, Item> STRIPPED_PIRUFF_WOOD = block(TaleOfBiomesModBlocks.STRIPPED_PIRUFF_WOOD);
 	public static final DeferredHolder<Item, Item> PIRUFF_PLANKS = block(TaleOfBiomesModBlocks.PIRUFF_PLANKS);
@@ -154,14 +144,14 @@ public class TaleOfBiomesModItems {
 	public static final DeferredHolder<Item, Item> PIRUFF_SLAB = block(TaleOfBiomesModBlocks.PIRUFF_SLAB);
 	public static final DeferredHolder<Item, Item> HAY_GRASS = block(TaleOfBiomesModBlocks.HAY_GRASS);
 	public static final DeferredHolder<Item, Item> HAY_STRAW = block(TaleOfBiomesModBlocks.HAY_STRAW);
-	public static final DeferredHolder<Item, Item> STRAW = REGISTRY.register("straw", () -> new StrawItem());
+	public static final DeferredHolder<Item, Item> STRAW = REGISTRY.register("straw", StrawItem::new);
 	public static final DeferredHolder<Item, Item> THATCH_BLOCK = block(TaleOfBiomesModBlocks.THATCH_BLOCK);
 	public static final DeferredHolder<Item, Item> THATCH_STAIRS = block(TaleOfBiomesModBlocks.THATCH_STAIRS);
 	public static final DeferredHolder<Item, Item> THATCH_SLAB = block(TaleOfBiomesModBlocks.THATCH_SLAB);
 	public static final DeferredHolder<Item, Item> LARGE_BRICK_STAIRS = block(TaleOfBiomesModBlocks.LARGE_BRICK_STAIRS);
 	public static final DeferredHolder<Item, Item> LARGE_BRICK_SLAB = block(TaleOfBiomesModBlocks.LARGE_BRICK_SLAB);
 	public static final DeferredHolder<Item, Item> PACKED_DIRT = block(TaleOfBiomesModBlocks.PACKED_DIRT);
-	public static final DeferredHolder<Item, Item> SEASON_DEVICE = REGISTRY.register("season_device", () -> new SeasonDeviceItem());
+	public static final DeferredHolder<Item, Item> SEASON_DEVICE = REGISTRY.register("season_device", SeasonDeviceItem::new);
 	public static final DeferredHolder<Item, Item> PLOT_BLUEPRINT = block(TaleOfBiomesModBlocks.PLOT_BLUEPRINT);
 	public static final DeferredHolder<Item, Item> WALL_BLUEPRINT = block(TaleOfBiomesModBlocks.WALL_BLUEPRINT);
 	public static final DeferredHolder<Item, Item> DOOR_BLUEPRINT = block(TaleOfBiomesModBlocks.DOOR_BLUEPRINT);
@@ -185,19 +175,19 @@ public class TaleOfBiomesModItems {
 	public static final DeferredHolder<Item, Item> PURPLE_PIRUFF_BED = block(TaleOfBiomesModBlocks.PURPLE_PIRUFF_BED);
 	public static final DeferredHolder<Item, Item> PURPLE_PIRUFF_BED_TOP = block(TaleOfBiomesModBlocks.PURPLE_PIRUFF_BED_TOP);
 	public static final DeferredHolder<Item, Item> BASIC_TOOL_TABLE = block(TaleOfBiomesModBlocks.BASIC_TOOL_TABLE);
-	public static final DeferredHolder<Item, Item> STONE_AXE_HEAD = REGISTRY.register("stone_axe_head", () -> new StoneAxeHeadItem());
-	public static final DeferredHolder<Item, Item> PIRUFF_GRIP = REGISTRY.register("piruff_grip", () -> new PiruffGripItem());
-	public static final DeferredHolder<Item, Item> PIRUFF_STONE_AXE = REGISTRY.register("piruff_stone_axe", () -> new PiruffStoneAxeItem());
-	public static final DeferredHolder<Item, Item> STONE_PICKAXE_HEAD = REGISTRY.register("stone_pickaxe_head", () -> new StonePickaxeHeadItem());
-	public static final DeferredHolder<Item, Item> STONE_SHOVEL_HEAD = REGISTRY.register("stone_shovel_head", () -> new StoneShovelHeadItem());
-	public static final DeferredHolder<Item, Item> STONE_HOE_HEAD = REGISTRY.register("stone_hoe_head", () -> new StoneHoeHeadItem());
-	public static final DeferredHolder<Item, Item> STONE_SWORD_HEAD = REGISTRY.register("stone_sword_head", () -> new StoneSwordHeadItem());
-	public static final DeferredHolder<Item, Item> PIRUFF_STONE_HOE = REGISTRY.register("piruff_stone_hoe", () -> new PiruffStoneHoeItem());
-	public static final DeferredHolder<Item, Item> PIRUFF_STONE_SHOVEL = REGISTRY.register("piruff_stone_shovel", () -> new PiruffStoneShovelItem());
-	public static final DeferredHolder<Item, Item> PIRUFF_STONE_PICKAXE = REGISTRY.register("piruff_stone_pickaxe", () -> new PiruffStonePickaxeItem());
-	public static final DeferredHolder<Item, Item> PIRUFF_STONE_SWORD = REGISTRY.register("piruff_stone_sword", () -> new PiruffStoneSwordItem());
-	public static final DeferredHolder<Item, Item> STONE_SICKLE_HEAD = REGISTRY.register("stone_sickle_head", () -> new StoneSickleHeadItem());
-	public static final DeferredHolder<Item, Item> PIRUFF_STONE_SICKLE = REGISTRY.register("piruff_stone_sickle", () -> new PiruffStoneSickleItem());
+	public static final DeferredHolder<Item, Item> STONE_AXE_HEAD = REGISTRY.register("stone_axe_head", StoneAxeHeadItem::new);
+	public static final DeferredHolder<Item, Item> PIRUFF_GRIP = REGISTRY.register("piruff_grip", PiruffGripItem::new);
+	public static final DeferredHolder<Item, Item> PIRUFF_STONE_AXE = REGISTRY.register("piruff_stone_axe", PiruffStoneAxeItem::new);
+	public static final DeferredHolder<Item, Item> STONE_PICKAXE_HEAD = REGISTRY.register("stone_pickaxe_head", StonePickaxeHeadItem::new);
+	public static final DeferredHolder<Item, Item> STONE_SHOVEL_HEAD = REGISTRY.register("stone_shovel_head", StoneShovelHeadItem::new);
+	public static final DeferredHolder<Item, Item> STONE_HOE_HEAD = REGISTRY.register("stone_hoe_head", StoneHoeHeadItem::new);
+	public static final DeferredHolder<Item, Item> STONE_SWORD_HEAD = REGISTRY.register("stone_sword_head", StoneSwordHeadItem::new);
+	public static final DeferredHolder<Item, Item> PIRUFF_STONE_HOE = REGISTRY.register("piruff_stone_hoe", PiruffStoneHoeItem::new);
+	public static final DeferredHolder<Item, Item> PIRUFF_STONE_SHOVEL = REGISTRY.register("piruff_stone_shovel", PiruffStoneShovelItem::new);
+	public static final DeferredHolder<Item, Item> PIRUFF_STONE_PICKAXE = REGISTRY.register("piruff_stone_pickaxe", PiruffStonePickaxeItem::new);
+	public static final DeferredHolder<Item, Item> PIRUFF_STONE_SWORD = REGISTRY.register("piruff_stone_sword", PiruffStoneSwordItem::new);
+	public static final DeferredHolder<Item, Item> STONE_SICKLE_HEAD = REGISTRY.register("stone_sickle_head", StoneSickleHeadItem::new);
+	public static final DeferredHolder<Item, Item> PIRUFF_STONE_SICKLE = REGISTRY.register("piruff_stone_sickle", PiruffStoneSickleItem::new);
 	public static final DeferredHolder<Item, Item> LOW_CAPACITY_CABLE_N = block(TaleOfBiomesModBlocks.LOW_CAPACITY_CABLE_N);
 	public static final DeferredHolder<Item, Item> LOW_CAPACITY_CABLE_E = block(TaleOfBiomesModBlocks.LOW_CAPACITY_CABLE_E);
 	public static final DeferredHolder<Item, Item> LOW_CAPACITY_CABLE_I = block(TaleOfBiomesModBlocks.LOW_CAPACITY_CABLE_I);
@@ -230,7 +220,7 @@ public class TaleOfBiomesModItems {
 	public static final DeferredHolder<Item, Item> GHOST_BUSH_1 = block(TaleOfBiomesModBlocks.GHOST_BUSH_1);
 	public static final DeferredHolder<Item, Item> GHOST_BUSH_2 = block(TaleOfBiomesModBlocks.GHOST_BUSH_2);
 	public static final DeferredHolder<Item, Item> GHOST_BUSH_3 = block(TaleOfBiomesModBlocks.GHOST_BUSH_3);
-	public static final DeferredHolder<Item, Item> GHOST_BERRIES = REGISTRY.register("ghost_berries", () -> new GhostBerriesItem());
+	public static final DeferredHolder<Item, Item> GHOST_BERRIES = REGISTRY.register("ghost_berries", GhostBerriesItem::new);
 	public static final DeferredHolder<Item, Item> MARBLE = block(TaleOfBiomesModBlocks.MARBLE);
 	public static final DeferredHolder<Item, Item> COBBLED_MARBLE = block(TaleOfBiomesModBlocks.COBBLED_MARBLE);
 	public static final DeferredHolder<Item, Item> MOSSY_COBBLED_MARBLE = block(TaleOfBiomesModBlocks.MOSSY_COBBLED_MARBLE);
@@ -287,35 +277,32 @@ public class TaleOfBiomesModItems {
 	public static final DeferredHolder<Item, Item> MOSSY_COBBLED_SHALE_SLAB = block(TaleOfBiomesModBlocks.MOSSY_COBBLED_SHALE_SLAB);
 	public static final DeferredHolder<Item, Item> MOSSY_COBBLED_SHALE_WALL = block(TaleOfBiomesModBlocks.MOSSY_COBBLED_SHALE_WALL);
 	public static final DeferredHolder<Item, Item> BASIC_STONE_TABLE = block(TaleOfBiomesModBlocks.BASIC_STONE_TABLE);
-	public static final DeferredHolder<Item, Item> PIRUFF_AXE_HEAD = REGISTRY.register("piruff_axe_head", () -> new PiruffAxeHeadItem());
-	public static final DeferredHolder<Item, Item> PIRUFF_PICKAXE_HEAD = REGISTRY.register("piruff_pickaxe_head", () -> new PiruffPickaxeHeadItem());
-	public static final DeferredHolder<Item, Item> PIRUFF_SHOVEL_HEAD = REGISTRY.register("piruff_shovel_head", () -> new PiruffShovelHeadItem());
-	public static final DeferredHolder<Item, Item> PIRUFF_HOE_HEAD = REGISTRY.register("piruff_hoe_head", () -> new PiruffHoeHeadItem());
-	public static final DeferredHolder<Item, Item> PIRUFF_SWORD_HEAD = REGISTRY.register("piruff_sword_head", () -> new PiruffSwordHeadItem());
-	public static final DeferredHolder<Item, Item> PIRUFF_SICKLE_HEAD = REGISTRY.register("piruff_sickle_head", () -> new PiruffSickleHeadItem());
-	public static final DeferredHolder<Item, Item> PIRUFF_AXE = REGISTRY.register("piruff_axe", () -> new PiruffAxeItem());
-	public static final DeferredHolder<Item, Item> PIRUFF_HOE = REGISTRY.register("piruff_hoe", () -> new PiruffHoeItem());
-	public static final DeferredHolder<Item, Item> PIRUFF_PICKAXE = REGISTRY.register("piruff_pickaxe", () -> new PiruffPickaxeItem());
-	public static final DeferredHolder<Item, Item> PIRUFF_SHOVEL = REGISTRY.register("piruff_shovel", () -> new PiruffShovelItem());
-	public static final DeferredHolder<Item, Item> PIRUFF_SICKLE = REGISTRY.register("piruff_sickle", () -> new PiruffSickleItem());
-	public static final DeferredHolder<Item, Item> PIRUFF_SWORD = REGISTRY.register("piruff_sword", () -> new PiruffSwordItem());
-	public static final DeferredHolder<Item, Item> PURE_COPPER_DUST = REGISTRY.register("pure_copper_dust", () -> new PureCopperDustItem());
-	public static final DeferredHolder<Item, Item> MIXED_COPPER_DUST = REGISTRY.register("mixed_copper_dust", () -> new MixedCopperDustItem());
-	public static final DeferredHolder<Item, Item> UNPURE_COPPER_DUST = REGISTRY.register("unpure_copper_dust", () -> new UnpureCopperDustItem());
+	public static final DeferredHolder<Item, Item> PIRUFF_AXE_HEAD = REGISTRY.register("piruff_axe_head", PiruffAxeHeadItem::new);
+	public static final DeferredHolder<Item, Item> PIRUFF_PICKAXE_HEAD = REGISTRY.register("piruff_pickaxe_head", PiruffPickaxeHeadItem::new);
+	public static final DeferredHolder<Item, Item> PIRUFF_SHOVEL_HEAD = REGISTRY.register("piruff_shovel_head", PiruffShovelHeadItem::new);
+	public static final DeferredHolder<Item, Item> PIRUFF_HOE_HEAD = REGISTRY.register("piruff_hoe_head", PiruffHoeHeadItem::new);
+	public static final DeferredHolder<Item, Item> PIRUFF_SWORD_HEAD = REGISTRY.register("piruff_sword_head", PiruffSwordHeadItem::new);
+	public static final DeferredHolder<Item, Item> PIRUFF_SICKLE_HEAD = REGISTRY.register("piruff_sickle_head", PiruffSickleHeadItem::new);
+	public static final DeferredHolder<Item, Item> PIRUFF_AXE = REGISTRY.register("piruff_axe", PiruffAxeItem::new);
+	public static final DeferredHolder<Item, Item> PIRUFF_HOE = REGISTRY.register("piruff_hoe", PiruffHoeItem::new);
+	public static final DeferredHolder<Item, Item> PIRUFF_PICKAXE = REGISTRY.register("piruff_pickaxe", PiruffPickaxeItem::new);
+	public static final DeferredHolder<Item, Item> PIRUFF_SHOVEL = REGISTRY.register("piruff_shovel", PiruffShovelItem::new);
+	public static final DeferredHolder<Item, Item> PIRUFF_SICKLE = REGISTRY.register("piruff_sickle", PiruffSickleItem::new);
+	public static final DeferredHolder<Item, Item> PIRUFF_SWORD = REGISTRY.register("piruff_sword", PiruffSwordItem::new);
+	public static final DeferredHolder<Item, Item> PURE_COPPER_DUST = REGISTRY.register("pure_copper_dust", PureCopperDustItem::new);
+	public static final DeferredHolder<Item, Item> MIXED_COPPER_DUST = REGISTRY.register("mixed_copper_dust", MixedCopperDustItem::new);
+	public static final DeferredHolder<Item, Item> UNPURE_COPPER_DUST = REGISTRY.register("unpure_copper_dust", UnpureCopperDustItem::new);
 	public static final DeferredHolder<Item, Item> PURE_COPPER_DUST_BLOCK = block(TaleOfBiomesModBlocks.PURE_COPPER_DUST_BLOCK);
 	public static final DeferredHolder<Item, Item> MIXED_COPPER_DUST_BLOCK = block(TaleOfBiomesModBlocks.MIXED_COPPER_DUST_BLOCK);
 	public static final DeferredHolder<Item, Item> UNPURE_COPPER_DUST_BLOCK = block(TaleOfBiomesModBlocks.UNPURE_COPPER_DUST_BLOCK);
-	public static final DeferredHolder<Item, Item> PURE_RAW_COPPER = REGISTRY.register("pure_raw_copper", () -> new PureRawCopperItem());
-	public static final DeferredHolder<Item, Item> MIXED_RAW_COPPER = REGISTRY.register("mixed_raw_copper", () -> new MixedRawCopperItem());
-	public static final DeferredHolder<Item, Item> UNPURE_RAW_COPPER = REGISTRY.register("unpure_raw_copper", () -> new UnpureRawCopperItem());
+	public static final DeferredHolder<Item, Item> PURE_RAW_COPPER = REGISTRY.register("pure_raw_copper", PureRawCopperItem::new);
+	public static final DeferredHolder<Item, Item> MIXED_RAW_COPPER = REGISTRY.register("mixed_raw_copper", MixedRawCopperItem::new);
+	public static final DeferredHolder<Item, Item> UNPURE_RAW_COPPER = REGISTRY.register("unpure_raw_copper", UnpureRawCopperItem::new);
 	public static final DeferredHolder<Item, Item> PRAIRIE_DOG_SPAWN_EGG = REGISTRY.register("prairie_dog_spawn_egg", () -> new DeferredSpawnEggItem(TaleOfBiomesModEntities.PRAIRIE_DOG, -5602204, -661555, new Item.Properties()));
+	public static final DeferredHolder<Item, Item> RICE_CROP = block(TaleOfBiomesModBlocks.RICE_CROP);
 
 	// Start of user code block custom items
 	// End of user code block custom items
-	public static void register(IEventBus bus) {
-		REGISTRY.register(bus);
-	}
-
 	private static DeferredHolder<Item, Item> block(DeferredHolder<Block, Block> block) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
 	}
@@ -324,8 +311,8 @@ public class TaleOfBiomesModItems {
 		return REGISTRY.register(block.getId().getPath(), () -> new DoubleHighBlockItem(block.get(), new Item.Properties()));
 	}
 
-	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-	public static class ClientSideHandler {
+	@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+	public static class ItemsClientSideHandler {
 		@SubscribeEvent
 		@OnlyIn(Dist.CLIENT)
 		public static void clientLoad(FMLClientSetupEvent event) {

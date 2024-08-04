@@ -11,7 +11,7 @@ import net.nwtg.taleofbiomes.TaleOfBiomesMod;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 
 import net.minecraft.world.entity.Entity;
@@ -19,7 +19,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.core.registries.Registries;
 
-@Mod.EventBusSubscriber
+@EventBusSubscriber
 public class TaleOfBiomesModMobEffects {
 	public static final DeferredRegister<MobEffect> REGISTRY = DeferredRegister.create(Registries.MOB_EFFECT, TaleOfBiomesMod.MODID);
 	public static final DeferredHolder<MobEffect, MobEffect> ELDENMOOR_CURSE = REGISTRY.register("eldenmoor_curse", () -> new EldenmoorCurseMobEffect());
@@ -41,8 +41,7 @@ public class TaleOfBiomesModMobEffects {
 	}
 
 	private static void expireEffects(Entity entity, MobEffectInstance effectInstance) {
-		MobEffect effect = effectInstance.getEffect();
-		if (effect == ELDENMOOR_CURSE.get()) {
+		if (effectInstance.getEffect().is(ELDENMOOR_CURSE)) {
 			EldenmoorCurseEffectExpiresProcedure.execute(entity);
 		}
 	}

@@ -23,7 +23,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 
 public class PrairieDogRenderer extends MobRenderer<PrairieDogEntity, Modelprairie_dog<PrairieDogEntity>> {
 	public PrairieDogRenderer(EntityRendererProvider.Context context) {
-		super(context, new Modelprairie_dog(context.bakeLayer(Modelprairie_dog.LAYER_LOCATION)), 0.5f);
+		super(context, new Modelprairie_dog(context.bakeLayer(Modelprairie_dog.LAYER_LOCATION)), 0.6f);
 		this.addLayer(new RenderLayer<PrairieDogEntity, Modelprairie_dog<PrairieDogEntity>>(this) {
 			final ResourceLocation LAYER_TEXTURE = new ResourceLocation("tale_of_biomes:textures/entities/prairie_dog.png");
 

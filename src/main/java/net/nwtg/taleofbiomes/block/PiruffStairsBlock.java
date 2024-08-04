@@ -1,7 +1,7 @@
 
 package net.nwtg.taleofbiomes.block;
 
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -18,7 +18,7 @@ import net.minecraft.core.BlockPos;
 
 public class PiruffStairsBlock extends StairBlock {
 	public PiruffStairsBlock() {
-		super(() -> Blocks.AIR.defaultBlockState(),
+		super(Blocks.AIR.defaultBlockState(),
 				BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).mapColor(MapColor.WOOD).sound(SoundType.WOOD).strength(2f, 3f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false).dynamicShape());
 	}
 
@@ -43,7 +43,7 @@ public class PiruffStairsBlock extends StairBlock {
 	}
 
 	@Override
-	public BlockPathTypes getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
-		return BlockPathTypes.BLOCKED;
+	public PathType getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
+		return PathType.BLOCKED;
 	}
 }

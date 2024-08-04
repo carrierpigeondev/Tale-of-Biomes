@@ -15,7 +15,7 @@ import net.minecraft.world.InteractionResult;
 
 public class GhostBerriesItem extends Item {
 	public GhostBerriesItem() {
-		super(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON).food((new FoodProperties.Builder()).nutrition(2).saturationMod(0.3f).alwaysEat().build()));
+		super(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON).food((new FoodProperties.Builder()).nutrition(2).saturationModifier(0.3f).alwaysEdible().build()));
 	}
 
 	@Override

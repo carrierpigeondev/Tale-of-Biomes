@@ -1,5 +1,5 @@
 {
-  "_fv": 60,
+  "_fv": 66,
   "_type": "dimension",
   "definition": {
     "biomesInDimension": [
@@ -55,9 +55,11 @@
     "specialInformation": {
       "fixedValue": []
     },
-    "igniterTab": {
-      "value": "CUSTOM:TOBToolTab"
-    },
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:TOBToolTab"
+      }
+    ],
     "texture": "",
     "portalTexture": "",
     "enablePortal": false

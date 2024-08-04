@@ -4,7 +4,7 @@ import net.nwtg.taleofbiomes.network.TaleOfBiomesModVariables;
 import net.nwtg.taleofbiomes.init.TaleOfBiomesModMobEffects;
 
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.bus.api.Event;
 
@@ -17,11 +17,11 @@ import net.minecraft.server.level.ServerPlayer;
 
 import javax.annotation.Nullable;
 
-@Mod.EventBusSubscriber
+@EventBusSubscriber
 public class PlayerKillsAWitchProcedure {
 	@SubscribeEvent
 	public static void onEntityDeath(LivingDeathEvent event) {
-		if (event != null && event.getEntity() != null) {
+		if (event.getEntity() != null) {
 			execute(event, event.getEntity(), event.getSource().getEntity());
 		}
 	}
@@ -35,7 +35,7 @@ public class PlayerKillsAWitchProcedure {
 			return;
 		if ((sourceentity instanceof Player || sourceentity instanceof ServerPlayer) && !sourceentity.getData(TaleOfBiomesModVariables.PLAYER_VARIABLES).CanTravelToEldenmoor && entity instanceof Witch) {
 			if (sourceentity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-				_entity.addEffect(new MobEffectInstance(TaleOfBiomesModMobEffects.ELDENMOOR_CURSE.get(), 300, 0, true, true));
+				_entity.addEffect(new MobEffectInstance(TaleOfBiomesModMobEffects.ELDENMOOR_CURSE, 300, 0, true, true));
 		}
 	}
 }

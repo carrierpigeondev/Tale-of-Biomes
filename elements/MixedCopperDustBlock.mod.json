@@ -1,5 +1,5 @@
 {
-  "_fv": 60,
+  "_fv": 66,
   "_type": "block",
   "definition": {
     "texture": "mixed_copper_dust_block",
@@ -43,9 +43,11 @@
     "resistance": 0.5,
     "hasGravity": true,
     "isWaterloggable": false,
-    "creativeTab": {
-      "value": "CUSTOM:TOBBlocksTab"
-    },
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:TOBBlocksTab"
+      }
+    ],
     "destroyTool": "Not specified",
     "customDrop": {
       "value": ""
@@ -102,7 +104,7 @@
     },
     "luminance": 0,
     "unbreakable": false,
-    "breakHarvestLevel": 0,
+    "vanillaToolTier": "NONE",
     "isBonemealable": false,
     "hasInventory": false,
     "guiBoundTo": "<NONE>",

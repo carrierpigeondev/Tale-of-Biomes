@@ -1,0 +1,12 @@
+{
+  "type": "tale_of_biomes:volcanic_large_basalt_columns",
+  "config": {
+    "structure": "tale_of_biomes:large_basalt_column",
+    "ignored_blocks": "minecraft:air",
+    "offset": [
+      0,
+      -3,
+      0
+    ]
+  }
+}

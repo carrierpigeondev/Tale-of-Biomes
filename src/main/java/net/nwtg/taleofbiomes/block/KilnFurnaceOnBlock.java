@@ -8,7 +8,7 @@ import net.nwtg.taleofbiomes.init.TaleOfBiomesModBlocks;
 import net.nwtg.taleofbiomes.block.entity.KilnFurnaceOnBlockEntity;
 
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -34,7 +34,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.util.RandomSource;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.ServerLevel;
@@ -82,8 +81,8 @@ public class KilnFurnaceOnBlock extends Block implements EntityBlock {
 	}
 
 	@Override
-	public BlockPathTypes getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
-		return BlockPathTypes.BLOCKED;
+	public PathType getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
+		return PathType.BLOCKED;
 	}
 
 	@Override
@@ -100,8 +99,8 @@ public class KilnFurnaceOnBlock extends Block implements EntityBlock {
 	}
 
 	@Override
-	public InteractionResult use(BlockState blockstate, Level world, BlockPos pos, Player entity, InteractionHand hand, BlockHitResult hit) {
-		super.use(blockstate, world, pos, entity, hand, hit);
+	public InteractionResult useWithoutItem(BlockState blockstate, Level world, BlockPos pos, Player entity, BlockHitResult hit) {
+		super.useWithoutItem(blockstate, world, pos, entity, hit);
 		if (entity instanceof ServerPlayer player) {
 			player.openMenu(new MenuProvider() {
 				@Override

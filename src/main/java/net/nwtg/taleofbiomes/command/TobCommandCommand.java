@@ -3,10 +3,11 @@ package net.nwtg.taleofbiomes.command;
 
 import net.nwtg.taleofbiomes.procedures.SetWorldTemperatureScriptProcedure;
 import net.nwtg.taleofbiomes.procedures.PlayerTemperatureProcedure;
+import net.nwtg.taleofbiomes.procedures.PlayerFluidSaturationTimerProcedure;
 
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.common.util.FakePlayerFactory;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 
 import net.minecraft.world.level.Level;
@@ -16,7 +17,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.commands.Commands;
 
-@Mod.EventBusSubscriber
+@EventBusSubscriber
 public class TobCommandCommand {
 	@SubscribeEvent
 	public static void registerCommand(RegisterCommandsEvent event) {
@@ -50,6 +51,20 @@ public class TobCommandCommand {
 
 					PlayerTemperatureProcedure.execute(world, arguments);
 					return 0;
-				}))))));
+				})))).then(Commands.literal("player").then(Commands.literal("fluid").executes(arguments -> {
+					Level world = arguments.getSource().getUnsidedLevel();
+					double x = arguments.getSource().getPosition().x();
+					double y = arguments.getSource().getPosition().y();
+					double z = arguments.getSource().getPosition().z();
+					Entity entity = arguments.getSource().getEntity();
+					if (entity == null && world instanceof ServerLevel _servLevel)
+						entity = FakePlayerFactory.getMinecraft(_servLevel);
+					Direction direction = Direction.DOWN;
+					if (entity != null)
+						direction = entity.getDirection();
+
+					PlayerFluidSaturationTimerProcedure.execute(world, entity);
+					return 0;
+				})))));
 	}
 }
