@@ -13,7 +13,7 @@
     "0.8.0": "ADDED\n\n- Added a Creative Tab for tool parts.\n\n- Added Prairie Dogs\n\nCHANGES\n\n- Moved tool parts to the new creative tab.\n\nREMOVED\n\n- Removed the old crop mechanics.\n\n- Removed weed support May be added back somehow at a later date.\n\nKNOWN ISSUES\n\n- Crops do not grow at the moment.\n\n- Prairie Dogs can sometimes walk while in the standing state."
   },
   "1.20.6": {
-    "0.9.0": "ADDED\n\n-Added new volcanic biome features.\n\n-Added new jigsaw structure for Prairie Dog Dens\n\n-Added basic mechanics for a thirst system, more to come for this soon.\n\n-Added overlay for thirst bar icons.\n\nREMOVED\n\n-Removed old volcanic biome features.\n\nCHANGES\n\n-Updated mod to NeoForge 1.20.6\n\nFIXES\n\n-Fixed Prairie Dogs can sometimes walk while in the standing state.KNOWN ISSUES\n\n-Crops do not grow at the moment."
+    "0.9.0-indev": "ADDED\n\n-Added new volcanic biome features.\n\n-Added new jigsaw structure for Prairie Dog Dens\n\n-Added basic mechanics for a thirst system, more to come for this soon.\n\n-Added overlay for thirst bar icons.\n\nREMOVED\n\n-Removed old volcanic biome features.\n\nCHANGES\n\n-Updated mod to NeoForge 1.20.6\n\nFIXES\n\n-Fixed Prairie Dogs can sometimes walk while in the standing state.KNOWN ISSUES\n\n-Crops do not grow at the moment."
   },
   "promos": {
     "1.20.6-latest": "0.9.0",
